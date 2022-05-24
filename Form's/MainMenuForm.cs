@@ -32,7 +32,8 @@ namespace ApplicationProject
                 AllFiles_ListBox.Items.Add(files[i]);
             }
 
-            AllFiles_ListBox.Items.Add(OtherFunction.fileName);
+            AllFiles_ListBox.Refresh();// исправить
+
 
         }
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
@@ -42,12 +43,14 @@ namespace ApplicationProject
 
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
         {
+            if (Input_RichBox.Text != null)
+                OtherFunction.encryption = Input_RichBox.Text;
             EncryptionOptionsForm encryptionOptionsForm = new EncryptionOptionsForm();  
-
             if(encryptionOptionsForm.ShowDialog() == DialogResult.OK)
             {
 
             }
+            Output_RichBox.Text = OtherFunction.decryption;
         }
 
         private void ActiveDecrypt_Button_Click(object sender, EventArgs e)
@@ -164,9 +167,5 @@ namespace ApplicationProject
                 
             }
         }
-
-
-        
-
     }
 }

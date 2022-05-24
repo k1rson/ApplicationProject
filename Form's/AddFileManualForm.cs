@@ -26,8 +26,6 @@ namespace ApplicationProject
             sqlFuncs.addFileManual(username, fileName);
 
             List<string> files = sqlFuncs.selectUserFiles(username);
-            OtherFunction.fileName = fileName;
-
             MessageBox.Show("Файл добавлен вручную!");
 
             Close(); 
