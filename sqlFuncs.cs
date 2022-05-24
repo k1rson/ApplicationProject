@@ -113,6 +113,28 @@ namespace ApplicationProject
         }
 
 
+        public static string selectDecryptedText(string filename, string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM files WHERE filename = '{filename}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string text = string.Empty;
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                text = reader[2].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return text;
+        }
+
+
         // Шифрование
         public static string sha256(string randomString)
         {

@@ -32,6 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Files_ToolMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddFileManually_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +41,7 @@
             this.SaveFileOutputEncypt_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileOutputDecrypt_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.ActionAddFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
             this.ActionDeleteFile_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
@@ -61,6 +63,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.AllFiles_Label = new System.Windows.Forms.Label();
+            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -92,10 +97,26 @@
             // 
             // OpenFile_Menu
             // 
+            this.OpenFile_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddFilePC_Menu,
+            this.AddFileManually_Menu});
             this.OpenFile_Menu.Name = "OpenFile_Menu";
             this.OpenFile_Menu.Size = new System.Drawing.Size(200, 22);
             this.OpenFile_Menu.Text = "Добавить файл";
-            this.OpenFile_Menu.Click += new System.EventHandler(this.AddFile_Menu_Click);
+            // 
+            // AddFilePC_Menu
+            // 
+            this.AddFilePC_Menu.Name = "AddFilePC_Menu";
+            this.AddFilePC_Menu.Size = new System.Drawing.Size(210, 22);
+            this.AddFilePC_Menu.Text = "Добавить файл с ПК";
+            this.AddFilePC_Menu.Click += new System.EventHandler(this.AddFilePC_Menu_Click);
+            // 
+            // AddFileManually_Menu
+            // 
+            this.AddFileManually_Menu.Name = "AddFileManually_Menu";
+            this.AddFileManually_Menu.Size = new System.Drawing.Size(210, 22);
+            this.AddFileManually_Menu.Text = "Добавить файл вручную";
+            this.AddFileManually_Menu.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
             // 
             // DeleteFile_Menu
             // 
@@ -143,7 +164,9 @@
             // ToolStrip
             // 
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionAddFile_Button,
+            this.ActionAddFilePC_Button,
+            this.AddFileManually_Button,
+            this.toolStripSeparator2,
             this.ActionDeleteFile_Button,
             this.toolStripSeparator3,
             this.SaveFileInput_Button,
@@ -155,15 +178,15 @@
             this.ToolStrip.TabIndex = 1;
             this.ToolStrip.Text = "toolStrip1";
             // 
-            // ActionAddFile_Button
+            // ActionAddFilePC_Button
             // 
-            this.ActionAddFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionAddFile_Button.Image = ((System.Drawing.Image)(resources.GetObject("ActionAddFile_Button.Image")));
-            this.ActionAddFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionAddFile_Button.Name = "ActionAddFile_Button";
-            this.ActionAddFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionAddFile_Button.Text = "Добавить файл";
-            this.ActionAddFile_Button.Click += new System.EventHandler(this.AddFile_Menu_Click);
+            this.ActionAddFilePC_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionAddFilePC_Button.Image = ((System.Drawing.Image)(resources.GetObject("ActionAddFilePC_Button.Image")));
+            this.ActionAddFilePC_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
+            this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionAddFilePC_Button.Text = "Добавить файл";
+            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Menu_Click);
             // 
             // ActionDeleteFile_Button
             // 
@@ -226,6 +249,7 @@
             this.AllFiles_ListBox.Name = "AllFiles_ListBox";
             this.AllFiles_ListBox.Size = new System.Drawing.Size(197, 342);
             this.AllFiles_ListBox.TabIndex = 4;
+            this.AllFiles_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllFiles_ListBox_MouseDoubleClick);
             // 
             // Username_Label
             // 
@@ -353,6 +377,25 @@
             this.AllFiles_Label.TabIndex = 14;
             this.AllFiles_Label.Text = "Все файлы:";
             // 
+            // AddFileManually_Button
+            // 
+            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddFileManually_Button.Image = ((System.Drawing.Image)(resources.GetObject("AddFileManually_Button.Image")));
+            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddFileManually_Button.Name = "AddFileManually_Button";
+            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
+            this.AddFileManually_Button.Text = "toolStripButton1";
+            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,7 +437,7 @@
         private System.Windows.Forms.ToolStripMenuItem OpenFile_Menu;
         private System.Windows.Forms.ToolStripMenuItem DeleteFile_Menu;
         private System.Windows.Forms.ToolStrip ToolStrip;
-        private System.Windows.Forms.ToolStripButton ActionAddFile_Button;
+        private System.Windows.Forms.ToolStripButton ActionAddFilePC_Button;
         private System.Windows.Forms.ToolStripButton ActionDeleteFile_Button;
         private System.Windows.Forms.Label UM_Label;
         private System.Windows.Forms.ListBox AllFiles_ListBox;
@@ -421,5 +464,10 @@
         private System.Windows.Forms.ToolStripButton SaveFileInput_Button;
         private System.Windows.Forms.ToolStripButton SaveFileOutputEncypt_Button;
         private System.Windows.Forms.ToolStripButton SaveFileOutputDecrypt_Button;
+        private System.Windows.Forms.ToolStripMenuItem AddFilePC_Menu;
+        private System.Windows.Forms.ToolStripMenuItem AddFileManually_Menu;
+        private System.Windows.Forms.ToolStripButton AddFileManually_Button;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }

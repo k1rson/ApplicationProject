@@ -20,16 +20,16 @@ namespace ApplicationProject
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
 
+            openFileDialog2.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+
             string Login_ = OtherFunction.strTextChangeN;
             Username_Label.Text = Login_;
 
             List<string> files = sqlFuncs.selectUserFiles(Login_);
-            MessageBox.Show(files.ToString());
-        }
-
-        private void AddFile_Menu_Click(object sender, EventArgs e)
-        {
-            // мирон 
+            for (int i = 0; i < files.Count; i++)
+            {
+                AllFiles_ListBox.Items.Add(files[i]);
+            }
         }
 
         private void DeleteFile_Menu_Click(object sender, EventArgs e)
@@ -95,6 +95,35 @@ namespace ApplicationProject
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, DecryptedOutput_RichBox.Text);
             MessageBox.Show("Файл с расшифрованными данными сохранен!");
+        }
+
+        private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string username = OtherFunction.strTextChangeN;
+            List<string> files = sqlFuncs.selectUserFiles(username);
+            Input_RichBox.Clear();
+            if (AllFiles_ListBox.SelectedIndex <= files.Count)
+            {
+                string filename = files[AllFiles_ListBox.SelectedIndex];
+                Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
+            }
+        }
+
+        private void AddFilePC_Menu_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            // получаем выбранный файл
+            string fileName = openFileDialog2.FileName;
+
+            AllFiles_ListBox.Items.Add(fileName);
+            MessageBox.Show("Файл добавлен!");
+        }
+
+        private void AddFileManually_Menu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
