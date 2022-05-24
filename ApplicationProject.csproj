@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form%27s\EncryptionOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\EncryptionOptionsForm.Designer.cs">
+      <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\AdminPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="Form%27s\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\RegistartionForm.resx">
       <DependentUpon>RegistartionForm.cs</DependentUpon>

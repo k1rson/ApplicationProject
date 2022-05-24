@@ -26,5 +26,25 @@ namespace ApplicationProject
         {
             
         }
+
+        private void SaveFilePC_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActiveEncryption_Button_Click(object sender, EventArgs e)
+        {
+            EncryptionOptionsForm encryptionOptionsForm = new EncryptionOptionsForm();  
+
+            if(encryptionOptionsForm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
