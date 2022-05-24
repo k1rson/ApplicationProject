@@ -16,5 +16,10 @@ namespace ApplicationProject
         {
             InitializeComponent();
         }
+
+        private void общаяИнформацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

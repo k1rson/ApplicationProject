@@ -20,13 +20,13 @@ namespace ApplicationProject
         private void ActionEnter_Button_Click(object sender, EventArgs e)
         {
             // проверка на существование пользователя, доступ к системе
-
-
-
-            MainMenuForm form = new MainMenuForm();
-            if(form.ShowDialog() == DialogResult.OK)
+            if(sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
             {
+                MainMenuForm form = new MainMenuForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
 
+                }
             }
         }
 

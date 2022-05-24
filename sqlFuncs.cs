@@ -48,6 +48,28 @@ namespace ApplicationProject
                 return false;
         }
 
+        public static bool IsCheckDataAuth(string username, string password)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT COUNT(username) FROM users WHERE password = '{password}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader count = cmd.ExecuteReader();
+            int cont = 0;
+            while (count.Read())
+            {
+                cont = int.Parse(count[0].ToString());
+            }
+            conn.Close();
+
+            if (cont == 1)
+                return true;
+            else
+                return false;
+        }
+
 
         // Шифрование
         public static string sha256(string randomString)
