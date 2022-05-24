@@ -69,6 +69,7 @@
             this.AllFiles_Label = new System.Windows.Forms.Label();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.UpdateForm_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -426,11 +427,22 @@
             this.ActionDeleteSelectFile_Button.Text = "toolStripButton1";
             this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
             // 
+            // UpdateForm_Button
+            // 
+            this.UpdateForm_Button.Location = new System.Drawing.Point(201, 423);
+            this.UpdateForm_Button.Name = "UpdateForm_Button";
+            this.UpdateForm_Button.Size = new System.Drawing.Size(140, 22);
+            this.UpdateForm_Button.TabIndex = 15;
+            this.UpdateForm_Button.Text = "Обновить форму";
+            this.UpdateForm_Button.UseVisualStyleBackColor = true;
+            this.UpdateForm_Button.Click += new System.EventHandler(this.UpdateForm_Button_Click);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UpdateForm_Button);
             this.Controls.Add(this.AllFiles_Label);
             this.Controls.Add(this.ActiveDecrypt_Button);
             this.Controls.Add(this.ActionDynamicEdit_Button);
@@ -502,5 +514,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteAllFile_Menu;
         private System.Windows.Forms.ToolStripMenuItem DeleteSelectFile_Menu;
         private System.Windows.Forms.ToolStripButton ActionDeleteSelectFile_Button;
+        private System.Windows.Forms.Button UpdateForm_Button;
     }
 }

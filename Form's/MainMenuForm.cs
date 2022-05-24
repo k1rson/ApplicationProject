@@ -50,6 +50,8 @@ namespace ApplicationProject
             {
 
             }
+            string fileName = AllFiles_ListBox.SelectedItem.ToString();
+            sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption);
             Output_RichBox.Text = OtherFunction.decryption;
         }
 
@@ -166,6 +168,15 @@ namespace ApplicationProject
                 MessageBox.Show("Файл удален!");
                 
             }
+        }
+
+        private void UpdateForm_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void Update()
+        {
+            // логика обновления формы
         }
     }
 }

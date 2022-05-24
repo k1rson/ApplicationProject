@@ -149,6 +149,19 @@ namespace ApplicationProject
         }
 
 
+        public static void updateFile(string username, string fileName, string encrypted)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET encrypted = {encrypted})";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+
         public static void addFile(string username, string fileName, string decrypted)
         {
             MySqlConnection conn = DB.GetDBConnection();
