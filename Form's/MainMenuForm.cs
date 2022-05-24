@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ApplicationProject
 {
@@ -115,16 +116,21 @@ namespace ApplicationProject
             string username = OtherFunction.strTextChangeN;
             string filePath = openFileDialog2.FileName;
 
-            string any = ".txt"; 
+            string fileName = filePath.Substring(22); 
 
-            string fileName = filePath.Substring(22);
+            if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
+                return;
+            string decrypted = System.IO.File.ReadAllText(filePath);
+            Input_RichBox.Text = decrypted;
 
-            sqlFuncs.addFile(username, fileName);
+            sqlFuncs.addFile(username, decrypted, fileName);
 
             List<string> files = sqlFuncs.selectUserFiles(username);
             AllFiles_ListBox.Items.Add(fileName);
 
             MessageBox.Show("Файл добавлен!");
+
+
         }
 
         private void AddFileManually_Menu_Click(object sender, EventArgs e)

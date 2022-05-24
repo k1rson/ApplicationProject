@@ -135,12 +135,12 @@ namespace ApplicationProject
         }
 
 
-        public static void addFile(string username, string fileName)
+        public static void addFile(string username, string fileName, string decrypted)
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"INSERT INTO files (filename, username) VALUES ('{fileName}', '{username}')";
+            string sql = $"INSERT INTO files (filename,decrypted, username) VALUES ('{fileName}', '{decrypted}' , '{username}')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
