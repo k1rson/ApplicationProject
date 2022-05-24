@@ -40,11 +40,16 @@
             this.NotificationUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateReport_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFileInpurAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFileOutputAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.AllUsers_ListBox = new System.Windows.Forms.ListBox();
             this.AllUsers_Label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabPage1 = new System.Windows.Forms.TabPage();
+            this.InputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
             this.TabPage2 = new System.Windows.Forms.TabPage();
+            this.OutputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -54,8 +59,11 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.InputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
-            this.OutputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveFileInputAdmin_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputAdmin_Button = new System.Windows.Forms.ToolStripButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -67,7 +75,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.пользователиToolStripMenuItem,
-            this.отчетыToolStripMenuItem});
+            this.отчетыToolStripMenuItem,
+            this.файлыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -146,9 +155,32 @@
             // CreateReport_Menu
             // 
             this.CreateReport_Menu.Name = "CreateReport_Menu";
-            this.CreateReport_Menu.Size = new System.Drawing.Size(180, 22);
+            this.CreateReport_Menu.Size = new System.Drawing.Size(150, 22);
             this.CreateReport_Menu.Text = "Создать отчет";
             this.CreateReport_Menu.Click += new System.EventHandler(this.CreateReport_Menu_Click);
+            // 
+            // файлыToolStripMenuItem
+            // 
+            this.файлыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveFileInpurAdmin_Menu,
+            this.SaveFileOutputAdmin_Menu});
+            this.файлыToolStripMenuItem.Name = "файлыToolStripMenuItem";
+            this.файлыToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.файлыToolStripMenuItem.Text = "Файлы";
+            // 
+            // SaveFileInpurAdmin_Menu
+            // 
+            this.SaveFileInpurAdmin_Menu.Name = "SaveFileInpurAdmin_Menu";
+            this.SaveFileInpurAdmin_Menu.Size = new System.Drawing.Size(236, 22);
+            this.SaveFileInpurAdmin_Menu.Text = "Сохранить исходные данные";
+            this.SaveFileInpurAdmin_Menu.Click += new System.EventHandler(this.SaveFileInpurAdmin_Menu_Click);
+            // 
+            // SaveFileOutputAdmin_Menu
+            // 
+            this.SaveFileOutputAdmin_Menu.Name = "SaveFileOutputAdmin_Menu";
+            this.SaveFileOutputAdmin_Menu.Size = new System.Drawing.Size(236, 22);
+            this.SaveFileOutputAdmin_Menu.Text = "Сохранить выходные данные";
+            this.SaveFileOutputAdmin_Menu.Click += new System.EventHandler(this.SaveFileOutputAdmin_Menu_Click);
             // 
             // AllUsers_ListBox
             // 
@@ -188,6 +220,16 @@
             this.TabPage1.Text = "Исходные данные в файле";
             this.TabPage1.UseVisualStyleBackColor = true;
             // 
+            // InputAdmin_RichBox
+            // 
+            this.InputAdmin_RichBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InputAdmin_RichBox.Location = new System.Drawing.Point(3, 3);
+            this.InputAdmin_RichBox.Name = "InputAdmin_RichBox";
+            this.InputAdmin_RichBox.ReadOnly = true;
+            this.InputAdmin_RichBox.Size = new System.Drawing.Size(563, 360);
+            this.InputAdmin_RichBox.TabIndex = 0;
+            this.InputAdmin_RichBox.Text = "";
+            // 
             // TabPage2
             // 
             this.TabPage2.Controls.Add(this.OutputAdmin_RichBox);
@@ -199,6 +241,16 @@
             this.TabPage2.Text = "Преобразованные данные";
             this.TabPage2.UseVisualStyleBackColor = true;
             // 
+            // OutputAdmin_RichBox
+            // 
+            this.OutputAdmin_RichBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OutputAdmin_RichBox.Location = new System.Drawing.Point(3, 3);
+            this.OutputAdmin_RichBox.Name = "OutputAdmin_RichBox";
+            this.OutputAdmin_RichBox.ReadOnly = true;
+            this.OutputAdmin_RichBox.Size = new System.Drawing.Size(563, 360);
+            this.OutputAdmin_RichBox.TabIndex = 0;
+            this.OutputAdmin_RichBox.Text = "";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,7 +261,10 @@
             this.toolStripButton4,
             this.toolStripButton5,
             this.toolStripSeparator3,
-            this.toolStripButton6});
+            this.toolStripButton6,
+            this.toolStripSeparator4,
+            this.SaveFileInputAdmin_Button,
+            this.SaveFileOutputAdmin_Button});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -286,25 +341,34 @@
             this.toolStripButton6.Text = "Создать отчет";
             this.toolStripButton6.Click += new System.EventHandler(this.CreateReport_Menu_Click);
             // 
-            // InputAdmin_RichBox
+            // toolStripSeparator4
             // 
-            this.InputAdmin_RichBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InputAdmin_RichBox.Location = new System.Drawing.Point(3, 3);
-            this.InputAdmin_RichBox.Name = "InputAdmin_RichBox";
-            this.InputAdmin_RichBox.ReadOnly = true;
-            this.InputAdmin_RichBox.Size = new System.Drawing.Size(563, 360);
-            this.InputAdmin_RichBox.TabIndex = 0;
-            this.InputAdmin_RichBox.Text = "";
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // OutputAdmin_RichBox
+            // SaveFileInputAdmin_Button
             // 
-            this.OutputAdmin_RichBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OutputAdmin_RichBox.Location = new System.Drawing.Point(3, 3);
-            this.OutputAdmin_RichBox.Name = "OutputAdmin_RichBox";
-            this.OutputAdmin_RichBox.ReadOnly = true;
-            this.OutputAdmin_RichBox.Size = new System.Drawing.Size(563, 360);
-            this.OutputAdmin_RichBox.TabIndex = 0;
-            this.OutputAdmin_RichBox.Text = "";
+            this.SaveFileInputAdmin_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileInputAdmin_Button.Image = ((System.Drawing.Image)(resources.GetObject("SaveFileInputAdmin_Button.Image")));
+            this.SaveFileInputAdmin_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileInputAdmin_Button.Name = "SaveFileInputAdmin_Button";
+            this.SaveFileInputAdmin_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileInputAdmin_Button.Text = "Сохранить исходные данные";
+            this.SaveFileInputAdmin_Button.Click += new System.EventHandler(this.SaveFileInpurAdmin_Menu_Click);
+            // 
+            // SaveFileOutputAdmin_Button
+            // 
+            this.SaveFileOutputAdmin_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileOutputAdmin_Button.Image = ((System.Drawing.Image)(resources.GetObject("SaveFileOutputAdmin_Button.Image")));
+            this.SaveFileOutputAdmin_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileOutputAdmin_Button.Name = "SaveFileOutputAdmin_Button";
+            this.SaveFileOutputAdmin_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileOutputAdmin_Button.Text = "Сохранить выходные данные";
+            this.SaveFileOutputAdmin_Button.Click += new System.EventHandler(this.SaveFileOutputAdmin_Menu_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminPanelForm
             // 
@@ -360,5 +424,13 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.RichTextBox InputAdmin_RichBox;
         private System.Windows.Forms.RichTextBox OutputAdmin_RichBox;
+        private System.Windows.Forms.ToolStripMenuItem файлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveFileInpurAdmin_Menu;
+        private System.Windows.Forms.ToolStripMenuItem SaveFileOutputAdmin_Menu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton SaveFileInputAdmin_Button;
+        private System.Windows.Forms.ToolStripButton SaveFileOutputAdmin_Button;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

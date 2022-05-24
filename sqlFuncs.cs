@@ -48,6 +48,31 @@ namespace ApplicationProject
                 return false;
         }
 
+
+        public static bool IsAdmin(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT role FROM users WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader roleSelect = cmd.ExecuteReader();
+            string role = string.Empty; 
+
+            while (roleSelect.Read())
+            {
+                 role = roleSelect["role"].ToString();
+            }
+            conn.Close();
+
+            if (role == "Admin")
+                return true;
+            else
+                return false;
+        }
+
+
         public static bool IsCheckDataAuth(string username, string password)
         {
             MySqlConnection conn = DB.GetDBConnection();

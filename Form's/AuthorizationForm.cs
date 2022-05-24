@@ -23,12 +23,26 @@ namespace ApplicationProject
             if(sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
             {
                 OtherFunction.strTextChangeN = LoginTextBox.Text;
-                MainMenuForm form = new MainMenuForm();
-                if (form.ShowDialog() == DialogResult.OK)
-                {
 
+                if (sqlFuncs.IsAdmin(LoginTextBox.Text))
+                {
+                    AdminPanelForm adm = new AdminPanelForm();
+                    if (adm.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                } 
+                else
+                {
+                    MainMenuForm form = new MainMenuForm();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
                 }
-                Close(); 
+                
+
+                
             }
             else
             {
