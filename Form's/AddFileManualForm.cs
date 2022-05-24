@@ -23,12 +23,14 @@ namespace ApplicationProject
 
             string fileName = FileName_TextBox.Text;
 
-           // sqlFuncs.addFile(username, fileName, decrypted);
+            sqlFuncs.addFileManual(username, fileName);
 
             List<string> files = sqlFuncs.selectUserFiles(username);
-            //AllFiles_ListBox.Items.Add(fileName);
+            OtherFunction.fileName = fileName;
 
-            MessageBox.Show("Файл добавлен!");
+            MessageBox.Show("Файл добавлен вручную!");
+
+            Close(); 
         }
         private void Cancel_Button_Click(object sender, EventArgs e)
         {

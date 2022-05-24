@@ -135,6 +135,20 @@ namespace ApplicationProject
         }
 
 
+
+        public static void addFileManual(string username, string fileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"INSERT INTO files (filename, username) VALUES ('{fileName}', '{username}')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+
         public static void addFile(string username, string fileName, string decrypted)
         {
             MySqlConnection conn = DB.GetDBConnection();

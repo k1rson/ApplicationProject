@@ -31,6 +31,9 @@ namespace ApplicationProject
             {
                 AllFiles_ListBox.Items.Add(files[i]);
             }
+
+            AllFiles_ListBox.Items.Add(OtherFunction.fileName);
+
         }
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
@@ -160,7 +163,10 @@ namespace ApplicationProject
                 MessageBox.Show("Файл удален!");
                 
             }
-            
         }
+
+
+        
+
     }
 }

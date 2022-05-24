@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form%27s\AddFileManualForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\AddFileManualForm.Designer.cs">
+      <DependentUpon>AddFileManualForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Form%27s\EncryptionOptionsForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,9 @@
       <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlFuncs.cs" />
+    <EmbeddedResource Include="Form%27s\AddFileManualForm.resx">
+      <DependentUpon>AddFileManualForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </EmbeddedResource>
