@@ -82,14 +82,14 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(151, 83);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(215, 20);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(151, 30);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(215, 20);
             this.textBox2.TabIndex = 4;
             // 
             // label4
@@ -114,15 +114,14 @@
             "Зашифровать только символы"});
             this.Alphabet_ComboBox.Location = new System.Drawing.Point(151, 56);
             this.Alphabet_ComboBox.Name = "Alphabet_ComboBox";
-            this.Alphabet_ComboBox.Size = new System.Drawing.Size(121, 21);
+            this.Alphabet_ComboBox.Size = new System.Drawing.Size(215, 21);
             this.Alphabet_ComboBox.TabIndex = 7;
             // 
             // LayoutPanel
             // 
-            this.LayoutPanel.ColumnCount = 3;
+            this.LayoutPanel.ColumnCount = 2;
             this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.LayoutPanel.Controls.Add(this.label4, 0, 3);
             this.LayoutPanel.Controls.Add(this.textBox1, 1, 3);
             this.LayoutPanel.Controls.Add(this.label3, 0, 2);
@@ -140,7 +139,7 @@
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LayoutPanel.Size = new System.Drawing.Size(290, 216);
+            this.LayoutPanel.Size = new System.Drawing.Size(369, 316);
             this.LayoutPanel.TabIndex = 8;
             // 
             // flowLayoutPanel1
@@ -150,37 +149,40 @@
             this.flowLayoutPanel1.Controls.Add(this.OK_Button);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 185);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 285);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(290, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(369, 31);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // OK_Button
             // 
-            this.OK_Button.Location = new System.Drawing.Point(3, 3);
+            this.OK_Button.Location = new System.Drawing.Point(82, 3);
             this.OK_Button.Name = "OK_Button";
             this.OK_Button.Size = new System.Drawing.Size(91, 23);
             this.OK_Button.TabIndex = 0;
             this.OK_Button.Text = "Применить";
             this.OK_Button.UseVisualStyleBackColor = true;
+            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
             // 
             // Cancel_Button
             // 
-            this.Cancel_Button.Location = new System.Drawing.Point(197, 3);
+            this.Cancel_Button.Location = new System.Drawing.Point(276, 3);
             this.Cancel_Button.Name = "Cancel_Button";
             this.Cancel_Button.Size = new System.Drawing.Size(90, 23);
             this.Cancel_Button.TabIndex = 1;
             this.Cancel_Button.Text = "Выйти";
             this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
             // Reset_Button
             // 
-            this.Reset_Button.Location = new System.Drawing.Point(100, 3);
+            this.Reset_Button.Location = new System.Drawing.Point(179, 3);
             this.Reset_Button.Name = "Reset_Button";
             this.Reset_Button.Size = new System.Drawing.Size(91, 23);
             this.Reset_Button.TabIndex = 2;
             this.Reset_Button.Text = "Сбросить";
             this.Reset_Button.UseVisualStyleBackColor = true;
+            this.Reset_Button.Click += new System.EventHandler(this.Reset_Button_Click);
             // 
             // comboBox1
             // 
@@ -191,14 +193,14 @@
             "Шифр Виженера"});
             this.comboBox1.Location = new System.Drawing.Point(151, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(215, 21);
             this.comboBox1.TabIndex = 8;
             // 
             // EncryptionOptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 216);
+            this.ClientSize = new System.Drawing.Size(369, 316);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.LayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

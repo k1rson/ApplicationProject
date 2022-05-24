@@ -16,5 +16,20 @@ namespace ApplicationProject
         {
             InitializeComponent();
         }
+
+        private void Cancel_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reset_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OK_Button_Click(object sender, EventArgs e)
+        {
+            // метод шифрования
+        }
     }
 }
