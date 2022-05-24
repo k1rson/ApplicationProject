@@ -15,6 +15,7 @@ namespace ApplicationProject
         public MainMenuForm()
         {
             InitializeComponent();
+            TabPage3.Parent = null; // убрать видимость третьей вкладки
         }
 
         private void AddFile_Menu_Click(object sender, EventArgs e)
@@ -45,6 +46,11 @@ namespace ApplicationProject
             {
 
             }
+        }
+
+        private void ActiveDecrypt_Button_Click(object sender, EventArgs e)
+        {
+            TabPage3.Parent = tabControl1; // вернуть видимость третьей вкладке 
         }
     }
 }

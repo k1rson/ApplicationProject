@@ -24,7 +24,7 @@ namespace ApplicationProject
 
         private void Reset_Button_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void OK_Button_Click(object sender, EventArgs e)

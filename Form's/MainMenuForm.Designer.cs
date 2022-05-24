@@ -48,6 +48,8 @@
             this.ActionDynamicEdit_Button = new System.Windows.Forms.Button();
             this.TabPage_2 = new System.Windows.Forms.TabPage();
             this.ActiveEncryption_Button = new System.Windows.Forms.Button();
+            this.TabPage3 = new System.Windows.Forms.TabPage();
+            this.ActiveDecrypt_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -176,6 +178,7 @@
             // 
             this.tabControl1.Controls.Add(this.TabPage_1);
             this.tabControl1.Controls.Add(this.TabPage_2);
+            this.tabControl1.Controls.Add(this.TabPage3);
             this.tabControl1.Location = new System.Drawing.Point(215, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -215,19 +218,40 @@
             // 
             // ActiveEncryption_Button
             // 
-            this.ActiveEncryption_Button.Location = new System.Drawing.Point(648, 422);
+            this.ActiveEncryption_Button.Location = new System.Drawing.Point(502, 422);
             this.ActiveEncryption_Button.Name = "ActiveEncryption_Button";
-            this.ActiveEncryption_Button.Size = new System.Drawing.Size(130, 23);
+            this.ActiveEncryption_Button.Size = new System.Drawing.Size(140, 23);
             this.ActiveEncryption_Button.TabIndex = 12;
             this.ActiveEncryption_Button.Text = "Зашифровать";
             this.ActiveEncryption_Button.UseVisualStyleBackColor = true;
             this.ActiveEncryption_Button.Click += new System.EventHandler(this.ActiveEncryption_Button_Click);
+            // 
+            // TabPage3
+            // 
+            this.TabPage3.Location = new System.Drawing.Point(4, 22);
+            this.TabPage3.Name = "TabPage3";
+            this.TabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.TabPage3.Size = new System.Drawing.Size(577, 363);
+            this.TabPage3.TabIndex = 2;
+            this.TabPage3.Text = "Расшифрованные данные";
+            this.TabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ActiveDecrypt_Button
+            // 
+            this.ActiveDecrypt_Button.Location = new System.Drawing.Point(648, 422);
+            this.ActiveDecrypt_Button.Name = "ActiveDecrypt_Button";
+            this.ActiveDecrypt_Button.Size = new System.Drawing.Size(140, 23);
+            this.ActiveDecrypt_Button.TabIndex = 13;
+            this.ActiveDecrypt_Button.Text = "Расшифровать";
+            this.ActiveDecrypt_Button.UseVisualStyleBackColor = true;
+            this.ActiveDecrypt_Button.Click += new System.EventHandler(this.ActiveDecrypt_Button_Click);
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ActiveDecrypt_Button);
             this.Controls.Add(this.ActiveEncryption_Button);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Username_Label);
@@ -273,5 +297,7 @@
         private System.Windows.Forms.ToolStripMenuItem SaveFilePC_Menu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.TabPage TabPage3;
+        private System.Windows.Forms.Button ActiveDecrypt_Button;
     }
 }
