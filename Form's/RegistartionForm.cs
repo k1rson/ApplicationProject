@@ -20,8 +20,9 @@ namespace ApplicationProject
         private void ActionRegistr_Button_Click(object sender, EventArgs e)
         {
             // добавление пользователя в БД
+            if (IsDataValid(LoginTextBox.Text, PasswordTextBox.Text, CnfmPasswordTextBox.Text))
+                sqlFuncs.regUser(LoginTextBox.Text, PasswordTextBox.Text);
 
-            // проверка логина, пароля 
         }
 
         private void OK_Button_Click(object sender, EventArgs e)
@@ -34,18 +35,24 @@ namespace ApplicationProject
             Close();
         }
 
-        private bool IsDataValid()
+        private bool IsDataValid(string username, string password, string passwordConfirm)
         {
             string spl_Chars = "#№@&^%*()_-=+/";
 
-            if (String.IsNullOrEmpty(LoginTextBox.Text) && String.IsNullOrEmpty(PasswordTextBox.Text))
+            if (String.IsNullOrEmpty(username) && String.IsNullOrEmpty(password))
             {
                 return false;
             }
-            else if (LoginTextBox.Text.Intersect(spl_Chars).Any())
+            else if (username.Intersect(spl_Chars).Any())
             {
                 return false;
             }
+            else if (password != passwordConfirm)
+            {
+                return false;
+            }
+
+
             else { return true; }
         } 
     }
