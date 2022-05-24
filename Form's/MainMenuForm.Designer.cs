@@ -33,21 +33,21 @@
             this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ActionAddFile_Button = new System.Windows.Forms.ToolStripButton();
             this.ActionDeleteFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.UM_Label = new System.Windows.Forms.Label();
             this.AllFiles_ListBox = new System.Windows.Forms.ListBox();
             this.Username_Label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabPage_1 = new System.Windows.Forms.TabPage();
+            this.ActionDynamicEdit_Button = new System.Windows.Forms.Button();
             this.TabPage_2 = new System.Windows.Forms.TabPage();
             this.ActiveEncryption_Button = new System.Windows.Forms.Button();
-            this.ActionDynamicEdit_Button = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.SaveFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -89,6 +89,18 @@
             this.DeleteFile_Menu.Text = "Удалить файл";
             this.DeleteFile_Menu.Click += new System.EventHandler(this.DeleteFile_Menu_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
+            // 
+            // SaveFilePC_Menu
+            // 
+            this.SaveFilePC_Menu.Name = "SaveFilePC_Menu";
+            this.SaveFilePC_Menu.Size = new System.Drawing.Size(200, 22);
+            this.SaveFilePC_Menu.Text = "Сохранить файл на ПК";
+            this.SaveFilePC_Menu.Click += new System.EventHandler(this.SaveFilePC_Menu_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,6 +131,20 @@
             this.ActionDeleteFile_Button.Name = "ActionDeleteFile_Button";
             this.ActionDeleteFile_Button.Size = new System.Drawing.Size(23, 22);
             this.ActionDeleteFile_Button.Text = "toolStripButton2";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // UM_Label
             // 
@@ -167,6 +193,16 @@
             this.TabPage_1.Text = "Содержимое файла";
             this.TabPage_1.UseVisualStyleBackColor = true;
             // 
+            // ActionDynamicEdit_Button
+            // 
+            this.ActionDynamicEdit_Button.Location = new System.Drawing.Point(429, 335);
+            this.ActionDynamicEdit_Button.Name = "ActionDynamicEdit_Button";
+            this.ActionDynamicEdit_Button.Size = new System.Drawing.Size(140, 22);
+            this.ActionDynamicEdit_Button.TabIndex = 0;
+            this.ActionDynamicEdit_Button.Text = "Редактировать вручную";
+            this.ActionDynamicEdit_Button.UseVisualStyleBackColor = true;
+            this.ActionDynamicEdit_Button.Click += new System.EventHandler(this.ActionDynamicEdit_Button_Click);
+            // 
             // TabPage_2
             // 
             this.TabPage_2.Location = new System.Drawing.Point(4, 22);
@@ -187,42 +223,6 @@
             this.ActiveEncryption_Button.UseVisualStyleBackColor = true;
             this.ActiveEncryption_Button.Click += new System.EventHandler(this.ActiveEncryption_Button_Click);
             // 
-            // ActionDynamicEdit_Button
-            // 
-            this.ActionDynamicEdit_Button.Location = new System.Drawing.Point(429, 335);
-            this.ActionDynamicEdit_Button.Name = "ActionDynamicEdit_Button";
-            this.ActionDynamicEdit_Button.Size = new System.Drawing.Size(140, 22);
-            this.ActionDynamicEdit_Button.TabIndex = 0;
-            this.ActionDynamicEdit_Button.Text = "Редактировать вручную";
-            this.ActionDynamicEdit_Button.UseVisualStyleBackColor = true;
-            this.ActionDynamicEdit_Button.Click += new System.EventHandler(this.ActionDynamicEdit_Button_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
-            // 
-            // SaveFilePC_Menu
-            // 
-            this.SaveFilePC_Menu.Name = "SaveFilePC_Menu";
-            this.SaveFilePC_Menu.Size = new System.Drawing.Size(200, 22);
-            this.SaveFilePC_Menu.Text = "Сохранить файл на ПК";
-            this.SaveFilePC_Menu.Click += new System.EventHandler(this.SaveFilePC_Menu_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,8 +235,11 @@
             this.Controls.Add(this.UM_Label);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimizeBox = false;
             this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

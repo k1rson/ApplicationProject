@@ -81,6 +81,9 @@
     <EmbeddedResource Include="Form%27s\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\EncryptionOptionsForm.resx">
+      <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>

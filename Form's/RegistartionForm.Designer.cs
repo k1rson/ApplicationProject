@@ -145,7 +145,10 @@
             this.Controls.Add(this.CnfmPasswordTextBox);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.LoginTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RegistartionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
