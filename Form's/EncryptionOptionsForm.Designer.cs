@@ -31,12 +31,10 @@
             this.SelectEncyption_Label = new System.Windows.Forms.Label();
             this.Shift_Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Alphabet_ComboBox = new System.Windows.Forms.ComboBox();
+            this.Shift_TextBox = new System.Windows.Forms.TextBox();
+            this.SelectAlphabet_ComboBox = new System.Windows.Forms.ComboBox();
             this.LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.SelectEncyption_ComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.Reset_Button = new System.Windows.Forms.Button();
@@ -78,58 +76,38 @@
             this.label3.Text = "Алфавит для шифрования:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // Shift_TextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 20);
-            this.textBox1.TabIndex = 3;
+            this.Shift_TextBox.Location = new System.Drawing.Point(151, 30);
+            this.Shift_TextBox.Name = "Shift_TextBox";
+            this.Shift_TextBox.Size = new System.Drawing.Size(215, 20);
+            this.Shift_TextBox.TabIndex = 4;
             // 
-            // textBox2
+            // SelectAlphabet_ComboBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(151, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 26);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "label4";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Alphabet_ComboBox
-            // 
-            this.Alphabet_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Alphabet_ComboBox.FormattingEnabled = true;
-            this.Alphabet_ComboBox.Items.AddRange(new object[] {
+            this.SelectAlphabet_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectAlphabet_ComboBox.FormattingEnabled = true;
+            this.SelectAlphabet_ComboBox.Items.AddRange(new object[] {
             "Зашифровать все",
             "Зашифровать только русские буквы",
             "Зашифровать только английские буквы",
             "Зашифровать только символы"});
-            this.Alphabet_ComboBox.Location = new System.Drawing.Point(151, 56);
-            this.Alphabet_ComboBox.Name = "Alphabet_ComboBox";
-            this.Alphabet_ComboBox.Size = new System.Drawing.Size(215, 21);
-            this.Alphabet_ComboBox.TabIndex = 7;
+            this.SelectAlphabet_ComboBox.Location = new System.Drawing.Point(151, 56);
+            this.SelectAlphabet_ComboBox.Name = "SelectAlphabet_ComboBox";
+            this.SelectAlphabet_ComboBox.Size = new System.Drawing.Size(215, 21);
+            this.SelectAlphabet_ComboBox.TabIndex = 7;
             // 
             // LayoutPanel
             // 
             this.LayoutPanel.ColumnCount = 2;
             this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.LayoutPanel.Controls.Add(this.label4, 0, 3);
-            this.LayoutPanel.Controls.Add(this.textBox1, 1, 3);
             this.LayoutPanel.Controls.Add(this.label3, 0, 2);
             this.LayoutPanel.Controls.Add(this.Shift_Label, 0, 1);
-            this.LayoutPanel.Controls.Add(this.textBox2, 1, 1);
+            this.LayoutPanel.Controls.Add(this.Shift_TextBox, 1, 1);
             this.LayoutPanel.Controls.Add(this.SelectEncyption_Label, 0, 0);
-            this.LayoutPanel.Controls.Add(this.Alphabet_ComboBox, 1, 2);
-            this.LayoutPanel.Controls.Add(this.comboBox1, 1, 0);
+            this.LayoutPanel.Controls.Add(this.SelectAlphabet_ComboBox, 1, 2);
+            this.LayoutPanel.Controls.Add(this.SelectEncyption_ComboBox, 1, 0);
             this.LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.LayoutPanel.Name = "LayoutPanel";
@@ -142,17 +120,17 @@
             this.LayoutPanel.Size = new System.Drawing.Size(369, 189);
             this.LayoutPanel.TabIndex = 8;
             // 
-            // comboBox1
+            // SelectEncyption_ComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.SelectEncyption_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectEncyption_ComboBox.FormattingEnabled = true;
+            this.SelectEncyption_ComboBox.Items.AddRange(new object[] {
             "Шифр Цезаря",
             "Шифр Виженера"});
-            this.comboBox1.Location = new System.Drawing.Point(151, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 21);
-            this.comboBox1.TabIndex = 8;
+            this.SelectEncyption_ComboBox.Location = new System.Drawing.Point(151, 3);
+            this.SelectEncyption_ComboBox.Name = "SelectEncyption_ComboBox";
+            this.SelectEncyption_ComboBox.Size = new System.Drawing.Size(215, 21);
+            this.SelectEncyption_ComboBox.TabIndex = 8;
             // 
             // flowLayoutPanel1
             // 
@@ -220,15 +198,13 @@
         private System.Windows.Forms.Label SelectEncyption_Label;
         private System.Windows.Forms.Label Shift_Label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox Alphabet_ComboBox;
+        private System.Windows.Forms.TextBox Shift_TextBox;
+        private System.Windows.Forms.ComboBox SelectAlphabet_ComboBox;
         private System.Windows.Forms.TableLayoutPanel LayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button Cancel_Button;
         private System.Windows.Forms.Button Reset_Button;
         private System.Windows.Forms.Button OK_Button;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox SelectEncyption_ComboBox;
     }
 }

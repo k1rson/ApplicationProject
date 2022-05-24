@@ -22,6 +22,7 @@ namespace ApplicationProject
             // проверка на существование пользователя, доступ к системе
             if(sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
             {
+                OtherFunction.strTextChangeN = LoginTextBox.Text;
                 MainMenuForm form = new MainMenuForm();
                 if (form.ShowDialog() == DialogResult.OK)
                 {

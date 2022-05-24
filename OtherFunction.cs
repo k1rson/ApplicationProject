@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApplicationProject
 {
-    internal class OtherFunction
+    public class OtherFunction
     {
+        public static string strTextChangeN { get; set; }
     }
 }

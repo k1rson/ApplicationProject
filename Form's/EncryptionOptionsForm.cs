@@ -15,16 +15,17 @@ namespace ApplicationProject
         public EncryptionOptionsForm()
         {
             InitializeComponent();
+            SelectEncyption_ComboBox.SelectedIndex = 0; 
+            SelectAlphabet_ComboBox.SelectedIndex = 0; 
         }
 
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
-
+            Close(); 
         }
 
         private void Reset_Button_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void OK_Button_Click(object sender, EventArgs e)
