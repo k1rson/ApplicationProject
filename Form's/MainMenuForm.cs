@@ -24,7 +24,7 @@ namespace ApplicationProject
 
         private void DeleteFile_Menu_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
