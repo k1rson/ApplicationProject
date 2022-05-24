@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanelForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотретьИнформациюОПользователеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.удалитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.AllUsers_ListBox = new System.Windows.Forms.ListBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.AllUsers_ListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,20 +56,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripSeparator2,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // пользователиToolStripMenuItem
             // 
@@ -106,6 +92,34 @@
             this.заблокироватьПользователяToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
             this.заблокироватьПользователяToolStripMenuItem.Text = "Заблокировать пользователя";
             // 
+            // уведомитьПользователяToolStripMenuItem
+            // 
+            this.уведомитьПользователяToolStripMenuItem.Name = "уведомитьПользователяToolStripMenuItem";
+            this.уведомитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripSeparator2,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // AllUsers_ListBox
+            // 
+            this.AllUsers_ListBox.FormattingEnabled = true;
+            this.AllUsers_ListBox.Location = new System.Drawing.Point(12, 52);
+            this.AllUsers_ListBox.Name = "AllUsers_ListBox";
+            this.AllUsers_ListBox.Size = new System.Drawing.Size(205, 368);
+            this.AllUsers_ListBox.TabIndex = 2;
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -138,12 +152,6 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // уведомитьПользователяToolStripMenuItem
-            // 
-            this.уведомитьПользователяToolStripMenuItem.Name = "уведомитьПользователяToolStripMenuItem";
-            this.уведомитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
-            this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
-            // 
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -152,14 +160,6 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // AllUsers_ListBox
-            // 
-            this.AllUsers_ListBox.FormattingEnabled = true;
-            this.AllUsers_ListBox.Location = new System.Drawing.Point(12, 52);
-            this.AllUsers_ListBox.Name = "AllUsers_ListBox";
-            this.AllUsers_ListBox.Size = new System.Drawing.Size(205, 368);
-            this.AllUsers_ListBox.TabIndex = 2;
             // 
             // AdminPanelForm
             // 
@@ -191,11 +191,11 @@
         private System.Windows.Forms.ToolStripMenuItem заблокироватьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem уведомитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ListBox AllUsers_ListBox;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ListBox AllUsers_ListBox;
     }
 }
