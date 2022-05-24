@@ -35,6 +35,8 @@
             this.AddFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.AddFileManually_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteAllFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteSelectFile_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveFilePC_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileInput_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +44,9 @@
             this.SaveFileOutputDecrypt_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
             this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
-            this.ActionDeleteFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ActionDeleteAllFile_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
             this.SaveFileOutputEncypt_Button = new System.Windows.Forms.ToolStripButton();
@@ -63,9 +67,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.AllFiles_Label = new System.Windows.Forms.Label();
-            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -120,10 +123,26 @@
             // 
             // DeleteFile_Menu
             // 
+            this.DeleteFile_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DeleteAllFile_Menu,
+            this.DeleteSelectFile_Menu});
             this.DeleteFile_Menu.Name = "DeleteFile_Menu";
             this.DeleteFile_Menu.Size = new System.Drawing.Size(200, 22);
             this.DeleteFile_Menu.Text = "Удалить файл";
-            this.DeleteFile_Menu.Click += new System.EventHandler(this.DeleteFile_Menu_Click);
+            // 
+            // DeleteAllFile_Menu
+            // 
+            this.DeleteAllFile_Menu.Name = "DeleteAllFile_Menu";
+            this.DeleteAllFile_Menu.Size = new System.Drawing.Size(218, 22);
+            this.DeleteAllFile_Menu.Text = "Удалить все файлы";
+            this.DeleteAllFile_Menu.Click += new System.EventHandler(this.DeleteAllFile_Menu_Click);
+            // 
+            // DeleteSelectFile_Menu
+            // 
+            this.DeleteSelectFile_Menu.Name = "DeleteSelectFile_Menu";
+            this.DeleteSelectFile_Menu.Size = new System.Drawing.Size(218, 22);
+            this.DeleteSelectFile_Menu.Text = "Удалить выбранный файл";
+            this.DeleteSelectFile_Menu.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
             // 
             // toolStripSeparator1
             // 
@@ -167,7 +186,8 @@
             this.ActionAddFilePC_Button,
             this.AddFileManually_Button,
             this.toolStripSeparator2,
-            this.ActionDeleteFile_Button,
+            this.ActionDeleteAllFile_Button,
+            this.ActionDeleteSelectFile_Button,
             this.toolStripSeparator3,
             this.SaveFileInput_Button,
             this.SaveFileOutputEncypt_Button,
@@ -188,15 +208,30 @@
             this.ActionAddFilePC_Button.Text = "Добавить файл";
             this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Menu_Click);
             // 
-            // ActionDeleteFile_Button
+            // AddFileManually_Button
             // 
-            this.ActionDeleteFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionDeleteFile_Button.Image = ((System.Drawing.Image)(resources.GetObject("ActionDeleteFile_Button.Image")));
-            this.ActionDeleteFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionDeleteFile_Button.Name = "ActionDeleteFile_Button";
-            this.ActionDeleteFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionDeleteFile_Button.Text = "Удалить файл";
-            this.ActionDeleteFile_Button.Click += new System.EventHandler(this.DeleteFile_Menu_Click);
+            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddFileManually_Button.Image = ((System.Drawing.Image)(resources.GetObject("AddFileManually_Button.Image")));
+            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddFileManually_Button.Name = "AddFileManually_Button";
+            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
+            this.AddFileManually_Button.Text = "toolStripButton1";
+            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ActionDeleteAllFile_Button
+            // 
+            this.ActionDeleteAllFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteAllFile_Button.Image = ((System.Drawing.Image)(resources.GetObject("ActionDeleteAllFile_Button.Image")));
+            this.ActionDeleteAllFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
+            this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteAllFile_Button.Text = "Удалить файл";
+            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Menu_Click);
             // 
             // toolStripSeparator3
             // 
@@ -377,24 +412,19 @@
             this.AllFiles_Label.TabIndex = 14;
             this.AllFiles_Label.Text = "Все файлы:";
             // 
-            // AddFileManually_Button
-            // 
-            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddFileManually_Button.Image = ((System.Drawing.Image)(resources.GetObject("AddFileManually_Button.Image")));
-            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddFileManually_Button.Name = "AddFileManually_Button";
-            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
-            this.AddFileManually_Button.Text = "toolStripButton1";
-            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // ActionDeleteSelectFile_Button
+            // 
+            this.ActionDeleteSelectFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteSelectFile_Button.Image = ((System.Drawing.Image)(resources.GetObject("ActionDeleteSelectFile_Button.Image")));
+            this.ActionDeleteSelectFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
+            this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteSelectFile_Button.Text = "toolStripButton1";
+            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
             // 
             // MainMenuForm
             // 
@@ -438,7 +468,7 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteFile_Menu;
         private System.Windows.Forms.ToolStrip ToolStrip;
         private System.Windows.Forms.ToolStripButton ActionAddFilePC_Button;
-        private System.Windows.Forms.ToolStripButton ActionDeleteFile_Button;
+        private System.Windows.Forms.ToolStripButton ActionDeleteAllFile_Button;
         private System.Windows.Forms.Label UM_Label;
         private System.Windows.Forms.ListBox AllFiles_ListBox;
         private System.Windows.Forms.Label Username_Label;
@@ -469,5 +499,8 @@
         private System.Windows.Forms.ToolStripButton AddFileManually_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.ToolStripMenuItem DeleteAllFile_Menu;
+        private System.Windows.Forms.ToolStripMenuItem DeleteSelectFile_Menu;
+        private System.Windows.Forms.ToolStripButton ActionDeleteSelectFile_Button;
     }
 }

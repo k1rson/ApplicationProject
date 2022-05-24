@@ -32,12 +32,6 @@ namespace ApplicationProject
                 AllFiles_ListBox.Items.Add(files[i]);
             }
         }
-
-        private void DeleteFile_Menu_Click(object sender, EventArgs e)
-        {
-            // мирон
-        }
-
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
@@ -114,28 +108,59 @@ namespace ApplicationProject
             if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
                 return;
             string username = OtherFunction.strTextChangeN;
+
             string filePath = openFileDialog2.FileName;
+            string fileName = Path.GetFileNameWithoutExtension(filePath);
 
-            string fileName = filePath.Substring(22); 
-
-            if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
-                return;
             string decrypted = System.IO.File.ReadAllText(filePath);
             Input_RichBox.Text = decrypted;
 
-            sqlFuncs.addFile(username, decrypted, fileName);
+            sqlFuncs.addFile(username, fileName, decrypted);
 
             List<string> files = sqlFuncs.selectUserFiles(username);
             AllFiles_ListBox.Items.Add(fileName);
 
             MessageBox.Show("Файл добавлен!");
-
-
         }
 
         private void AddFileManually_Menu_Click(object sender, EventArgs e)
         {
+            AddFileManualForm amf = new AddFileManualForm();
+            if(amf.ShowDialog() == DialogResult.OK)
+            {
 
+            }
+        }
+
+        private void DeleteAllFile_Menu_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(
+                "Желаете удалить ВСЕ файлы ?",
+                "Удаление файлов", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                string username = OtherFunction.strTextChangeN;
+                sqlFuncs.deleteAllFiles(username);
+                MessageBox.Show("Файлы удалены!");
+
+            }
+
+        }
+
+        private void DeleteSelectFile_Menu_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show(
+                "Желаете удалить файл ?",
+                "Удаление файла", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                string fileName = AllFiles_ListBox.SelectedItem.ToString();
+                string username = OtherFunction.strTextChangeN;
+                sqlFuncs.deleteSelectedFile(username, fileName);
+                MessageBox.Show("Файл удален!");
+                
+            }
+            
         }
     }
 }

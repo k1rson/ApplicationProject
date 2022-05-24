@@ -147,6 +147,28 @@ namespace ApplicationProject
             conn.Close();
         }
 
+        public static void deleteAllFiles(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"DELETE FROM files WHERE username = '{username}'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public static void deleteSelectedFile(string username, string fileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"DELETE FROM files WHERE username = '{username}' AND filename = '{fileName}'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
 
         // Шифрование
         public static string sha256(string randomString)
