@@ -56,6 +56,12 @@ namespace ApplicationProject
                 MessageBox.Show("Пароль несовпадает!");
                 return false;
             }
+            
+            else if (sqlFuncs.ChekUserReg(username))
+            {
+                MessageBox.Show("Пользователь с таким логином уже зарегистрирован!");
+                return false;
+            }
             else { return true; }
         } 
     }
