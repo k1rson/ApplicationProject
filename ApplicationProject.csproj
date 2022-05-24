@@ -83,6 +83,9 @@
       <DependentUpon>RegistartionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlFuncs.cs" />
+    <EmbeddedResource Include="Form%27s\AdminPanelForm.resx">
+      <DependentUpon>AdminPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>

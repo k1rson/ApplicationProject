@@ -22,7 +22,7 @@ namespace ApplicationProject
             // добавление пользователя в БД
             if (IsDataValid(LoginTextBox.Text, PasswordTextBox.Text, CnfmPasswordTextBox.Text))
             {
-                sqlFuncs.regUser(LoginTextBox.Text, PasswordTextBox.Text); 
+                sqlFuncs.regUser(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text));
                 Close();
             }
         }
@@ -48,7 +48,7 @@ namespace ApplicationProject
             }
             else if (username.Intersect(spl_Chars).Any())
             {
-                MessageBox.Show("В логине присутствуют запрещенные символы.");
+                MessageBox.Show("В логине присутствуют запрещенные символы!");
                 return false;
             }
             else if (password != passwordConfirm)
