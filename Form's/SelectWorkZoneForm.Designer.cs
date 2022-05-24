@@ -1,4 +1,4 @@
-﻿namespace ApplicationProject.Form_s
+﻿namespace ApplicationProject
 {
     partial class SelectWorkZoneForm
     {
@@ -28,62 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.InfoSelect_Label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Cancel_Button = new System.Windows.Forms.Button();
+            this.InfoWZ_Label = new System.Windows.Forms.Label();
+            this.GoToAdmin_Button = new System.Windows.Forms.Button();
+            this.GoToUser_Button = new System.Windows.Forms.Button();
+            this.GoToBack_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // InfoSelect_Label
+            // InfoWZ_Label
             // 
-            this.InfoSelect_Label.AutoSize = true;
-            this.InfoSelect_Label.Location = new System.Drawing.Point(27, 60);
-            this.InfoSelect_Label.Name = "InfoSelect_Label";
-            this.InfoSelect_Label.Size = new System.Drawing.Size(232, 13);
-            this.InfoSelect_Label.TabIndex = 0;
-            this.InfoSelect_Label.Text = "К какой рабочей зоне Вы желаете перейти?";
-            this.InfoSelect_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InfoWZ_Label.AutoSize = true;
+            this.InfoWZ_Label.Location = new System.Drawing.Point(34, 37);
+            this.InfoWZ_Label.Name = "InfoWZ_Label";
+            this.InfoWZ_Label.Size = new System.Drawing.Size(214, 13);
+            this.InfoWZ_Label.TabIndex = 0;
+            this.InfoWZ_Label.Text = "К какой рабочей зоне желаете перейти?";
             // 
-            // button1
+            // GoToAdmin_Button
             // 
-            this.button1.Location = new System.Drawing.Point(30, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Администратор";
-            this.button1.UseVisualStyleBackColor = true;
+            this.GoToAdmin_Button.Location = new System.Drawing.Point(29, 72);
+            this.GoToAdmin_Button.Name = "GoToAdmin_Button";
+            this.GoToAdmin_Button.Size = new System.Drawing.Size(117, 23);
+            this.GoToAdmin_Button.TabIndex = 1;
+            this.GoToAdmin_Button.Text = "Администратор";
+            this.GoToAdmin_Button.UseVisualStyleBackColor = true;
+            this.GoToAdmin_Button.Click += new System.EventHandler(this.GoToAdmin_Button_Click);
             // 
-            // button2
+            // GoToUser_Button
             // 
-            this.button2.Location = new System.Drawing.Point(147, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Пользователь";
-            this.button2.UseVisualStyleBackColor = true;
+            this.GoToUser_Button.Location = new System.Drawing.Point(152, 72);
+            this.GoToUser_Button.Name = "GoToUser_Button";
+            this.GoToUser_Button.Size = new System.Drawing.Size(117, 23);
+            this.GoToUser_Button.TabIndex = 2;
+            this.GoToUser_Button.Text = "Пользователь";
+            this.GoToUser_Button.UseVisualStyleBackColor = true;
+            this.GoToUser_Button.Click += new System.EventHandler(this.GoToUser_Button_Click);
             // 
-            // Cancel_Button
+            // GoToBack_Button
             // 
-            this.Cancel_Button.Location = new System.Drawing.Point(58, 168);
-            this.Cancel_Button.Name = "Cancel_Button";
-            this.Cancel_Button.Size = new System.Drawing.Size(145, 23);
-            this.Cancel_Button.TabIndex = 1;
-            this.Cancel_Button.Text = "Вернуться";
-            this.Cancel_Button.UseVisualStyleBackColor = true;
+            this.GoToBack_Button.Location = new System.Drawing.Point(84, 118);
+            this.GoToBack_Button.Name = "GoToBack_Button";
+            this.GoToBack_Button.Size = new System.Drawing.Size(117, 23);
+            this.GoToBack_Button.TabIndex = 3;
+            this.GoToBack_Button.Text = "Вернуться";
+            this.GoToBack_Button.UseVisualStyleBackColor = true;
+            this.GoToBack_Button.Click += new System.EventHandler(this.GoToBack_Button_Click);
             // 
             // SelectWorkZoneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 203);
-            this.Controls.Add(this.Cancel_Button);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.InfoSelect_Label);
+            this.ClientSize = new System.Drawing.Size(281, 167);
+            this.Controls.Add(this.GoToBack_Button);
+            this.Controls.Add(this.GoToUser_Button);
+            this.Controls.Add(this.GoToAdmin_Button);
+            this.Controls.Add(this.InfoWZ_Label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SelectWorkZoneForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор рабочей зоны";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -92,9 +94,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label InfoSelect_Label;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button Cancel_Button;
+        private System.Windows.Forms.Label InfoWZ_Label;
+        private System.Windows.Forms.Button GoToAdmin_Button;
+        private System.Windows.Forms.Button GoToUser_Button;
+        private System.Windows.Forms.Button GoToBack_Button;
     }
 }

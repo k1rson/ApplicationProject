@@ -83,6 +83,12 @@
     <Compile Include="Form%27s\RegistartionForm.Designer.cs">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form%27s\SelectWorkZoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\SelectWorkZoneForm.Designer.cs">
+      <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="sqlFuncs.cs" />
     <EmbeddedResource Include="Form%27s\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\RegistartionForm.resx">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\SelectWorkZoneForm.resx">
+      <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

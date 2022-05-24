@@ -47,8 +47,6 @@ namespace ApplicationProject
             else
                 return false;
         }
-
-
         public static bool IsAdmin(string username)
         {
             MySqlConnection conn = DB.GetDBConnection();
@@ -71,8 +69,6 @@ namespace ApplicationProject
             else
                 return false;
         }
-
-
         public static bool IsCheckDataAuth(string username, string password)
         {
             MySqlConnection conn = DB.GetDBConnection();
@@ -93,6 +89,27 @@ namespace ApplicationProject
                 return true;
             else
                 return false;
+        }
+
+        public static List<string> selectUserFiles(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM files WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            var files = new List<string>();
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                files.Add(reader[1].ToString());
+            }
+            reader.Close();
+            conn.Close();
+            return files;
         }
 
 

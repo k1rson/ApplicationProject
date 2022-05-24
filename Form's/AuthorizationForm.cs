@@ -26,8 +26,8 @@ namespace ApplicationProject
 
                 if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                 {
-                    AdminPanelForm adm = new AdminPanelForm();
-                    if (adm.ShowDialog() == DialogResult.OK)
+                    SelectWorkZoneForm swz = new SelectWorkZoneForm(); 
+                    if(swz.ShowDialog() == DialogResult.OK)
                     {
 
                     }
@@ -40,16 +40,12 @@ namespace ApplicationProject
 
                     }
                 }
-                
-
-                
             }
             else
             {
                 MessageBox.Show("Логин или пароль введены неверно!");
             }
         }
-
         private void ActionSignUp_Button_Click(object sender, EventArgs e)
         {
             RegistartionForm form = new RegistartionForm();

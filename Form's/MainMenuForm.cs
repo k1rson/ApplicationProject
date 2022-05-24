@@ -22,6 +22,9 @@ namespace ApplicationProject
 
             string Login_ = OtherFunction.strTextChangeN;
             Username_Label.Text = Login_;
+
+            List<string> files = sqlFuncs.selectUserFiles(Login_);
+            MessageBox.Show(files.ToString());
         }
 
         private void AddFile_Menu_Click(object sender, EventArgs e)
