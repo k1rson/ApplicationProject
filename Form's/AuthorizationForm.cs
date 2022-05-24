@@ -28,6 +28,7 @@ namespace ApplicationProject
                 {
 
                 }
+                Close(); 
             }
             else
             {

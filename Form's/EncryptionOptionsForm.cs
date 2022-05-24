@@ -16,7 +16,8 @@ namespace ApplicationProject
         {
             InitializeComponent();
             SelectEncyption_ComboBox.SelectedIndex = 0; 
-            SelectAlphabet_ComboBox.SelectedIndex = 0; 
+            SelectAlphabet_ComboBox.SelectedIndex = 0;
+            Shift_TextBox.Text = string.Empty; 
         }
 
         private void Cancel_Button_Click(object sender, EventArgs e)
@@ -26,6 +27,9 @@ namespace ApplicationProject
 
         private void Reset_Button_Click(object sender, EventArgs e)
         {
+            SelectEncyption_ComboBox.SelectedIndex = -1;
+            SelectAlphabet_ComboBox.SelectedIndex = -1;
+            Shift_TextBox.Text = string.Empty;
         }
 
         private void OK_Button_Click(object sender, EventArgs e)

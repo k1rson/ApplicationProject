@@ -117,7 +117,7 @@
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.LayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LayoutPanel.Size = new System.Drawing.Size(369, 189);
+            this.LayoutPanel.Size = new System.Drawing.Size(369, 166);
             this.LayoutPanel.TabIndex = 8;
             // 
             // SelectEncyption_ComboBox
@@ -139,7 +139,7 @@
             this.flowLayoutPanel1.Controls.Add(this.OK_Button);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 158);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 135);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(369, 31);
             this.flowLayoutPanel1.TabIndex = 9;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 189);
+            this.ClientSize = new System.Drawing.Size(369, 166);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.LayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
