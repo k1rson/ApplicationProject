@@ -16,5 +16,35 @@ namespace ApplicationProject
         {
             InitializeComponent();
         }
+
+        private void GnrInformation_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowFilesUser_Menu_Click(object sender, EventArgs e)
+        {
+           tabControl1 = new TabControl();   
+        }
+
+        private void DeleteUser_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BanUser_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NotificationUser_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateReport_Menu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
