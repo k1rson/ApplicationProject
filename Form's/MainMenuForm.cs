@@ -43,6 +43,8 @@ namespace ApplicationProject
 
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
         {
+            string fileName = AllFiles_ListBox.SelectedItem.ToString();
+
             if (Input_RichBox.Text != null)
                 OtherFunction.encryption = Input_RichBox.Text;
             EncryptionOptionsForm encryptionOptionsForm = new EncryptionOptionsForm();  
@@ -50,8 +52,7 @@ namespace ApplicationProject
             {
 
             }
-            string fileName = AllFiles_ListBox.SelectedItem.ToString();
-            sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption);
+            //sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption);
             Output_RichBox.Text = OtherFunction.decryption;
         }
 
