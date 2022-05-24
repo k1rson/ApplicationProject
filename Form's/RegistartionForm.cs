@@ -59,7 +59,7 @@ namespace ApplicationProject
             
             else if (sqlFuncs.ChekUserReg(username))
             {
-                MessageBox.Show("Пользователь с таким логином уже зарегистрирован!");
+                MessageBox.Show("Пользователь с таким логином уже зарегистрирован.");
                 return false;
             }
             else { return true; }
