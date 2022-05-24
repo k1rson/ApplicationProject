@@ -40,7 +40,6 @@ namespace ApplicationProject
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
-            Input_RichBox.Text = null; 
         }
 
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
@@ -113,11 +112,18 @@ namespace ApplicationProject
         {
             if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
                 return;
+            string username = OtherFunction.strTextChangeN;
+            string filePath = openFileDialog2.FileName;
 
-            // получаем выбранный файл
-            string fileName = openFileDialog2.FileName;
+            string any = ".txt"; 
 
+            string fileName = filePath.Substring(22);
+
+            sqlFuncs.addFile(username, fileName);
+
+            List<string> files = sqlFuncs.selectUserFiles(username);
             AllFiles_ListBox.Items.Add(fileName);
+
             MessageBox.Show("Файл добавлен!");
         }
 
