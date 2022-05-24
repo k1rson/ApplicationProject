@@ -17,7 +17,7 @@ namespace ApplicationProject
             InitializeComponent();
         }
 
-        private void ActionEnter_Button_Click(object sender, EventArgs e)
+        public void ActionEnter_Button_Click(object sender, EventArgs e)
         {
             // проверка на существование пользователя, доступ к системе
             if(sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
@@ -27,6 +27,10 @@ namespace ApplicationProject
                 {
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("Логин или пароль введены неверно!");
             }
         }
 
@@ -39,30 +43,5 @@ namespace ApplicationProject
 
             }
         }
-
-        private bool IsDataValid(string username, string password, string passwordConfirm)
-        {
-            string spl_Chars = "#№@&^%*()_-=+/";
-
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Поле логин/пароль не может быть пустым!");
-                return false;
-            }
-            else if (username.Intersect(spl_Chars).Any())
-            {
-                MessageBox.Show("В логине присутствуют запрещенные символы!");
-                return false;
-            }
-            else if (password != passwordConfirm)
-            {
-                MessageBox.Show("Пароль несовпадает!");
-                return false;
-            }
-            
-            else { return true; }
-        }
-
-
     }
 }

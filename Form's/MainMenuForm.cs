@@ -16,6 +16,7 @@ namespace ApplicationProject
         {
             InitializeComponent();
             TabPage3.Parent = null; // убрать видимость третьей вкладки
+            Username_Label = 
         }
 
         private void AddFile_Menu_Click(object sender, EventArgs e)
