@@ -25,8 +25,6 @@ namespace ApplicationProject
 
             string Login_ = OtherFunction.strTextChangeN;
             Username_Label.Text = Login_;
-
-            UpdateListBox(Login_);
         }
 
         // Vision Input_RichBox
@@ -40,8 +38,6 @@ namespace ApplicationProject
 
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
         {
-            OtherFunction.filename = AllFiles_ListBox.SelectedItem.ToString();
-
             if (Input_RichBox.Text != null)
             OtherFunction.encryption = Input_RichBox.Text;
 
@@ -116,15 +112,25 @@ namespace ApplicationProject
             List<string> files = sqlFuncs.selectUserFiles(username);
             Input_RichBox.Clear();
 
-            if (AllFiles_ListBox.SelectedIndex <= files.Count)
+            try
             {
-                string filename = files[AllFiles_ListBox.SelectedIndex];
-                string decryption = sqlFuncs.selectEncryptedText(filename, username);
-                Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
-                OtherFunction.decryption = decryption;
-                Output_RichBox.Text = decryption;
+                if (AllFiles_ListBox.SelectedIndex <= files.Count)
+                {
+                    string filename = files[AllFiles_ListBox.SelectedIndex];
+                    string decryption = sqlFuncs.selectEncryptedText(filename, username);
+                    Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
+                    OtherFunction.decryption = decryption;
+                    Output_RichBox.Text = decryption;
 
+                }
             }
+            catch (Exception)
+            {
+
+                return;
+            }
+
+            
         }
 
         // Add file for PC
@@ -141,9 +147,18 @@ namespace ApplicationProject
             string decrypted = System.IO.File.ReadAllText(filePath);
             Input_RichBox.Text = decrypted;
 
-            sqlFuncs.addFile(username, fileName, decrypted);
+            int i = 0;
+            while (sqlFuncs.IsCheckFilename(username, fileName))
+            {
+                i++;
+                if (i >= 2)
+                {
+                    fileName = Path.GetFileNameWithoutExtension(filePath);
+                }
+                fileName = fileName + $" ({i})";
+            }
 
-            UpdateListBox(username); 
+            sqlFuncs.addFile(username, fileName, decrypted);
 
             MessageBox.Show("Файл добавлен!", "Добавление файла",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -151,13 +166,16 @@ namespace ApplicationProject
 
         // Create file
 
+        private AddFileManualForm addManulForm;
         private void AddFileManually_Menu_Click(object sender, EventArgs e)
         {
-            AddFileManualForm addManulForm = new AddFileManualForm();
-            addManulForm.Show(); 
-
-            UpdateListBox(OtherFunction.strTextChangeN); 
+            addManulForm = new AddFileManualForm();
+            addManulForm.Show();
         }
+
+        
+
+
 
         // Delete all files
 
@@ -171,7 +189,6 @@ namespace ApplicationProject
                 string username = OtherFunction.strTextChangeN;
                 sqlFuncs.deleteAllFiles(username);
 
-                UpdateListBox(username); 
                 MessageBox.Show("Файлы удалены!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -187,15 +204,34 @@ namespace ApplicationProject
                 "Удаление файла", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                string fileName = AllFiles_ListBox.SelectedItem.ToString();
+                string fileName = OtherFunction.filename;
                 string username = OtherFunction.strTextChangeN;
                 sqlFuncs.deleteSelectedFile(username, fileName);
-                UpdateListBox(username);
 
                 MessageBox.Show("Файл успешно удален!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+
+        // Обработка нажатий клавиш // Доработать
+
+        private void MainMenuForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                UpdateListBox(OtherFunction.strTextChangeN);
+            }
+        }
+
+
+        // Обработчик при входе в окно mainForm // В сто раз меньше кода
+
+        private void MainMenuForm_Activated(object sender, EventArgs e)
+        {
+            // Срабатывает каждый раз при входе в это окно/ выходе из другого
+            UpdateListBox(OtherFunction.strTextChangeN);
+        }
+
 
         // Update ListBox
 
@@ -216,6 +252,20 @@ namespace ApplicationProject
         {
             Output_RichBox.Text = OtherFunction.decryption;
 
+        }
+
+        private void AllFiles_ListBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Получаем тут имя файла чтобы потом меньше кода писать
+            try
+            {
+                OtherFunction.filename = AllFiles_ListBox.SelectedItem.ToString();
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
         }
     }
 }

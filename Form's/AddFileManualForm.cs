@@ -22,17 +22,17 @@ namespace ApplicationProject
             string username = OtherFunction.strTextChangeN;
             string fileName = FileName_TextBox.Text;
             int i = 0;
-            bool check = true;
-            while (check)
+            while (sqlFuncs.IsCheckFilename(username, fileName))
             {
                 i++;
+                if(i >= 2)
+                {
+                    fileName = FileName_TextBox.Text;
+                }
                 fileName = fileName + $" ({i})";
-                check = sqlFuncs.IsCheckFilename(username, fileName);
             }
 
             sqlFuncs.addFileManual(username, fileName);
-
-            List<string> files = sqlFuncs.selectUserFiles(username);
 
             MessageBox.Show("Файл добавлен вручную!", "Добавление файла", 
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

@@ -294,6 +294,7 @@
             this.AllFiles_ListBox.Name = "AllFiles_ListBox";
             this.AllFiles_ListBox.Size = new System.Drawing.Size(197, 342);
             this.AllFiles_ListBox.TabIndex = 4;
+            this.AllFiles_ListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AllFiles_ListBox_MouseClick);
             this.AllFiles_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllFiles_ListBox_MouseDoubleClick);
             // 
             // Username_Label
@@ -448,6 +449,8 @@
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
+            this.Activated += new System.EventHandler(this.MainMenuForm_Activated);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainMenuForm_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ToolStrip.ResumeLayout(false);
