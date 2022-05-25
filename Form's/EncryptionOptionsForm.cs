@@ -37,7 +37,6 @@ namespace ApplicationProject
             // метод шифрования
             GetCypher();
             Close(); 
-
         }
         private void GetCypher()
         {
@@ -117,8 +116,8 @@ namespace ApplicationProject
                             {
                                 posihion = alphabetEng.IndexOf(c);
                                 int a = posihion + shift;
-                                if (a > 26)
-                                    a -= 27;
+                                if (a > 25)
+                                    a -= 26;
                                 code += alphabetEng[a];
                             }
 
@@ -126,8 +125,8 @@ namespace ApplicationProject
                             {
                                 posihion = alphabetEngCaps.IndexOf(c);
                                 int a = posihion + shift;
-                                if (a > 26)
-                                    a -= 27;
+                                if (a > 25)
+                                    a -= 26;
                                 code += alphabetEngCaps[a];
                             }
 

@@ -26,15 +26,7 @@ namespace ApplicationProject
             string Login_ = OtherFunction.strTextChangeN;
             Username_Label.Text = Login_;
 
-            List<string> files = sqlFuncs.selectUserFiles(Login_);
-            for (int i = 0; i < files.Count; i++)
-            {
-                AllFiles_ListBox.Items.Add(files[i]);
-            }
-
-            AllFiles_ListBox.Refresh();// исправить
-
-
+            UpdateListBox(Login_);
         }
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
@@ -126,9 +118,7 @@ namespace ApplicationProject
 
             sqlFuncs.addFile(username, fileName, decrypted);
 
-            List<string> files = sqlFuncs.selectUserFiles(username);
-            AllFiles_ListBox.Items.Add(fileName);
-
+            UpdateListBox(username);
             MessageBox.Show("Файл добавлен!");
         }
 
@@ -139,6 +129,7 @@ namespace ApplicationProject
             {
 
             }
+            UpdateListBox(OtherFunction.strTextChangeN); 
         }
 
         private void DeleteAllFile_Menu_Click(object sender, EventArgs e)
@@ -150,8 +141,9 @@ namespace ApplicationProject
             {
                 string username = OtherFunction.strTextChangeN;
                 sqlFuncs.deleteAllFiles(username);
-                MessageBox.Show("Файлы удалены!");
 
+                UpdateListBox(username); 
+                MessageBox.Show("Файлы удалены!");
             }
 
         }
@@ -166,18 +158,20 @@ namespace ApplicationProject
                 string fileName = AllFiles_ListBox.SelectedItem.ToString();
                 string username = OtherFunction.strTextChangeN;
                 sqlFuncs.deleteSelectedFile(username, fileName);
-                MessageBox.Show("Файл удален!");
-                
+                UpdateListBox(username);
+
+                MessageBox.Show("Файл успешно удален!");
             }
         }
-
-        private void UpdateForm_Button_Click(object sender, EventArgs e)
+        public void UpdateListBox(string username)
         {
+            AllFiles_ListBox.Items.Clear();  
 
-        }
-        private void Update()
-        {
-            // логика обновления формы
+            List<string> files = sqlFuncs.selectUserFiles(username);
+            for (int i = 0; i < files.Count; i++)
+            {
+                AllFiles_ListBox.Items.Add(files[i]);
+            }
         }
     }
 }

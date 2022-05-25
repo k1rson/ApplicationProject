@@ -37,7 +37,6 @@ namespace ApplicationProject
 
         private void BanUser_Menu_Click(object sender, EventArgs e)
         {
-
         }
 
         private void NotificationUser_Menu_Click(object sender, EventArgs e)
