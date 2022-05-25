@@ -347,6 +347,7 @@
             this.TabPage_2.TabIndex = 1;
             this.TabPage_2.Text = "Зашифрованные данные";
             this.TabPage_2.UseVisualStyleBackColor = true;
+            this.TabPage_2.Enter += new System.EventHandler(this.TabPage_2_Enter);
             // 
             // Output_RichBox
             // 

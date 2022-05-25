@@ -28,24 +28,28 @@ namespace ApplicationProject
 
             UpdateListBox(Login_);
         }
+
+        // Vision Input_RichBox
+
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
         }
 
+        // Open coding form
+
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
         {
-            string fileName = AllFiles_ListBox.SelectedItem.ToString();
+            OtherFunction.filename = AllFiles_ListBox.SelectedItem.ToString();
 
             if (Input_RichBox.Text != null)
             OtherFunction.encryption = Input_RichBox.Text;
 
             EncryptionOptionsForm encOptFomr = new EncryptionOptionsForm();
             encOptFomr.Show(); 
-
-            //sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption); 
-            Output_RichBox.Text = OtherFunction.decryption;
         }
+
+        // Event vision tabControl
 
         private void ActiveDecrypt_Button_Click(object sender, EventArgs e)
         {
@@ -53,6 +57,8 @@ namespace ApplicationProject
 
             // расшифровка 
         }
+
+        // Save selected file
 
         private void SaveFileInput_Menu_Click(object sender, EventArgs e)
         {
@@ -68,6 +74,8 @@ namespace ApplicationProject
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
+        // Save encrypt file
+
         private void SaveFileOutputEncypt_Menu_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
@@ -81,6 +89,8 @@ namespace ApplicationProject
             MessageBox.Show("Файл с зашифрованными данными сохранен!", "Сохранение файла",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        // Save decrypt file
 
         private void SaveFileOutputDecrypt_Menu_Click(object sender, EventArgs e)
         {
@@ -96,6 +106,9 @@ namespace ApplicationProject
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
+
+        // Double click, select element list box
+
         private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string username = OtherFunction.strTextChangeN;
@@ -106,9 +119,15 @@ namespace ApplicationProject
             if (AllFiles_ListBox.SelectedIndex <= files.Count)
             {
                 string filename = files[AllFiles_ListBox.SelectedIndex];
+                string decryption = sqlFuncs.selectEncryptedText(filename, username);
                 Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
+                OtherFunction.decryption = decryption;
+                Output_RichBox.Text = decryption;
+
             }
         }
+
+        // Add file for PC
 
         private void AddFilePC_Menu_Click(object sender, EventArgs e)
         {
@@ -130,6 +149,8 @@ namespace ApplicationProject
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
+        // Create file
+
         private void AddFileManually_Menu_Click(object sender, EventArgs e)
         {
             AddFileManualForm addManulForm = new AddFileManualForm();
@@ -137,6 +158,8 @@ namespace ApplicationProject
 
             UpdateListBox(OtherFunction.strTextChangeN); 
         }
+
+        // Delete all files
 
         private void DeleteAllFile_Menu_Click(object sender, EventArgs e)
         {
@@ -155,6 +178,8 @@ namespace ApplicationProject
 
         }
 
+        // Delete selected file
+
         private void DeleteSelectFile_Menu_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show(
@@ -171,6 +196,9 @@ namespace ApplicationProject
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+
+        // Update ListBox
+
         public void UpdateListBox(string username)
         {
             AllFiles_ListBox.Items.Clear();  
@@ -180,6 +208,14 @@ namespace ApplicationProject
             {
                 AllFiles_ListBox.Items.Add(files[i]);
             }
+        }
+
+        // Event Enter TabePage, update data Output_RichBox
+
+        private void TabPage_2_Enter(object sender, EventArgs e)
+        {
+            Output_RichBox.Text = OtherFunction.decryption;
+
         }
     }
 }

@@ -11,6 +11,7 @@ namespace ApplicationProject
         public static string strTextChangeN { get; set; }
         public static string encryption { get; set; }
         public static string decryption { get; set; }
+        public static string filename { get; set; }
 
 
     }

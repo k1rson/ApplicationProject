@@ -134,6 +134,27 @@ namespace ApplicationProject
             return text;
         }
 
+        public static string selectEncryptedText(string filename, string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM files WHERE filename = '{filename}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string text = string.Empty;
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                text = reader[3].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return text;
+        }
+
 
 
         public static void addFileManual(string username, string fileName)
@@ -149,12 +170,12 @@ namespace ApplicationProject
         }
 
 
-        public static void updateFile(string username, string fileName, string encrypted)
+        public static void updateFile(string username, string fileName, string decrypted, string encrypted)
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"UPDATE files SET encrypted = {encrypted})";
+            string sql = $"UPDATE files SET decrypted = '{decrypted}', encrypted = '{encrypted}' WHERE filename = '{fileName}' AND username = '{username}'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
