@@ -21,6 +21,12 @@ namespace ApplicationProject
         {
             string username = OtherFunction.strTextChangeN;
             string fileName = FileName_TextBox.Text;
+            int i = 0;
+            while (!sqlFuncs.IsCheckFilename(username, fileName))
+            {
+                i++;
+                fileName = fileName + $" ({i})";
+            }
 
             sqlFuncs.addFileManual(username, fileName);
 

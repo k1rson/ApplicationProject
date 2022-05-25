@@ -91,6 +91,28 @@ namespace ApplicationProject
                 return false;
         }
 
+        public static bool IsCheckFilename(string username, string filename)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT COUNT(filename) FROM files WHERE username = '{username}' AND filename = '{filename}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader count = cmd.ExecuteReader();
+            int cont = 0;
+            while (count.Read())
+            {
+                cont = int.Parse(count[0].ToString());
+            }
+            conn.Close();
+
+            if (cont == 1)
+                return true;
+            else
+                return false;
+        }
+
         public static List<string> selectUserFiles(string username)
         {
             MySqlConnection conn = DB.GetDBConnection();
