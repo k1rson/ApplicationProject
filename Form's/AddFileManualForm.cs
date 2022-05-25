@@ -20,15 +20,16 @@ namespace ApplicationProject
         private void OK_Button_Click(object sender, EventArgs e)
         {
             string username = OtherFunction.strTextChangeN;
-
             string fileName = FileName_TextBox.Text;
 
             sqlFuncs.addFileManual(username, fileName);
 
             List<string> files = sqlFuncs.selectUserFiles(username);
-            MessageBox.Show("Файл добавлен вручную!");
 
-            Close(); 
+            MessageBox.Show("Файл добавлен вручную!", "Добавление файла", 
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            Close();
         }
         private void Cancel_Button_Click(object sender, EventArgs e)
         {

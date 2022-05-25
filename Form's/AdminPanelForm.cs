@@ -59,7 +59,9 @@ namespace ApplicationProject
 
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, InputAdmin_RichBox.Text);
-            MessageBox.Show($"Файл с исходными данными пользователя сохранен!");
+
+            MessageBox.Show("Файл с исходными данными пользователя сохранен!", "Сохранение файла", 
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void SaveFileOutputAdmin_Menu_Click(object sender, EventArgs e)
@@ -72,7 +74,9 @@ namespace ApplicationProject
 
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, OutputAdmin_RichBox.Text);
-            MessageBox.Show($"Файл с выходными данными пользователя сохранен!");
+
+            MessageBox.Show("Файл с выходными данными пользователя сохранен!", "Сохранение файла",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }

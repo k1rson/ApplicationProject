@@ -16,7 +16,6 @@ namespace ApplicationProject
         {
             InitializeComponent();
         }
-
         private void ActionRegistr_Button_Click(object sender, EventArgs e)
         {
             // добавление пользователя в БД
@@ -43,23 +42,26 @@ namespace ApplicationProject
 
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Поле логин/пароль не может быть пустым!");
+                MessageBox.Show("Поле логин/пароль не может быть пустым!", "Регистрация аккаунта", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (username.Intersect(spl_Chars).Any())
             {
-                MessageBox.Show("В логине присутствуют запрещенные символы!");
+                MessageBox.Show("В логине присутствуют запрещенные символы!", "Регистрация аккаунта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (password != passwordConfirm)
             {
-                MessageBox.Show("Пароль несовпадает!");
+                MessageBox.Show("Пароль не совпадает!", "Регистрация аккаунта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
             else if (sqlFuncs.ChekUserReg(username))
             {
-                MessageBox.Show("Пользователь с таким логином уже зарегистрирован!");
+                MessageBox.Show("Пользователь с таким логином уже зарегистрирован!", "Регистрация аккаунта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else { return true; }

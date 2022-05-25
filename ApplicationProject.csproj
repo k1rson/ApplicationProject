@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form%27s\DecryptionOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\DecryptionOptionsForm.Designer.cs">
+      <DependentUpon>DecryptionOptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\AddFileManualForm.cs">
       <SubType>Form</SubType>
     </Compile>

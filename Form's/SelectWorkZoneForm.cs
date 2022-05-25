@@ -20,19 +20,13 @@ namespace ApplicationProject
         private void GoToAdmin_Button_Click(object sender, EventArgs e)
         {
             AdminPanelForm adm = new AdminPanelForm();
-            if(adm.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            adm.Show(); 
         }
 
         private void GoToUser_Button_Click(object sender, EventArgs e)
         {
-            MainMenuForm mnf = new MainMenuForm();
-            if(mnf.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            MainMenuForm mainMenuForm = new MainMenuForm();
+            mainMenuForm.Show(); 
         }
 
         private void GoToBack_Button_Click(object sender, EventArgs e)

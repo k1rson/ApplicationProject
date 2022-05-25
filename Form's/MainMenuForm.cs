@@ -38,19 +38,20 @@ namespace ApplicationProject
             string fileName = AllFiles_ListBox.SelectedItem.ToString();
 
             if (Input_RichBox.Text != null)
-                OtherFunction.encryption = Input_RichBox.Text;
-            EncryptionOptionsForm encryptionOptionsForm = new EncryptionOptionsForm();  
-            if(encryptionOptionsForm.ShowDialog() == DialogResult.OK)
-            {
+            OtherFunction.encryption = Input_RichBox.Text;
 
-            }
-            //sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption);
+            EncryptionOptionsForm encOptFomr = new EncryptionOptionsForm();
+            encOptFomr.Show(); 
+
+            //sqlFuncs.updateFile(OtherFunction.strTextChangeN, fileName, OtherFunction.decryption); 
             Output_RichBox.Text = OtherFunction.decryption;
         }
 
         private void ActiveDecrypt_Button_Click(object sender, EventArgs e)
         {
-            TabPage3.Parent = tabControl1; // вернуть видимость третьей вкладке 
+            TabPage3.Parent = tabControl1; // вернуть видимость третьей вкладке на tabControl 
+
+            // расшифровка 
         }
 
         private void SaveFileInput_Menu_Click(object sender, EventArgs e)
@@ -63,7 +64,8 @@ namespace ApplicationProject
 
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, Input_RichBox.Text);
-            MessageBox.Show("Файл с исходными данными сохранен!");
+            MessageBox.Show("Файл с исходными данными сохранен!", "Сохранение файла", 
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void SaveFileOutputEncypt_Menu_Click(object sender, EventArgs e)
@@ -76,7 +78,8 @@ namespace ApplicationProject
 
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, Output_RichBox.Text);
-            MessageBox.Show("Файл с зашифрованными данными сохранен!");
+            MessageBox.Show("Файл с зашифрованными данными сохранен!", "Сохранение файла",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void SaveFileOutputDecrypt_Menu_Click(object sender, EventArgs e)
@@ -89,14 +92,17 @@ namespace ApplicationProject
 
             // сохраняем текст в файл
             System.IO.File.WriteAllText(fileName, DecryptedOutput_RichBox.Text);
-            MessageBox.Show("Файл с расшифрованными данными сохранен!");
+            MessageBox.Show("Файл с расшифрованными данными сохранен!", "Сохранение файла",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string username = OtherFunction.strTextChangeN;
+
             List<string> files = sqlFuncs.selectUserFiles(username);
             Input_RichBox.Clear();
+
             if (AllFiles_ListBox.SelectedIndex <= files.Count)
             {
                 string filename = files[AllFiles_ListBox.SelectedIndex];
@@ -118,17 +124,17 @@ namespace ApplicationProject
 
             sqlFuncs.addFile(username, fileName, decrypted);
 
-            UpdateListBox(username);
-            MessageBox.Show("Файл добавлен!");
+            UpdateListBox(username); 
+
+            MessageBox.Show("Файл добавлен!", "Добавление файла",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void AddFileManually_Menu_Click(object sender, EventArgs e)
         {
-            AddFileManualForm amf = new AddFileManualForm();
-            if(amf.ShowDialog() == DialogResult.OK)
-            {
+            AddFileManualForm addManulForm = new AddFileManualForm();
+            addManulForm.Show(); 
 
-            }
             UpdateListBox(OtherFunction.strTextChangeN); 
         }
 
@@ -143,7 +149,8 @@ namespace ApplicationProject
                 sqlFuncs.deleteAllFiles(username);
 
                 UpdateListBox(username); 
-                MessageBox.Show("Файлы удалены!");
+                MessageBox.Show("Файлы удалены!", "Удаление файлов",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
         }
@@ -160,7 +167,8 @@ namespace ApplicationProject
                 sqlFuncs.deleteSelectedFile(username, fileName);
                 UpdateListBox(username);
 
-                MessageBox.Show("Файл успешно удален!");
+                MessageBox.Show("Файл успешно удален!", "Удаление файлов",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
         public void UpdateListBox(string username)

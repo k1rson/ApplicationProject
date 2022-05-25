@@ -16,10 +16,8 @@ namespace ApplicationProject
                 + ";port=" + port + ";User Id=" + username + ";password=" + password + ";CharSet=utf8mb4;";
 
             MySqlConnection conn = new MySqlConnection(connString);
-
             return conn;
         }
-
         public static MySqlConnection GetDBConnection()
         {
             string host = "31.31.198.99";

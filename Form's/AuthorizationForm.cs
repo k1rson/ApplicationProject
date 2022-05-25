@@ -16,7 +16,6 @@ namespace ApplicationProject
         {
             InitializeComponent();
         }
-
         public void ActionEnter_Button_Click(object sender, EventArgs e)
         {
             // проверка на существование пользователя, доступ к системе
@@ -26,34 +25,28 @@ namespace ApplicationProject
 
                 if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                 {
-                    SelectWorkZoneForm swz = new SelectWorkZoneForm(); 
-                    if(swz.ShowDialog() == DialogResult.OK)
-                    {
+                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
 
-                    }
+                    SelectWorkZoneForm workZone = new SelectWorkZoneForm(); 
+                    workZone.Show();
                 } 
                 else
                 {
-                    MainMenuForm form = new MainMenuForm();
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-
-                    }
+                    MainMenuForm mainForm = new MainMenuForm();
+                    mainForm.Show();
                 }
             }
             else
             {
-                MessageBox.Show("Логин или пароль введены неверно!");
+                MessageBox.Show("Логин или пароль введены неверно!", "Вход в аккаунт",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ActionSignUp_Button_Click(object sender, EventArgs e)
         {
-            RegistartionForm form = new RegistartionForm();
-
-            if(form.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            RegistartionForm registrForm = new RegistartionForm();
+            registrForm.Show(); 
         }
     }
 }

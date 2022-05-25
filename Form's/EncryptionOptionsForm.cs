@@ -19,7 +19,6 @@ namespace ApplicationProject
             SelectAlphabet_ComboBox.SelectedIndex = 0;
             Shift_TextBox.Text = string.Empty; 
         }
-
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             Close(); 
@@ -36,6 +35,10 @@ namespace ApplicationProject
         {
             // метод шифрования
             GetCypher();
+
+            MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
+
             Close(); 
         }
         private void GetCypher()
@@ -57,7 +60,8 @@ namespace ApplicationProject
                     string word = OtherFunction.encryption;
 
                     if (String.IsNullOrEmpty(word))
-                        MessageBox.Show("Строка \"Входные данные\" не может быть пустой! Выберите корректный файл!");
+                    MessageBox.Show("Поле \"Содержимое файла\" не может быть пустым!", "Шифрование (входные данные для шифрования)", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     int shift;
                     try
@@ -66,13 +70,15 @@ namespace ApplicationProject
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Ошибка!");
+                        MessageBox.Show("Вы ввели слишком большую длину сдвига!", "Шифрование (выбор сдвига)",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     if (shift > 32 || shift < 0)
                     {
-                        MessageBox.Show("Длина сдвига не может быть меньше 0 или больше 32!");
-                        return;
+                        MessageBox.Show("Длина сдвига не может быть меньше 0 или больше 32!", "Шифрование (выбор сдвига)",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; 
                     }
                     string code = null;
                     for (int i = 0; i < word.Length; i++)
@@ -157,7 +163,8 @@ namespace ApplicationProject
                     // someday bro
                     break;
                 default:
-                    MessageBox.Show("Требуется выбрать шифр!");
+                    MessageBox.Show("Требуется выбрать шифр!", "Шифрование (выбор шифра)",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
         }
