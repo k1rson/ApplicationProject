@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,15 +13,27 @@ namespace ApplicationProject
 {
     public partial class AuthorizationForm : Form
     {
+        private Worker _worker; 
         public AuthorizationForm()
         {
             InitializeComponent();
-            PasswordTextBox.UseSystemPasswordChar = true;
+
+            PasswordTextBox.UseSystemPasswordChar = true; // маска на пароль 
+
+            // подписываемся на события клика
+           // ActionEnter_Button.Click += ActionEnter_Button_Click; 
         }
         public void ActionEnter_Button_Click(object sender, EventArgs e)
         {
+            //_worker = new Worker();
+            //_worker.ProcessChanged += _worker_ProcessChanged;
+
+            //ActionEnter_Button.Enabled = false; // нехуй тыкать по 10 раз на одну кнопку
+
+           // _worker.Work();
+
             // проверка на существование пользователя, доступ к системе
-            if(sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
+            if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
             {
                 OtherFunction.strTextChangeN = LoginTextBox.Text;
 
@@ -29,9 +42,8 @@ namespace ApplicationProject
                     MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                    SelectWorkZoneForm workZone = new SelectWorkZoneForm(); 
+                    SelectWorkZoneForm workZone = new SelectWorkZoneForm();
                     workZone.Show();
-
                 } 
                 else
                 {
@@ -49,6 +61,12 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        //private void _worker_ProcessChanged(int progress)
+        //{
+        //    progressBar1.Value = progress; 
+        //}
+
         private void ActionSignUp_Button_Click(object sender, EventArgs e)
         {
             RegistartionForm registrForm = new RegistartionForm();

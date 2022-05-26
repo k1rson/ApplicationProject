@@ -114,6 +114,7 @@
       <DependentUpon>RecycleBinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlFuncs.cs" />
+    <Compile Include="Worker.cs" />
     <EmbeddedResource Include="Form%27s\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -278,12 +278,11 @@ namespace ApplicationProject
                 return;
             }
         }
+
+        // Exit from MainMenu Form
         private void ExitUser_Button_Click(object sender, EventArgs e)
         {
             Close();
-
-            AuthorizationForm authForm = new AuthorizationForm();
-            authForm.Show(); 
         }
     }
 }
