@@ -173,10 +173,6 @@ namespace ApplicationProject
             addManulForm.Show();
         }
 
-        
-
-
-
         // Delete all files
 
         private void DeleteAllFile_Menu_Click(object sender, EventArgs e)

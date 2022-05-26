@@ -15,6 +15,7 @@ namespace ApplicationProject
         public AuthorizationForm()
         {
             InitializeComponent();
+            PasswordTextBox.UseSystemPasswordChar = true;
         }
         public void ActionEnter_Button_Click(object sender, EventArgs e)
         {
@@ -47,6 +48,20 @@ namespace ApplicationProject
         {
             RegistartionForm registrForm = new RegistartionForm();
             registrForm.Show(); 
+        }
+
+        private void ShowPassword_Click(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.UseSystemPasswordChar == true)
+            {
+                PasswordTextBox.UseSystemPasswordChar = false;
+                ShowPassword_PictureBox.Image = Properties.Resources.visual; 
+            }
+            else
+            {
+                PasswordTextBox.UseSystemPasswordChar = true;
+                ShowPassword_PictureBox.Image = Properties.Resources.non_visual;
+            }
         }
     }
 }
