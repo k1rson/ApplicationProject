@@ -35,7 +35,7 @@ namespace ApplicationProject
         {
             // метод шифрования
             GetCypher();
-            sqlFuncs.updateFile(OtherFunction.strTextChangeN, OtherFunction.filename, OtherFunction.encryption, OtherFunction.decryption);
+            sqlFuncs.updateFile(OtherFunction.strTextChangeN, OtherFunction.filename, OtherFunction.decryption, OtherFunction.decryption);
 
 
             MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
@@ -59,7 +59,7 @@ namespace ApplicationProject
                 case 0:
                     #region Шифр Цезаря
 
-                    string word = OtherFunction.encryption;
+                    string word = OtherFunction.decryption;
 
                     if (String.IsNullOrEmpty(word))
                     MessageBox.Show("Поле \"Содержимое файла\" не может быть пустым!", "Шифрование (входные данные для шифрования)", 
@@ -158,7 +158,7 @@ namespace ApplicationProject
                             }
                         }
                     }
-                    OtherFunction.decryption = code;
+                    OtherFunction.encryption = code;
                     #endregion
                     break;
                 case 1:

@@ -39,7 +39,7 @@ namespace ApplicationProject
         private void ActiveEncryption_Button_Click(object sender, EventArgs e)
         {
             if (Input_RichBox.Text != null)
-            OtherFunction.encryption = Input_RichBox.Text;
+            OtherFunction.decryption = Input_RichBox.Text;
 
             EncryptionOptionsForm encOptFomr = new EncryptionOptionsForm();
             encOptFomr.Show(); 
@@ -117,10 +117,10 @@ namespace ApplicationProject
                 if (AllFiles_ListBox.SelectedIndex <= files.Count)
                 {
                     string filename = files[AllFiles_ListBox.SelectedIndex];
-                    string decryption = sqlFuncs.selectEncryptedText(filename, username);
+                    string encryption = sqlFuncs.selectEncryptedText(filename, username);
                     Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
-                    OtherFunction.decryption = decryption;
-                    Output_RichBox.Text = decryption;
+                    OtherFunction.encryption = encryption;
+                    Output_RichBox.Text = encryption;
 
                 }
             }
@@ -250,7 +250,7 @@ namespace ApplicationProject
 
         private void TabPage_2_Enter(object sender, EventArgs e)
         {
-            Output_RichBox.Text = OtherFunction.decryption;
+            Output_RichBox.Text = OtherFunction.encryption;
 
         }
 
