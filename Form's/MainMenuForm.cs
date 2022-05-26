@@ -23,12 +23,16 @@ namespace ApplicationProject
 
             openFileDialog2.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
 
+            // отображение username 
             string Login_ = OtherFunction.strTextChangeN;
             Username_Label.Text = Login_;
+
+            // подвязали контектное меню к списку файлов
+            AllFiles_ListBox.ContextMenuStrip = contextMenuStrip1; 
         }
 
         // Vision Input_RichBox
-
+        
         private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
@@ -129,8 +133,6 @@ namespace ApplicationProject
 
                 return;
             }
-
-            
         }
 
         // Add file for PC
@@ -179,7 +181,7 @@ namespace ApplicationProject
         {
             DialogResult res = MessageBox.Show(
                 "Желаете удалить ВСЕ файлы ?",
-                "Удаление файлов", MessageBoxButtons.YesNo);
+                "Удаление файлов", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
                 string username = OtherFunction.strTextChangeN;
@@ -197,7 +199,7 @@ namespace ApplicationProject
         {
             DialogResult res = MessageBox.Show(
                 "Желаете удалить файл ?",
-                "Удаление файла", MessageBoxButtons.YesNo);
+                "Удаление файла", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
                 string fileName = OtherFunction.filename;
@@ -206,6 +208,19 @@ namespace ApplicationProject
 
                 MessageBox.Show("Файл успешно удален!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        // Change file name // доработать чутка надо, я сам попозже сделаю 
+        private void ChangeFileName_Menu_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Вы уверены, что хотите изменить название файла?", "Предупреждение",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (res == DialogResult.Yes)
+            {
+                ChangeFileNameForm chFileName = new ChangeFileNameForm();
+                chFileName.Show();
             }
         }
 
@@ -262,6 +277,13 @@ namespace ApplicationProject
 
                 return;
             }
+        }
+        private void ExitUser_Button_Click(object sender, EventArgs e)
+        {
+            Close();
+
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.Show(); 
         }
     }
 }

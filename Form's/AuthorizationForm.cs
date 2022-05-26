@@ -27,10 +27,11 @@ namespace ApplicationProject
                 if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                 {
                     MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     SelectWorkZoneForm workZone = new SelectWorkZoneForm(); 
                     workZone.Show();
+
                 } 
                 else
                 {
@@ -40,8 +41,12 @@ namespace ApplicationProject
             }
             else
             {
-                MessageBox.Show("Логин или пароль введены неверно!", "Вход в аккаунт",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult res = MessageBox.Show("Логин или пароль введены неверно! Требуется помощь?", "Вход в аккаунт",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                if (res == DialogResult.Yes)
+                    MessageBox.Show("Если Вы забыли свой логин или пароль, воспользуйтесь кнопкой \"Восстановить логин/пароль\"", "Помощь", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void ActionSignUp_Button_Click(object sender, EventArgs e)

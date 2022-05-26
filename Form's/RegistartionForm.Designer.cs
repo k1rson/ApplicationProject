@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistartionForm));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.OK_Button = new System.Windows.Forms.Button();
@@ -38,7 +39,11 @@
             this.CnfmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
+            this.ShowPassword_PictureBox = new System.Windows.Forms.PictureBox();
+            this.ShowCnfrPassow_PictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPassword_PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowCnfrPassow_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -94,7 +99,7 @@
             // Password_Label
             // 
             this.Password_Label.AutoSize = true;
-            this.Password_Label.Location = new System.Drawing.Point(93, 82);
+            this.Password_Label.Location = new System.Drawing.Point(102, 82);
             this.Password_Label.Name = "Password_Label";
             this.Password_Label.Size = new System.Drawing.Size(48, 13);
             this.Password_Label.TabIndex = 12;
@@ -113,7 +118,6 @@
             // 
             this.CnfmPasswordTextBox.Location = new System.Drawing.Point(61, 152);
             this.CnfmPasswordTextBox.Name = "CnfmPasswordTextBox";
-            this.CnfmPasswordTextBox.PasswordChar = '*';
             this.CnfmPasswordTextBox.Size = new System.Drawing.Size(122, 20);
             this.CnfmPasswordTextBox.TabIndex = 10;
             // 
@@ -121,7 +125,6 @@
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(61, 98);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(122, 20);
             this.PasswordTextBox.TabIndex = 9;
             // 
@@ -132,11 +135,35 @@
             this.LoginTextBox.Size = new System.Drawing.Size(122, 20);
             this.LoginTextBox.TabIndex = 8;
             // 
+            // ShowPassword_PictureBox
+            // 
+            this.ShowPassword_PictureBox.Image = global::ApplicationProject.Properties.Resources.non_visual;
+            this.ShowPassword_PictureBox.Location = new System.Drawing.Point(189, 98);
+            this.ShowPassword_PictureBox.Name = "ShowPassword_PictureBox";
+            this.ShowPassword_PictureBox.Size = new System.Drawing.Size(27, 20);
+            this.ShowPassword_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ShowPassword_PictureBox.TabIndex = 16;
+            this.ShowPassword_PictureBox.TabStop = false;
+            this.ShowPassword_PictureBox.Click += new System.EventHandler(this.ShowPassword);
+            // 
+            // ShowCnfrPassow_PictureBox
+            // 
+            this.ShowCnfrPassow_PictureBox.Image = global::ApplicationProject.Properties.Resources.non_visual;
+            this.ShowCnfrPassow_PictureBox.Location = new System.Drawing.Point(189, 152);
+            this.ShowCnfrPassow_PictureBox.Name = "ShowCnfrPassow_PictureBox";
+            this.ShowCnfrPassow_PictureBox.Size = new System.Drawing.Size(27, 20);
+            this.ShowCnfrPassow_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ShowCnfrPassow_PictureBox.TabIndex = 17;
+            this.ShowCnfrPassow_PictureBox.TabStop = false;
+            this.ShowCnfrPassow_PictureBox.Click += new System.EventHandler(this.ShowCnfrmPassword);
+            // 
             // RegistartionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 261);
+            this.Controls.Add(this.ShowCnfrPassow_PictureBox);
+            this.Controls.Add(this.ShowPassword_PictureBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.ActionRegistr_Button);
             this.Controls.Add(this.confirmPasswordLabel);
@@ -146,11 +173,14 @@
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.LoginTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "RegistartionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация";
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ShowPassword_PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowCnfrPassow_PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +198,7 @@
         private System.Windows.Forms.TextBox CnfmPasswordTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox LoginTextBox;
+        private System.Windows.Forms.PictureBox ShowPassword_PictureBox;
+        private System.Windows.Forms.PictureBox ShowCnfrPassow_PictureBox;
     }
 }

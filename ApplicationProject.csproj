@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form%27s\ChangeFileNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\ChangeFileNameForm.Designer.cs">
+      <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\DecryptionOptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     <Compile Include="Form%27s\SelectWorkZoneForm.Designer.cs">
       <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form%27s\RecycleBinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\RecycleBinForm.Designer.cs">
+      <DependentUpon>RecycleBinForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="sqlFuncs.cs" />
     <EmbeddedResource Include="Form%27s\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
@@ -110,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\ChangeFileNameForm.resx">
+      <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\DecryptionOptionsForm.resx">
+      <DependentUpon>DecryptionOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\EncryptionOptionsForm.resx">
       <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
@@ -151,6 +169,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\visual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ban user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteAllFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\general users info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\non visual1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save input, output file ADMIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user files.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visual1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showAllFilesUSer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encrypted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decryption.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exchange.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

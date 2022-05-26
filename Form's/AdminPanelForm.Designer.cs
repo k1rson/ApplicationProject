@@ -51,19 +51,19 @@
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.OutputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.SaveFileInputAdmin_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileOutputAdmin_Button = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.GnrlInformation_Button = new System.Windows.Forms.ToolStripButton();
+            this.ShowFilesUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.DeleteUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.BanUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.NotificationUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.CreateReport_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileInputAdmin_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputAdmin_Button = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -217,7 +217,7 @@
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.TabPage1.Size = new System.Drawing.Size(569, 366);
             this.TabPage1.TabIndex = 0;
-            this.TabPage1.Text = "Исходные данные в файле";
+            this.TabPage1.Text = "Исходные данные";
             this.TabPage1.UseVisualStyleBackColor = true;
             // 
             // InputAdmin_RichBox
@@ -254,14 +254,14 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
+            this.GnrlInformation_Button,
+            this.ShowFilesUser_Button,
             this.toolStripSeparator2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
+            this.DeleteUser_Button,
+            this.BanUser_Button,
+            this.NotificationUser_Button,
             this.toolStripSeparator3,
-            this.toolStripButton6,
+            this.CreateReport_Button,
             this.toolStripSeparator4,
             this.SaveFileInputAdmin_Button,
             this.SaveFileOutputAdmin_Button});
@@ -271,85 +271,89 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Общая информация о пользователе";
-            this.toolStripButton1.Click += new System.EventHandler(this.GnrInformation_Menu_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Показать файлы выбранного пользователя";
-            this.toolStripButton2.Click += new System.EventHandler(this.ShowFilesUser_Menu_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Удалить пользователя";
-            this.toolStripButton3.Click += new System.EventHandler(this.DeleteUser_Menu_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Заблокировать пользователя";
-            this.toolStripButton4.Click += new System.EventHandler(this.BanUser_Menu_Click);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Уведомить пользователя";
-            this.toolStripButton5.Click += new System.EventHandler(this.NotificationUser_Menu_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "Создать отчет";
-            this.toolStripButton6.Click += new System.EventHandler(this.CreateReport_Menu_Click);
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // GnrlInformation_Button
+            // 
+            this.GnrlInformation_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.GnrlInformation_Button.Image = global::ApplicationProject.Properties.Resources.general_users_info;
+            this.GnrlInformation_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.GnrlInformation_Button.Name = "GnrlInformation_Button";
+            this.GnrlInformation_Button.Size = new System.Drawing.Size(23, 22);
+            this.GnrlInformation_Button.Text = "Общая информация о пользователе";
+            this.GnrlInformation_Button.Click += new System.EventHandler(this.GnrInformation_Menu_Click);
+            // 
+            // ShowFilesUser_Button
+            // 
+            this.ShowFilesUser_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ShowFilesUser_Button.Image = global::ApplicationProject.Properties.Resources.showAllFilesUSer;
+            this.ShowFilesUser_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ShowFilesUser_Button.Name = "ShowFilesUser_Button";
+            this.ShowFilesUser_Button.Size = new System.Drawing.Size(23, 22);
+            this.ShowFilesUser_Button.Text = "Показать файлы выбранного пользователя";
+            this.ShowFilesUser_Button.Click += new System.EventHandler(this.ShowFilesUser_Menu_Click);
+            // 
+            // DeleteUser_Button
+            // 
+            this.DeleteUser_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteUser_Button.Image = global::ApplicationProject.Properties.Resources.delete_user;
+            this.DeleteUser_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.DeleteUser_Button.Name = "DeleteUser_Button";
+            this.DeleteUser_Button.Size = new System.Drawing.Size(23, 22);
+            this.DeleteUser_Button.Text = "Удалить пользователя";
+            this.DeleteUser_Button.Click += new System.EventHandler(this.DeleteUser_Menu_Click);
+            // 
+            // BanUser_Button
+            // 
+            this.BanUser_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BanUser_Button.Image = global::ApplicationProject.Properties.Resources.ban_user;
+            this.BanUser_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BanUser_Button.Name = "BanUser_Button";
+            this.BanUser_Button.Size = new System.Drawing.Size(23, 22);
+            this.BanUser_Button.Text = "Заблокировать пользователя";
+            this.BanUser_Button.Click += new System.EventHandler(this.BanUser_Menu_Click);
+            // 
+            // NotificationUser_Button
+            // 
+            this.NotificationUser_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.NotificationUser_Button.Image = global::ApplicationProject.Properties.Resources.notification_user;
+            this.NotificationUser_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NotificationUser_Button.Name = "NotificationUser_Button";
+            this.NotificationUser_Button.Size = new System.Drawing.Size(23, 22);
+            this.NotificationUser_Button.Text = "Уведомить пользователя";
+            this.NotificationUser_Button.Click += new System.EventHandler(this.NotificationUser_Menu_Click);
+            // 
+            // CreateReport_Button
+            // 
+            this.CreateReport_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.CreateReport_Button.Image = global::ApplicationProject.Properties.Resources.create_report;
+            this.CreateReport_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CreateReport_Button.Name = "CreateReport_Button";
+            this.CreateReport_Button.Size = new System.Drawing.Size(23, 22);
+            this.CreateReport_Button.Text = "Создать отчет";
+            this.CreateReport_Button.Click += new System.EventHandler(this.CreateReport_Menu_Click);
+            // 
             // SaveFileInputAdmin_Button
             // 
             this.SaveFileInputAdmin_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileInputAdmin_Button.Image = ((System.Drawing.Image)(resources.GetObject("SaveFileInputAdmin_Button.Image")));
+            this.SaveFileInputAdmin_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
             this.SaveFileInputAdmin_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveFileInputAdmin_Button.Name = "SaveFileInputAdmin_Button";
             this.SaveFileInputAdmin_Button.Size = new System.Drawing.Size(23, 22);
@@ -359,16 +363,12 @@
             // SaveFileOutputAdmin_Button
             // 
             this.SaveFileOutputAdmin_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileOutputAdmin_Button.Image = ((System.Drawing.Image)(resources.GetObject("SaveFileOutputAdmin_Button.Image")));
+            this.SaveFileOutputAdmin_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
             this.SaveFileOutputAdmin_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveFileOutputAdmin_Button.Name = "SaveFileOutputAdmin_Button";
             this.SaveFileOutputAdmin_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileOutputAdmin_Button.Text = "Сохранить выходные данные";
             this.SaveFileOutputAdmin_Button.Click += new System.EventHandler(this.SaveFileOutputAdmin_Menu_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminPanelForm
             // 
@@ -380,7 +380,10 @@
             this.Controls.Add(this.AllUsers_Label);
             this.Controls.Add(this.AllUsers_ListBox);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "AdminPanelForm";
             this.Text = "Админ панель";
             this.menuStrip1.ResumeLayout(false);
@@ -414,14 +417,14 @@
         private System.Windows.Forms.TabPage TabPage1;
         private System.Windows.Forms.TabPage TabPage2;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton GnrlInformation_Button;
+        private System.Windows.Forms.ToolStripButton ShowFilesUser_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton DeleteUser_Button;
+        private System.Windows.Forms.ToolStripButton BanUser_Button;
+        private System.Windows.Forms.ToolStripButton NotificationUser_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton CreateReport_Button;
         private System.Windows.Forms.RichTextBox InputAdmin_RichBox;
         private System.Windows.Forms.RichTextBox OutputAdmin_RichBox;
         private System.Windows.Forms.ToolStripMenuItem файлыToolStripMenuItem;

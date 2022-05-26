@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.ActionSignUp_Button = new System.Windows.Forms.Button();
             this.ActionEnter_Button = new System.Windows.Forms.Button();
             this.Password_Label = new System.Windows.Forms.Label();
@@ -36,8 +37,8 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.ToolTipRegistr = new System.Windows.Forms.ToolTip(this.components);
-            this.InfoSystem_Label = new System.Windows.Forms.Label();
             this.ShowPassword_PictureBox = new System.Windows.Forms.PictureBox();
+            this.InfoSystem_Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ShowPassword_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,15 +95,6 @@
             this.LoginTextBox.Size = new System.Drawing.Size(122, 20);
             this.LoginTextBox.TabIndex = 6;
             // 
-            // InfoSystem_Label
-            // 
-            this.InfoSystem_Label.AutoSize = true;
-            this.InfoSystem_Label.Location = new System.Drawing.Point(64, 34);
-            this.InfoSystem_Label.Name = "InfoSystem_Label";
-            this.InfoSystem_Label.Size = new System.Drawing.Size(133, 13);
-            this.InfoSystem_Label.TabIndex = 12;
-            this.InfoSystem_Label.Text = "Программа шифрования";
-            // 
             // ShowPassword_PictureBox
             // 
             this.ShowPassword_PictureBox.Image = global::ApplicationProject.Properties.Resources.non_visual;
@@ -113,6 +105,15 @@
             this.ShowPassword_PictureBox.TabIndex = 13;
             this.ShowPassword_PictureBox.TabStop = false;
             this.ShowPassword_PictureBox.Click += new System.EventHandler(this.ShowPassword_Click);
+            // 
+            // InfoSystem_Label
+            // 
+            this.InfoSystem_Label.AutoSize = true;
+            this.InfoSystem_Label.Location = new System.Drawing.Point(64, 37);
+            this.InfoSystem_Label.Name = "InfoSystem_Label";
+            this.InfoSystem_Label.Size = new System.Drawing.Size(133, 13);
+            this.InfoSystem_Label.TabIndex = 12;
+            this.InfoSystem_Label.Text = "Программа шифрования";
             // 
             // AuthorizationForm
             // 
@@ -128,6 +129,7 @@
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.LoginTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AuthorizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -147,8 +149,8 @@
         private System.Windows.Forms.Label Login_Label;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox LoginTextBox;
-        private System.Windows.Forms.Label InfoSystem_Label;
         private System.Windows.Forms.PictureBox ShowPassword_PictureBox;
+        private System.Windows.Forms.Label InfoSystem_Label;
     }
 }
 

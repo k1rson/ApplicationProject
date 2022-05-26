@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectWorkZoneForm));
             this.InfoWZ_Label = new System.Windows.Forms.Label();
             this.GoToAdmin_Button = new System.Windows.Forms.Button();
             this.GoToUser_Button = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.GoToAdmin_Button);
             this.Controls.Add(this.InfoWZ_Label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SelectWorkZoneForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -239,6 +239,19 @@ namespace ApplicationProject
             conn.Close();
         }
 
+        public static void ChangeNameSelectedFile(string username, string fileName, string newFileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET filename = '{newFileName}' WHERE filename = '{fileName}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
 
         // Шифрование
         public static string sha256(string randomString)
