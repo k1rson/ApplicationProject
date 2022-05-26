@@ -35,7 +35,7 @@ namespace ApplicationProject
         {
             // метод шифрования
             GetCypher();
-            sqlFuncs.updateFile(OtherFunction.strTextChangeN, OtherFunction.filename, OtherFunction.decryption, OtherFunction.decryption);
+            sqlFuncs.updateFile(OtherFunction.strTextChangeN, OtherFunction.filename, OtherFunction.decryption, OtherFunction.encryption);
 
 
             MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
