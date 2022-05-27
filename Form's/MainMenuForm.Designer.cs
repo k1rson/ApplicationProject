@@ -73,13 +73,11 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.AllFiles_Label = new System.Windows.Forms.Label();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.ExitUser_Button = new System.Windows.Forms.Button();
             this.ContextMenuAllFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ChangeFileName = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Authorization_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -465,16 +463,6 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // ExitUser_Button
-            // 
-            this.ExitUser_Button.Location = new System.Drawing.Point(12, 422);
-            this.ExitUser_Button.Name = "ExitUser_Button";
-            this.ExitUser_Button.Size = new System.Drawing.Size(134, 23);
-            this.ExitUser_Button.TabIndex = 15;
-            this.ExitUser_Button.Text = "Выйти из аккаунта";
-            this.ExitUser_Button.UseVisualStyleBackColor = true;
-            this.ExitUser_Button.Click += new System.EventHandler(this.ExitUser_Button_Click);
-            // 
             // ContextMenuAllFiles
             // 
             this.ContextMenuAllFiles.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -510,23 +498,11 @@
             this.удалитьВсеФайлыToolStripMenuItem.Text = "Удалить все файлы";
             this.удалитьВсеФайлыToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllFile_Click);
             // 
-            // Authorization_Button
-            // 
-            this.Authorization_Button.Location = new System.Drawing.Point(173, 422);
-            this.Authorization_Button.Name = "Authorization_Button";
-            this.Authorization_Button.Size = new System.Drawing.Size(155, 23);
-            this.Authorization_Button.TabIndex = 16;
-            this.Authorization_Button.Text = "Авторизоваться";
-            this.Authorization_Button.UseVisualStyleBackColor = true;
-            this.Authorization_Button.Click += new System.EventHandler(this.Authorization_Button_Click);
-            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Authorization_Button);
-            this.Controls.Add(this.ExitUser_Button);
             this.Controls.Add(this.AllFiles_Label);
             this.Controls.Add(this.ActiveDecrypt_Button);
             this.Controls.Add(this.ActionDynamicEdit_Button);
@@ -545,6 +521,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.Activated += new System.EventHandler(this.MainMenuForm_Activated);
+            this.Shown += new System.EventHandler(this.MainMenuForm_Shown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainMenuForm_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -602,7 +579,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteAllFile_Menu;
         private System.Windows.Forms.ToolStripMenuItem DeleteSelectFile_Menu;
         private System.Windows.Forms.ToolStripButton ActionDeleteSelectFile_Button;
-        private System.Windows.Forms.Button ExitUser_Button;
         private System.Windows.Forms.ContextMenuStrip ContextMenuAllFiles;
         private System.Windows.Forms.ToolStripMenuItem ChangeFileName;
         private System.Windows.Forms.ToolStripMenuItem DeleteFile;
@@ -611,6 +587,5 @@
         private System.Windows.Forms.ToolStripMenuItem ChangeFileName_Menu;
         private System.Windows.Forms.ToolStripButton ChangeFileName_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.Button Authorization_Button;
     }
 }

@@ -222,11 +222,11 @@ namespace ApplicationProject
             }
         }
 
-        // Обработчик при входе в окно mainForm // В сто раз меньше кода
         private void MainMenuForm_Activated(object sender, EventArgs e)
         {
-            if(OtherFunction.userName != null)
+            if (OtherFunction.userName != null)
             {
+                Enabled = true;
                 UpdateListBox(OtherFunction.userName);
 
                 // отображение username 
@@ -235,20 +235,11 @@ namespace ApplicationProject
             }
             else
             {
-                AuthorizationForm authForm = new AuthorizationForm();
-                authForm.ShowDialog();
-            }
-        }
-
-        // Update ListBox
-        public void UpdateListBox(string username)
-        {
-            AllFiles_ListBox.Items.Clear();  
-
-            List<string> files = sqlFuncs.selectUserFiles(username);
-            for (int i = 0; i < files.Count; i++)
-            {
-                AllFiles_ListBox.Items.Add(files[i]);
+                Enabled = false; 
+                if(Enabled)
+                {
+                    Close(); 
+                }
             }
         }
 
@@ -273,15 +264,22 @@ namespace ApplicationProject
             }
         }
 
-        // Exit from MainMenu Form
-        private void ExitUser_Button_Click(object sender, EventArgs e)
+        // Update ListBox
+        public void UpdateListBox(string username)
         {
-            Close();
+            AllFiles_ListBox.Items.Clear();
+
+            List<string> files = sqlFuncs.selectUserFiles(username);
+            for (int i = 0; i < files.Count; i++)
+            {
+                AllFiles_ListBox.Items.Add(files[i]);
+            }
         }
 
-        private void Authorization_Button_Click(object sender, EventArgs e)
+        private void MainMenuForm_Shown(object sender, EventArgs e)
         {
-
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.ShowDialog();
         }
     }
 }
