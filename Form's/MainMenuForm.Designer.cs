@@ -78,8 +78,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.id = new System.Windows.Forms.Label();
-            this.UserID_Label = new System.Windows.Forms.Label();
             this.GoToAdminPanel_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
@@ -501,24 +499,6 @@
             this.удалитьВсеФайлыToolStripMenuItem.Text = "Удалить все файлы";
             this.удалитьВсеФайлыToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllFile_Click);
             // 
-            // id
-            // 
-            this.id.AutoSize = true;
-            this.id.Location = new System.Drawing.Point(559, 9);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(21, 13);
-            this.id.TabIndex = 15;
-            this.id.Text = "ID:";
-            // 
-            // UserID_Label
-            // 
-            this.UserID_Label.AutoSize = true;
-            this.UserID_Label.Location = new System.Drawing.Point(586, 9);
-            this.UserID_Label.Name = "UserID_Label";
-            this.UserID_Label.Size = new System.Drawing.Size(13, 13);
-            this.UserID_Label.TabIndex = 16;
-            this.UserID_Label.Text = "1";
-            // 
             // GoToAdminPanel_Button
             // 
             this.GoToAdminPanel_Button.Location = new System.Drawing.Point(12, 418);
@@ -535,8 +515,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GoToAdminPanel_Button);
-            this.Controls.Add(this.UserID_Label);
-            this.Controls.Add(this.id);
             this.Controls.Add(this.AllFiles_Label);
             this.Controls.Add(this.ActiveDecrypt_Button);
             this.Controls.Add(this.ActionDynamicEdit_Button);
@@ -621,8 +599,6 @@
         private System.Windows.Forms.ToolStripMenuItem ChangeFileName_Menu;
         private System.Windows.Forms.ToolStripButton ChangeFileName_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.Label id;
-        private System.Windows.Forms.Label UserID_Label;
         private System.Windows.Forms.Button GoToAdminPanel_Button;
     }
 }

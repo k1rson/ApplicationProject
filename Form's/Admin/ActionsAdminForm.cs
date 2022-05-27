@@ -19,10 +19,10 @@ namespace ApplicationProject
 
         private void AddAdmin_Button_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void DeleteAdmin_Click(object sender, EventArgs e)
         {
 
         }
@@ -30,6 +30,23 @@ namespace ApplicationProject
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             Close(); 
+        }
+
+        private bool IsValidateData()
+        {
+            int result;
+            if (String.IsNullOrEmpty(EnterIDUser_TextBox.Text))
+            {
+                return false;
+            }
+            else if (int.TryParse(EnterIDUser_TextBox.Text, out result))
+            {
+                MessageBox.Show("Введите ID пользователя!", "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else { return true; }
+            
         }
     }
 }
