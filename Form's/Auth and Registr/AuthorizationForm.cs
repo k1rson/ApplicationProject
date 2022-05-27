@@ -30,14 +30,13 @@ namespace ApplicationProject
                 {
                     MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                    SelectWorkZoneForm workZone = new SelectWorkZoneForm();
-                    workZone.Show();
+                    OtherFunction.isAdmin = true;
+                    Close(); 
                 } 
                 else
                 {
-                    MainMenuForm mainForm = new MainMenuForm();
-                    mainForm.Show();
+                    OtherFunction.isAuth = true;
+                    Close();
                 }
             }
             else

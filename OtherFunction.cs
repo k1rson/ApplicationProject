@@ -12,5 +12,7 @@ namespace ApplicationProject
         public static string encryption { get; set; }
         public static string decryption { get; set; }
         public static string fileName { get; set; }
+        public static bool isAuth { get; set; }
+        public static bool isAdmin { get; set; }
     }
 }

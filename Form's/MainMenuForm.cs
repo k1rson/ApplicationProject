@@ -27,14 +27,17 @@ namespace ApplicationProject
 
             // отображение username 
             string login = OtherFunction.userName;
+            OtherFunction.isAuth = false;
             Username_Label.Text = login;
 
             // подвязали контектное меню к списку файлов
-            AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles; 
+            AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
         }
 
-        // Vision Input_RichBox
         
+
+        // Vision Input_RichBox
+
         private void DynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
@@ -227,8 +230,26 @@ namespace ApplicationProject
         // Обработчик при входе в окно mainForm // В сто раз меньше кода
         private void MainMenuForm_Activated(object sender, EventArgs e)
         {
+            if (OtherFunction.isAuth)
+            {
+                UpdateListBox(OtherFunction.userName);
+            }
+            else
+            {
+                AuthorizationForm authForm = new AuthorizationForm();
+                authForm.ShowDialog();
+                if(Username_Label != null)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+
+
             // Срабатывает каждый раз при входе в это окно/ выходе из другого
-            UpdateListBox(OtherFunction.userName);
         }
 
         // Update ListBox
@@ -268,6 +289,11 @@ namespace ApplicationProject
         private void ExitUser_Button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Authorization_Button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
