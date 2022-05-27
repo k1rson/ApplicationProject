@@ -337,9 +337,8 @@
             this.Username_Label.AutoSize = true;
             this.Username_Label.Location = new System.Drawing.Point(693, 9);
             this.Username_Label.Name = "Username_Label";
-            this.Username_Label.Size = new System.Drawing.Size(125, 13);
+            this.Username_Label.Size = new System.Drawing.Size(0, 13);
             this.Username_Label.TabIndex = 10;
-            this.Username_Label.Text = "ИМЯ ПОЛЬЗОВАТЕЛЯ";
             // 
             // tabControl1
             // 

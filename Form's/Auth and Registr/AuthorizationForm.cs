@@ -67,10 +67,7 @@ namespace ApplicationProject
         private void AuthorizationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (OtherFunction.userName == null)
-            {
-                MainMenuForm mainMenuForm = OtherFunction.MainMenuForm;
-                mainMenuForm.Close();
-            }
+                OtherFunction.MainMenuForm.Close();
         }
     }
 }
