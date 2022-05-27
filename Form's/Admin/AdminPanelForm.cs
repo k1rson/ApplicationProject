@@ -84,5 +84,21 @@ namespace ApplicationProject
             ActionsAdminForm actionsAdm = new ActionsAdminForm();
             actionsAdm.Show();
         }
+
+        private void AdminPanelForm_Activated(object sender, EventArgs e)
+        {
+            AllUsers_ListBox.Items.Clear();
+
+            List<string> users = sqlFuncs.selectUsersList();
+            for (int i = 0; i < users.Count; i++)
+            {
+                AllUsers_ListBox.Items.Add(users[i]);
+            }
+        }
+
+        private void AllUsers_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

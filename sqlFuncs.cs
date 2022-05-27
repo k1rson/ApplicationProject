@@ -247,7 +247,7 @@ namespace ApplicationProject
             while (reader.Read())
             {
                 // элементы массива [] - это значения столбцов из запроса SELECT
-                users.Add(reader[0].ToString() + ": " + reader[1].ToString());
+                users.Add(reader[0].ToString() + ":" + reader[1].ToString());
             }
             reader.Close();
             conn.Close();
