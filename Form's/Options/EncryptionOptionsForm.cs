@@ -31,17 +31,6 @@ namespace ApplicationProject
 
         private void Encrypt_Button_Click(object sender, EventArgs e)
         {
-            GetCypher();
-
-            sqlFuncs.updateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);
-
-            MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
-                MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
-            Close(); 
-        }
-
-        private void GetCypher()
-        {
             #region Алфавиты
             string alphabetRus = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
             string alphabetRusCaps = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
@@ -59,25 +48,25 @@ namespace ApplicationProject
                     string word = OtherFunction.decryption;
 
                     if (String.IsNullOrEmpty(word))
-                    MessageBox.Show("Поле \"Содержимое файла\" не может быть пустым!", "Шифрование (входные данные для шифрования)", 
+                    {
+                        MessageBox.Show("Поле \"Содержимое файла\" не может быть пустым!", "Шифрование (входные данные для шифрования)",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    int shift;
-                    try
-                    {
-                        shift = int.Parse(Shift_TextBox.Text);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Вы ввели слишком большую длину сдвига!", "Шифрование (выбор сдвига)",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    if (String.IsNullOrEmpty(Shift_TextBox.Text))
+                    {
+                        MessageBox.Show("Поле \"Сдвиг\" не может быть пустым!", "Шифрование (входные данные для шифрования)",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; 
+                    }
+
+                    int shift = int.Parse(Shift_TextBox.Text);
+
                     if (shift > 32 || shift < 0)
                     {
                         MessageBox.Show("Длина сдвига не может быть меньше 0 или больше 32!", "Шифрование (выбор сдвига)",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; 
+                        return;
                     }
                     string code = null;
                     for (int i = 0; i < word.Length; i++)
@@ -166,7 +155,14 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+
+            sqlFuncs.updateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);
+
+            MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
+            Close(); 
         }
+
         #region Button - Cancel
         private void Cancel_Button_Click(object sender, EventArgs e)
         {

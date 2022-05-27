@@ -96,9 +96,45 @@ namespace ApplicationProject
             }
         }
 
+        
+
         private void AllUsers_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            try
+            {
+                string word = AllUsers_ListBox.SelectedItem.ToString();
+                string[] username = word.Split(':');
+                AllFilesUser_ListBox.Items.Clear();
 
+                List<string> files = sqlFuncs.selectUserFiles(username[1]);
+                for (int i = 0; i < files.Count; i++)
+                {
+                    AllFilesUser_ListBox.Items.Add(files[i]);
+                }
+                OtherFunction.selectedUsername = username[1];
+
+
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+        }
+
+        private void AllFilesUser_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                string filename = AllFilesUser_ListBox.SelectedItem.ToString();
+                InputAdmin_RichBox.Text = sqlFuncs.selectDecryptedText(filename, OtherFunction.selectedUsername);
+                OutputAdmin_RichBox.Text = sqlFuncs.selectEncryptedText(filename, OtherFunction.selectedUsername);
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
         }
     }
 }

@@ -68,7 +68,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.AllFilesUser_ListBox = new System.Windows.Forms.ListBox();
-            this.GoToUser_Button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -211,7 +211,7 @@
             this.AllUsers_ListBox.FormattingEnabled = true;
             this.AllUsers_ListBox.Location = new System.Drawing.Point(12, 69);
             this.AllUsers_ListBox.Name = "AllUsers_ListBox";
-            this.AllUsers_ListBox.Size = new System.Drawing.Size(94, 368);
+            this.AllUsers_ListBox.Size = new System.Drawing.Size(209, 160);
             this.AllUsers_ListBox.TabIndex = 2;
             this.AllUsers_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllUsers_ListBox_MouseDoubleClick);
             // 
@@ -398,26 +398,27 @@
             // AllFilesUser_ListBox
             // 
             this.AllFilesUser_ListBox.FormattingEnabled = true;
-            this.AllFilesUser_ListBox.Location = new System.Drawing.Point(112, 69);
+            this.AllFilesUser_ListBox.Location = new System.Drawing.Point(12, 274);
             this.AllFilesUser_ListBox.Name = "AllFilesUser_ListBox";
-            this.AllFilesUser_ListBox.Size = new System.Drawing.Size(109, 368);
+            this.AllFilesUser_ListBox.Size = new System.Drawing.Size(209, 160);
             this.AllFilesUser_ListBox.TabIndex = 11;
+            this.AllFilesUser_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllFilesUser_ListBox_MouseDoubleClick);
             // 
-            // GoToUser_Button
+            // label1
             // 
-            this.GoToUser_Button.Location = new System.Drawing.Point(713, 12);
-            this.GoToUser_Button.Name = "GoToUser_Button";
-            this.GoToUser_Button.Size = new System.Drawing.Size(75, 23);
-            this.GoToUser_Button.TabIndex = 12;
-            this.GoToUser_Button.Text = "Перейти";
-            this.GoToUser_Button.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 258);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Файлы выбранного пользователя:";
             // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.GoToUser_Button);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.AllFilesUser_ListBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
@@ -484,6 +485,6 @@
         private System.Windows.Forms.ToolStripMenuItem SettingAdmins;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ListBox AllFilesUser_ListBox;
-        private System.Windows.Forms.Button GoToUser_Button;
+        private System.Windows.Forms.Label label1;
     }
 }
