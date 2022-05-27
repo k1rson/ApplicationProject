@@ -49,29 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form%27s\ChangeFileNameForm.cs">
+    <Compile Include="Form%27s\Edit Files\ChangeFileNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\ChangeFileNameForm.Designer.cs">
+    <Compile Include="Form%27s\Edit Files\ChangeFileNameForm.Designer.cs">
       <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\DecryptionOptionsForm.cs">
+    <Compile Include="Form%27s\Options\DecryptionOptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\DecryptionOptionsForm.Designer.cs">
+    <Compile Include="Form%27s\Options\DecryptionOptionsForm.Designer.cs">
       <DependentUpon>DecryptionOptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\AddFileManualForm.cs">
+    <Compile Include="Form%27s\Edit Files\AddFileManualForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\AddFileManualForm.Designer.cs">
+    <Compile Include="Form%27s\Edit Files\AddFileManualForm.Designer.cs">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
-    <Compile Include="Form%27s\EncryptionOptionsForm.cs">
+    <Compile Include="Form%27s\Options\EncryptionOptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\EncryptionOptionsForm.Designer.cs">
+    <Compile Include="Form%27s\Options\EncryptionOptionsForm.Designer.cs">
       <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form%27s\AdminPanelForm.cs">
@@ -80,10 +80,10 @@
     <Compile Include="Form%27s\AdminPanelForm.Designer.cs">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\AuthorizationForm.cs">
+    <Compile Include="Form%27s\Auth and Registr\AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\AuthorizationForm.Designer.cs">
+    <Compile Include="Form%27s\Auth and Registr\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form%27s\MainMenuForm.cs">
@@ -95,51 +95,51 @@
     <Compile Include="OtherFunction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Form%27s\RegistartionForm.cs">
+    <Compile Include="Form%27s\Auth and Registr\RegistartionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\RegistartionForm.Designer.cs">
+    <Compile Include="Form%27s\Auth and Registr\RegistartionForm.Designer.cs">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\SelectWorkZoneForm.cs">
+    <Compile Include="Form%27s\Auth and Registr\SelectWorkZoneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\SelectWorkZoneForm.Designer.cs">
+    <Compile Include="Form%27s\Auth and Registr\SelectWorkZoneForm.Designer.cs">
       <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\RecycleBinForm.cs">
+    <Compile Include="Form%27s\Options\RecycleBinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\RecycleBinForm.Designer.cs">
+    <Compile Include="Form%27s\Options\RecycleBinForm.Designer.cs">
       <DependentUpon>RecycleBinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlFuncs.cs" />
     <Compile Include="Worker.cs" />
-    <EmbeddedResource Include="Form%27s\AddFileManualForm.resx">
+    <EmbeddedResource Include="Form%27s\Edit Files\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\AuthorizationForm.resx">
+    <EmbeddedResource Include="Form%27s\Auth and Registr\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\ChangeFileNameForm.resx">
+    <EmbeddedResource Include="Form%27s\Edit Files\ChangeFileNameForm.resx">
       <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\DecryptionOptionsForm.resx">
+    <EmbeddedResource Include="Form%27s\Options\DecryptionOptionsForm.resx">
       <DependentUpon>DecryptionOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\EncryptionOptionsForm.resx">
+    <EmbeddedResource Include="Form%27s\Options\EncryptionOptionsForm.resx">
       <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\RegistartionForm.resx">
+    <EmbeddedResource Include="Form%27s\Auth and Registr\RegistartionForm.resx">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\SelectWorkZoneForm.resx">
+    <EmbeddedResource Include="Form%27s\Auth and Registr\SelectWorkZoneForm.resx">
       <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

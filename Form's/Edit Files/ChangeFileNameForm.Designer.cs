@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeFileNameForm));
-            this.NonOldFileName_Label = new System.Windows.Forms.Label();
-            this.NewFileName_Label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
             this.LayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.OK_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.ResetFileName_Button = new System.Windows.Forms.Button();
-            this.ChOldFileName_Label = new System.Windows.Forms.Label();
-            this.ChFileName_TextBox = new System.Windows.Forms.TextBox();
+            this.OK_Button = new System.Windows.Forms.Button();
+            this.OldFileName_Label = new System.Windows.Forms.Label();
+            this.NewFileName_TextBox = new System.Windows.Forms.TextBox();
             this.LayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NonOldFileName_Label
+            // label1
             // 
-            this.NonOldFileName_Label.AutoSize = true;
-            this.NonOldFileName_Label.Location = new System.Drawing.Point(12, 20);
-            this.NonOldFileName_Label.Name = "NonOldFileName_Label";
-            this.NonOldFileName_Label.Size = new System.Drawing.Size(144, 13);
-            this.NonOldFileName_Label.TabIndex = 0;
-            this.NonOldFileName_Label.Text = "Текущее название файла: ";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Текущее название файла: ";
             // 
-            // NewFileName_Label
+            // Label2
             // 
-            this.NewFileName_Label.AutoSize = true;
-            this.NewFileName_Label.Location = new System.Drawing.Point(12, 48);
-            this.NewFileName_Label.Name = "NewFileName_Label";
-            this.NewFileName_Label.Size = new System.Drawing.Size(174, 13);
-            this.NewFileName_Label.TabIndex = 1;
-            this.NewFileName_Label.Text = "Введите новое название файла: ";
+            this.Label2.AutoSize = true;
+            this.Label2.Location = new System.Drawing.Point(12, 45);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(174, 13);
+            this.Label2.TabIndex = 1;
+            this.Label2.Text = "Введите новое название файла: ";
             // 
             // LayoutPanel
             // 
@@ -69,16 +69,6 @@
             this.LayoutPanel.Name = "LayoutPanel";
             this.LayoutPanel.Size = new System.Drawing.Size(338, 30);
             this.LayoutPanel.TabIndex = 2;
-            // 
-            // OK_Button
-            // 
-            this.OK_Button.Location = new System.Drawing.Point(98, 3);
-            this.OK_Button.Name = "OK_Button";
-            this.OK_Button.Size = new System.Drawing.Size(75, 23);
-            this.OK_Button.TabIndex = 0;
-            this.OK_Button.Text = "Применить";
-            this.OK_Button.UseVisualStyleBackColor = true;
-            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
             // 
             // Cancel_Button
             // 
@@ -100,32 +90,42 @@
             this.ResetFileName_Button.UseVisualStyleBackColor = true;
             this.ResetFileName_Button.Click += new System.EventHandler(this.ResetFileName_Button_Click);
             // 
-            // ChOldFileName_Label
+            // OK_Button
             // 
-            this.ChOldFileName_Label.AutoSize = true;
-            this.ChOldFileName_Label.Location = new System.Drawing.Point(162, 20);
-            this.ChOldFileName_Label.Name = "ChOldFileName_Label";
-            this.ChOldFileName_Label.Size = new System.Drawing.Size(76, 13);
-            this.ChOldFileName_Label.TabIndex = 3;
-            this.ChOldFileName_Label.Text = "ИМЯ ФАЙЛА";
+            this.OK_Button.Location = new System.Drawing.Point(98, 3);
+            this.OK_Button.Name = "OK_Button";
+            this.OK_Button.Size = new System.Drawing.Size(75, 23);
+            this.OK_Button.TabIndex = 0;
+            this.OK_Button.Text = "Применить";
+            this.OK_Button.UseVisualStyleBackColor = true;
+            this.OK_Button.Click += new System.EventHandler(this.ChangeFileName_Button_Click);
             // 
-            // ChFileName_TextBox
+            // OldFileName_Label
             // 
-            this.ChFileName_TextBox.Location = new System.Drawing.Point(192, 48);
-            this.ChFileName_TextBox.Name = "ChFileName_TextBox";
-            this.ChFileName_TextBox.Size = new System.Drawing.Size(136, 20);
-            this.ChFileName_TextBox.TabIndex = 4;
+            this.OldFileName_Label.AutoSize = true;
+            this.OldFileName_Label.Location = new System.Drawing.Point(148, 20);
+            this.OldFileName_Label.Name = "OldFileName_Label";
+            this.OldFileName_Label.Size = new System.Drawing.Size(76, 13);
+            this.OldFileName_Label.TabIndex = 3;
+            this.OldFileName_Label.Text = "ИМЯ ФАЙЛА";
+            // 
+            // NewFileName_TextBox
+            // 
+            this.NewFileName_TextBox.Location = new System.Drawing.Point(188, 42);
+            this.NewFileName_TextBox.Name = "NewFileName_TextBox";
+            this.NewFileName_TextBox.Size = new System.Drawing.Size(147, 20);
+            this.NewFileName_TextBox.TabIndex = 4;
             // 
             // ChangeFileNameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 105);
-            this.Controls.Add(this.ChFileName_TextBox);
-            this.Controls.Add(this.ChOldFileName_Label);
+            this.Controls.Add(this.NewFileName_TextBox);
+            this.Controls.Add(this.OldFileName_Label);
             this.Controls.Add(this.LayoutPanel);
-            this.Controls.Add(this.NewFileName_Label);
-            this.Controls.Add(this.NonOldFileName_Label);
+            this.Controls.Add(this.Label2);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -140,13 +140,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label NonOldFileName_Label;
-        private System.Windows.Forms.Label NewFileName_Label;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.FlowLayoutPanel LayoutPanel;
         private System.Windows.Forms.Button Cancel_Button;
         private System.Windows.Forms.Button ResetFileName_Button;
         private System.Windows.Forms.Button OK_Button;
-        private System.Windows.Forms.Label ChOldFileName_Label;
-        private System.Windows.Forms.TextBox ChFileName_TextBox;
+        private System.Windows.Forms.Label OldFileName_Label;
+        private System.Windows.Forms.TextBox NewFileName_TextBox;
     }
 }

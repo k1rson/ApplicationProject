@@ -13,30 +13,19 @@ namespace ApplicationProject
 {
     public partial class AuthorizationForm : Form
     {
-        private Worker _worker; 
         public AuthorizationForm()
         {
             InitializeComponent();
 
-            PasswordTextBox.UseSystemPasswordChar = true; // маска на пароль 
-
-            // подписываемся на события клика
-           // ActionEnter_Button.Click += ActionEnter_Button_Click; 
+            // Сontrol properties
+            PasswordTextBox.UseSystemPasswordChar = true; // password mask 
         }
-        public void ActionEnter_Button_Click(object sender, EventArgs e)
+        public void Enter_Button_Click(object sender, EventArgs e)
         {
-            //_worker = new Worker();
-            //_worker.ProcessChanged += _worker_ProcessChanged;
-
-            //ActionEnter_Button.Enabled = false; // нехуй тыкать по 10 раз на одну кнопку
-
-           // _worker.Work();
-
             // проверка на существование пользователя, доступ к системе
             if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
             {
-                OtherFunction.strTextChangeN = LoginTextBox.Text;
-
+                OtherFunction.userName = LoginTextBox.Text;
                 if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                 {
                     MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
@@ -62,12 +51,7 @@ namespace ApplicationProject
             }
         }
 
-        //private void _worker_ProcessChanged(int progress)
-        //{
-        //    progressBar1.Value = progress; 
-        //}
-
-        private void ActionSignUp_Button_Click(object sender, EventArgs e)
+        private void SignUp_Button_Click(object sender, EventArgs e)
         {
             RegistartionForm registrForm = new RegistartionForm();
             registrForm.Show(); 

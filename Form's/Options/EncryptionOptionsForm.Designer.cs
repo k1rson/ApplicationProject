@@ -163,7 +163,7 @@
             this.Reset_Button.TabIndex = 2;
             this.Reset_Button.Text = "Сбросить";
             this.Reset_Button.UseVisualStyleBackColor = true;
-            this.Reset_Button.Click += new System.EventHandler(this.Reset_Button_Click);
+            this.Reset_Button.Click += new System.EventHandler(this.ResetChanges_Button_Click);
             // 
             // OK_Button
             // 
@@ -173,7 +173,7 @@
             this.OK_Button.TabIndex = 0;
             this.OK_Button.Text = "Применить";
             this.OK_Button.UseVisualStyleBackColor = true;
-            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
+            this.OK_Button.Click += new System.EventHandler(this.Encrypt_Button_Click);
             // 
             // EncryptionOptionsForm
             // 

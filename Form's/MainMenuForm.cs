@@ -16,6 +16,8 @@ namespace ApplicationProject
         public MainMenuForm()
         {
             InitializeComponent();
+
+            // Control properties
             TabPage3.Parent = null; // убрать видимость третьей вкладки tabControl
 
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
@@ -24,23 +26,22 @@ namespace ApplicationProject
             openFileDialog2.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
 
             // отображение username 
-            string Login_ = OtherFunction.strTextChangeN;
-            Username_Label.Text = Login_;
+            string login = OtherFunction.userName;
+            Username_Label.Text = login;
 
             // подвязали контектное меню к списку файлов
-            AllFiles_ListBox.ContextMenuStrip = contextMenuStrip1; 
+            AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles; 
         }
 
         // Vision Input_RichBox
         
-        private void ActionDynamicEdit_Button_Click(object sender, EventArgs e)
+        private void DynamicEdit_Button_Click(object sender, EventArgs e)
         {
             Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
         }
 
-        // Open coding form
-
-        private void ActiveEncryption_Button_Click(object sender, EventArgs e)
+        // Open encypt form
+        private void Encrypt_Button_Click(object sender, EventArgs e)
         {
             if (Input_RichBox.Text != null)
             OtherFunction.decryption = Input_RichBox.Text;
@@ -49,9 +50,8 @@ namespace ApplicationProject
             encOptFomr.Show(); 
         }
 
-        // Event vision tabControl
-
-        private void ActiveDecrypt_Button_Click(object sender, EventArgs e)
+        // Decrypt data + vision tabPages3
+        private void Decrypt_Button_Click(object sender, EventArgs e)
         {
             TabPage3.Parent = tabControl1; // вернуть видимость третьей вкладке на tabControl 
 
@@ -59,8 +59,7 @@ namespace ApplicationProject
         }
 
         // Save selected file
-
-        private void SaveFileInput_Menu_Click(object sender, EventArgs e)
+        private void SaveContentFile_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -75,8 +74,7 @@ namespace ApplicationProject
         }
 
         // Save encrypt file
-
-        private void SaveFileOutputEncypt_Menu_Click(object sender, EventArgs e)
+        private void SaveEncyptFile_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -92,7 +90,7 @@ namespace ApplicationProject
 
         // Save decrypt file
 
-        private void SaveFileOutputDecrypt_Menu_Click(object sender, EventArgs e)
+        private void SaveDecryptFile_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -108,10 +106,9 @@ namespace ApplicationProject
 
 
         // Double click, select element list box
-
         private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string username = OtherFunction.strTextChangeN;
+            string username = OtherFunction.userName;
 
             List<string> files = sqlFuncs.selectUserFiles(username);
             Input_RichBox.Clear();
@@ -136,12 +133,11 @@ namespace ApplicationProject
         }
 
         // Add file for PC
-
-        private void AddFilePC_Menu_Click(object sender, EventArgs e)
+        private void AddFilePC_Click(object sender, EventArgs e)
         {
             if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
                 return;
-            string username = OtherFunction.strTextChangeN;
+            string username = OtherFunction.userName;
 
             string filePath = openFileDialog2.FileName;
             string fileName = Path.GetFileNameWithoutExtension(filePath);
@@ -168,42 +164,37 @@ namespace ApplicationProject
 
         // Create file
 
-        private AddFileManualForm addManulForm;
-        private void AddFileManually_Menu_Click(object sender, EventArgs e)
+        private void AddFileManually_Click(object sender, EventArgs e)
         {
-            addManulForm = new AddFileManualForm();
+            AddFileManualForm addManulForm = new AddFileManualForm();
             addManulForm.Show();
         }
 
         // Delete all files
-
-        private void DeleteAllFile_Menu_Click(object sender, EventArgs e)
+        private void DeleteAllFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show(
-                "Желаете удалить ВСЕ файлы ?",
-                "Удаление файлов", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult res = MessageBox.Show("Желаете удалить ВСЕ файлы ?", "Удаление файлов",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                string username = OtherFunction.strTextChangeN;
+                string username = OtherFunction.userName;
                 sqlFuncs.deleteAllFiles(username);
 
                 MessageBox.Show("Файлы удалены!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-
         }
 
         // Delete selected file
 
-        private void DeleteSelectFile_Menu_Click(object sender, EventArgs e)
+        private void DeleteSelectFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show(
-                "Желаете удалить файл ?",
-                "Удаление файла", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult res = MessageBox.Show("Желаете удалить файл ?", "Удаление файла", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                string fileName = OtherFunction.filename;
-                string username = OtherFunction.strTextChangeN;
+                string fileName = OtherFunction.fileName;
+                string username = OtherFunction.userName;
                 sqlFuncs.deleteSelectedFile(username, fileName);
 
                 MessageBox.Show("Файл успешно удален!", "Удаление файлов",
@@ -212,7 +203,7 @@ namespace ApplicationProject
         }
 
         // Change file name // доработать чутка надо, я сам попозже сделаю 
-        private void ChangeFileName_Menu_Click(object sender, EventArgs e)
+        private void ChangeFileName_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Вы уверены, что хотите изменить название файла?", "Предупреждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -225,27 +216,22 @@ namespace ApplicationProject
         }
 
         // Обработка нажатий клавиш // Доработать
-
         private void MainMenuForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
             {
-                UpdateListBox(OtherFunction.strTextChangeN);
+                UpdateListBox(OtherFunction.userName);
             }
         }
 
-
         // Обработчик при входе в окно mainForm // В сто раз меньше кода
-
         private void MainMenuForm_Activated(object sender, EventArgs e)
         {
             // Срабатывает каждый раз при входе в это окно/ выходе из другого
-            UpdateListBox(OtherFunction.strTextChangeN);
+            UpdateListBox(OtherFunction.userName);
         }
 
-
         // Update ListBox
-
         public void UpdateListBox(string username)
         {
             AllFiles_ListBox.Items.Clear();  
@@ -262,7 +248,6 @@ namespace ApplicationProject
         private void TabPage_2_Enter(object sender, EventArgs e)
         {
             Output_RichBox.Text = OtherFunction.encryption;
-
         }
 
         private void AllFiles_ListBox_MouseClick(object sender, MouseEventArgs e)
@@ -270,7 +255,7 @@ namespace ApplicationProject
             // Получаем тут имя файла чтобы потом меньше кода писать
             try
             {
-                OtherFunction.filename = AllFiles_ListBox.SelectedItem.ToString();
+                OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
             }
             catch (Exception)
             {

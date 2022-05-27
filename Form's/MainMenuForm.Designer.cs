@@ -74,7 +74,7 @@
             this.AllFiles_Label = new System.Windows.Forms.Label();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.ExitUser_Button = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMenuAllFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ChangeFileName = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +85,7 @@
             this.TabPage_1.SuspendLayout();
             this.TabPage_2.SuspendLayout();
             this.TabPage3.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.ContextMenuAllFiles.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,14 +123,14 @@
             this.AddFilePC_Menu.Name = "AddFilePC_Menu";
             this.AddFilePC_Menu.Size = new System.Drawing.Size(210, 22);
             this.AddFilePC_Menu.Text = "Добавить файл с ПК";
-            this.AddFilePC_Menu.Click += new System.EventHandler(this.AddFilePC_Menu_Click);
+            this.AddFilePC_Menu.Click += new System.EventHandler(this.AddFilePC_Click);
             // 
             // AddFileManually_Menu
             // 
             this.AddFileManually_Menu.Name = "AddFileManually_Menu";
             this.AddFileManually_Menu.Size = new System.Drawing.Size(210, 22);
             this.AddFileManually_Menu.Text = "Добавить файл вручную";
-            this.AddFileManually_Menu.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
+            this.AddFileManually_Menu.Click += new System.EventHandler(this.AddFileManually_Click);
             // 
             // DeleteFile_Menu
             // 
@@ -148,14 +148,14 @@
             this.DeleteAllFile_Menu.Name = "DeleteAllFile_Menu";
             this.DeleteAllFile_Menu.Size = new System.Drawing.Size(219, 22);
             this.DeleteAllFile_Menu.Text = "Удалить все файлы";
-            this.DeleteAllFile_Menu.Click += new System.EventHandler(this.DeleteAllFile_Menu_Click);
+            this.DeleteAllFile_Menu.Click += new System.EventHandler(this.DeleteAllFile_Click);
             // 
             // DeleteSelectFile_Menu
             // 
             this.DeleteSelectFile_Menu.Name = "DeleteSelectFile_Menu";
             this.DeleteSelectFile_Menu.Size = new System.Drawing.Size(219, 22);
             this.DeleteSelectFile_Menu.Text = "Удалить выбранный файл";
-            this.DeleteSelectFile_Menu.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
+            this.DeleteSelectFile_Menu.Click += new System.EventHandler(this.DeleteSelectFile_Click);
             // 
             // toolStripSeparator5
             // 
@@ -167,7 +167,7 @@
             this.ChangeFileName_Menu.Name = "ChangeFileName_Menu";
             this.ChangeFileName_Menu.Size = new System.Drawing.Size(219, 22);
             this.ChangeFileName_Menu.Text = "Изменить название файла";
-            this.ChangeFileName_Menu.Click += new System.EventHandler(this.ChangeFileName_Menu_Click);
+            this.ChangeFileName_Menu.Click += new System.EventHandler(this.ChangeFileName_Click);
             // 
             // toolStripSeparator1
             // 
@@ -189,21 +189,21 @@
             this.SaveFileInput_Menu.Name = "SaveFileInput_Menu";
             this.SaveFileInput_Menu.Size = new System.Drawing.Size(281, 22);
             this.SaveFileInput_Menu.Text = "Сохранить исходные данные";
-            this.SaveFileInput_Menu.Click += new System.EventHandler(this.SaveFileInput_Menu_Click);
+            this.SaveFileInput_Menu.Click += new System.EventHandler(this.SaveContentFile_Click);
             // 
             // SaveFileOutputEncypt_Menu
             // 
             this.SaveFileOutputEncypt_Menu.Name = "SaveFileOutputEncypt_Menu";
             this.SaveFileOutputEncypt_Menu.Size = new System.Drawing.Size(281, 22);
             this.SaveFileOutputEncypt_Menu.Text = "Сохранить зашифрованные данные";
-            this.SaveFileOutputEncypt_Menu.Click += new System.EventHandler(this.SaveFileOutputEncypt_Menu_Click);
+            this.SaveFileOutputEncypt_Menu.Click += new System.EventHandler(this.SaveEncyptFile_Click);
             // 
             // SaveFileOutputDecrypt_Menu
             // 
             this.SaveFileOutputDecrypt_Menu.Name = "SaveFileOutputDecrypt_Menu";
             this.SaveFileOutputDecrypt_Menu.Size = new System.Drawing.Size(281, 22);
             this.SaveFileOutputDecrypt_Menu.Text = "Сохранить расшифрованные данные";
-            this.SaveFileOutputDecrypt_Menu.Click += new System.EventHandler(this.SaveFileOutputDecrypt_Menu_Click);
+            this.SaveFileOutputDecrypt_Menu.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // ToolStrip
             // 
@@ -232,7 +232,7 @@
             this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
             this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
             this.ActionAddFilePC_Button.Text = "Добавить файл";
-            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Menu_Click);
+            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Click);
             // 
             // AddFileManually_Button
             // 
@@ -242,7 +242,7 @@
             this.AddFileManually_Button.Name = "AddFileManually_Button";
             this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
             this.AddFileManually_Button.Text = "Добавить файл вручную";
-            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Menu_Click);
+            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Click);
             // 
             // toolStripSeparator2
             // 
@@ -257,7 +257,7 @@
             this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
             this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
             this.ActionDeleteAllFile_Button.Text = "Удалить все файлы";
-            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Menu_Click);
+            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Click);
             // 
             // ActionDeleteSelectFile_Button
             // 
@@ -267,7 +267,7 @@
             this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
             this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
             this.ActionDeleteSelectFile_Button.Text = "Удалить выбранный файл";
-            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
+            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Click);
             // 
             // ChangeFileName_Button
             // 
@@ -277,7 +277,7 @@
             this.ChangeFileName_Button.Name = "ChangeFileName_Button";
             this.ChangeFileName_Button.Size = new System.Drawing.Size(23, 22);
             this.ChangeFileName_Button.Text = "Изменить название выбранного файла";
-            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Menu_Click);
+            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Click);
             // 
             // toolStripSeparator3
             // 
@@ -292,7 +292,7 @@
             this.SaveFileInput_Button.Name = "SaveFileInput_Button";
             this.SaveFileInput_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileInput_Button.Text = "Сохранить исходный файл";
-            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveFileInput_Menu_Click);
+            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveContentFile_Click);
             // 
             // SaveFileOutputEncypt_Button
             // 
@@ -302,7 +302,7 @@
             this.SaveFileOutputEncypt_Button.Name = "SaveFileOutputEncypt_Button";
             this.SaveFileOutputEncypt_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileOutputEncypt_Button.Text = "Сохранить зашифрованные данные";
-            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveFileOutputEncypt_Menu_Click);
+            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveEncyptFile_Click);
             // 
             // SaveFileOutputDecrypt_Button
             // 
@@ -312,7 +312,7 @@
             this.SaveFileOutputDecrypt_Button.Name = "SaveFileOutputDecrypt_Button";
             this.SaveFileOutputDecrypt_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileOutputDecrypt_Button.Text = "Сохранить расшифрованные данные";
-            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveFileOutputDecrypt_Menu_Click);
+            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // UM_Label
             // 
@@ -425,7 +425,7 @@
             this.ActionDynamicEdit_Button.TabIndex = 0;
             this.ActionDynamicEdit_Button.Text = "Редактировать вручную";
             this.ActionDynamicEdit_Button.UseVisualStyleBackColor = true;
-            this.ActionDynamicEdit_Button.Click += new System.EventHandler(this.ActionDynamicEdit_Button_Click);
+            this.ActionDynamicEdit_Button.Click += new System.EventHandler(this.DynamicEdit_Button_Click);
             // 
             // ActiveEncryption_Button
             // 
@@ -435,7 +435,7 @@
             this.ActiveEncryption_Button.TabIndex = 12;
             this.ActiveEncryption_Button.Text = "Зашифровать";
             this.ActiveEncryption_Button.UseVisualStyleBackColor = true;
-            this.ActiveEncryption_Button.Click += new System.EventHandler(this.ActiveEncryption_Button_Click);
+            this.ActiveEncryption_Button.Click += new System.EventHandler(this.Encrypt_Button_Click);
             // 
             // ActiveDecrypt_Button
             // 
@@ -445,7 +445,7 @@
             this.ActiveDecrypt_Button.TabIndex = 13;
             this.ActiveDecrypt_Button.Text = "Расшифровать";
             this.ActiveDecrypt_Button.UseVisualStyleBackColor = true;
-            this.ActiveDecrypt_Button.Click += new System.EventHandler(this.ActiveDecrypt_Button_Click);
+            this.ActiveDecrypt_Button.Click += new System.EventHandler(this.Decrypt_Button_Click);
             // 
             // openFileDialog1
             // 
@@ -476,13 +476,13 @@
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextMenuAllFiles.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ChangeFileName,
             this.toolStripSeparator4,
             this.DeleteFile,
             this.удалитьВсеФайлыToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(262, 76);
+            this.ContextMenuAllFiles.Name = "ContextMenuAllFiles";
+            this.ContextMenuAllFiles.Size = new System.Drawing.Size(262, 76);
             // 
             // ChangeFileName
             // 
@@ -500,14 +500,14 @@
             this.DeleteFile.Name = "DeleteFile";
             this.DeleteFile.Size = new System.Drawing.Size(261, 22);
             this.DeleteFile.Text = "Удалить выбранный файл";
-            this.DeleteFile.Click += new System.EventHandler(this.DeleteSelectFile_Menu_Click);
+            this.DeleteFile.Click += new System.EventHandler(this.DeleteSelectFile_Click);
             // 
             // удалитьВсеФайлыToolStripMenuItem
             // 
             this.удалитьВсеФайлыToolStripMenuItem.Name = "удалитьВсеФайлыToolStripMenuItem";
             this.удалитьВсеФайлыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.удалитьВсеФайлыToolStripMenuItem.Text = "Удалить все файлы";
-            this.удалитьВсеФайлыToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllFile_Menu_Click);
+            this.удалитьВсеФайлыToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllFile_Click);
             // 
             // MainMenuForm
             // 
@@ -542,7 +542,7 @@
             this.TabPage_1.ResumeLayout(false);
             this.TabPage_2.ResumeLayout(false);
             this.TabPage3.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.ContextMenuAllFiles.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,7 +591,7 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteSelectFile_Menu;
         private System.Windows.Forms.ToolStripButton ActionDeleteSelectFile_Button;
         private System.Windows.Forms.Button ExitUser_Button;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuAllFiles;
         private System.Windows.Forms.ToolStripMenuItem ChangeFileName;
         private System.Windows.Forms.ToolStripMenuItem DeleteFile;
         private System.Windows.Forms.ToolStripMenuItem удалитьВсеФайлыToolStripMenuItem;

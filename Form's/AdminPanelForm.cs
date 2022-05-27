@@ -20,36 +20,36 @@ namespace ApplicationProject
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
         }
 
-        private void GnrInformation_Menu_Click(object sender, EventArgs e)
+        private void GnrInformation_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ShowFilesUser_Menu_Click(object sender, EventArgs e)
+        private void ShowFilesUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void DeleteUser_Menu_Click(object sender, EventArgs e)
+        private void DeleteUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BanUser_Menu_Click(object sender, EventArgs e)
+        private void BanUser_Click(object sender, EventArgs e)
         {
         }
 
-        private void NotificationUser_Menu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreateReport_Menu_Click(object sender, EventArgs e)
+        private void NotificationUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void SaveFileInpurAdmin_Menu_Click(object sender, EventArgs e)
+        private void CreateReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveOriginalData_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -64,7 +64,7 @@ namespace ApplicationProject
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        private void SaveFileOutputAdmin_Menu_Click(object sender, EventArgs e)
+        private void SaveConvertedData_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;

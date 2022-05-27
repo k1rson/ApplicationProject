@@ -109,14 +109,14 @@
             this.GnrInformation_Menu.Name = "GnrInformation_Menu";
             this.GnrInformation_Menu.Size = new System.Drawing.Size(243, 22);
             this.GnrInformation_Menu.Text = "Общая информация";
-            this.GnrInformation_Menu.Click += new System.EventHandler(this.GnrInformation_Menu_Click);
+            this.GnrInformation_Menu.Click += new System.EventHandler(this.GnrInformation_Click);
             // 
             // ShowFilesUser_Menu
             // 
             this.ShowFilesUser_Menu.Name = "ShowFilesUser_Menu";
             this.ShowFilesUser_Menu.Size = new System.Drawing.Size(243, 22);
             this.ShowFilesUser_Menu.Text = "Показать файлы пользователя";
-            this.ShowFilesUser_Menu.Click += new System.EventHandler(this.ShowFilesUser_Menu_Click);
+            this.ShowFilesUser_Menu.Click += new System.EventHandler(this.ShowFilesUser_Click);
             // 
             // toolStripSeparator1
             // 
@@ -128,21 +128,21 @@
             this.DeleteUser_Menu.Name = "DeleteUser_Menu";
             this.DeleteUser_Menu.Size = new System.Drawing.Size(315, 22);
             this.DeleteUser_Menu.Text = "Удалить пользователя";
-            this.DeleteUser_Menu.Click += new System.EventHandler(this.DeleteUser_Menu_Click);
+            this.DeleteUser_Menu.Click += new System.EventHandler(this.DeleteUser_Click);
             // 
             // BanUser_Menu
             // 
             this.BanUser_Menu.Name = "BanUser_Menu";
             this.BanUser_Menu.Size = new System.Drawing.Size(315, 22);
             this.BanUser_Menu.Text = "Заблокировать пользователя";
-            this.BanUser_Menu.Click += new System.EventHandler(this.BanUser_Menu_Click);
+            this.BanUser_Menu.Click += new System.EventHandler(this.BanUser_Click);
             // 
             // NotificationUser_Menu
             // 
             this.NotificationUser_Menu.Name = "NotificationUser_Menu";
             this.NotificationUser_Menu.Size = new System.Drawing.Size(315, 22);
             this.NotificationUser_Menu.Text = "Уведомить пользователя";
-            this.NotificationUser_Menu.Click += new System.EventHandler(this.NotificationUser_Menu_Click);
+            this.NotificationUser_Menu.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
             // отчетыToolStripMenuItem
             // 
@@ -157,7 +157,7 @@
             this.CreateReport_Menu.Name = "CreateReport_Menu";
             this.CreateReport_Menu.Size = new System.Drawing.Size(150, 22);
             this.CreateReport_Menu.Text = "Создать отчет";
-            this.CreateReport_Menu.Click += new System.EventHandler(this.CreateReport_Menu_Click);
+            this.CreateReport_Menu.Click += new System.EventHandler(this.CreateReport_Click);
             // 
             // файлыToolStripMenuItem
             // 
@@ -173,14 +173,14 @@
             this.SaveFileInpurAdmin_Menu.Name = "SaveFileInpurAdmin_Menu";
             this.SaveFileInpurAdmin_Menu.Size = new System.Drawing.Size(236, 22);
             this.SaveFileInpurAdmin_Menu.Text = "Сохранить исходные данные";
-            this.SaveFileInpurAdmin_Menu.Click += new System.EventHandler(this.SaveFileInpurAdmin_Menu_Click);
+            this.SaveFileInpurAdmin_Menu.Click += new System.EventHandler(this.SaveOriginalData_Click);
             // 
             // SaveFileOutputAdmin_Menu
             // 
             this.SaveFileOutputAdmin_Menu.Name = "SaveFileOutputAdmin_Menu";
             this.SaveFileOutputAdmin_Menu.Size = new System.Drawing.Size(236, 22);
             this.SaveFileOutputAdmin_Menu.Text = "Сохранить выходные данные";
-            this.SaveFileOutputAdmin_Menu.Click += new System.EventHandler(this.SaveFileOutputAdmin_Menu_Click);
+            this.SaveFileOutputAdmin_Menu.Click += new System.EventHandler(this.SaveConvertedData_Click);
             // 
             // AllUsers_ListBox
             // 
@@ -298,7 +298,7 @@
             this.GnrlInformation_Button.Name = "GnrlInformation_Button";
             this.GnrlInformation_Button.Size = new System.Drawing.Size(23, 22);
             this.GnrlInformation_Button.Text = "Общая информация о пользователе";
-            this.GnrlInformation_Button.Click += new System.EventHandler(this.GnrInformation_Menu_Click);
+            this.GnrlInformation_Button.Click += new System.EventHandler(this.GnrInformation_Click);
             // 
             // ShowFilesUser_Button
             // 
@@ -308,7 +308,7 @@
             this.ShowFilesUser_Button.Name = "ShowFilesUser_Button";
             this.ShowFilesUser_Button.Size = new System.Drawing.Size(23, 22);
             this.ShowFilesUser_Button.Text = "Показать файлы выбранного пользователя";
-            this.ShowFilesUser_Button.Click += new System.EventHandler(this.ShowFilesUser_Menu_Click);
+            this.ShowFilesUser_Button.Click += new System.EventHandler(this.ShowFilesUser_Click);
             // 
             // DeleteUser_Button
             // 
@@ -318,7 +318,7 @@
             this.DeleteUser_Button.Name = "DeleteUser_Button";
             this.DeleteUser_Button.Size = new System.Drawing.Size(23, 22);
             this.DeleteUser_Button.Text = "Удалить пользователя";
-            this.DeleteUser_Button.Click += new System.EventHandler(this.DeleteUser_Menu_Click);
+            this.DeleteUser_Button.Click += new System.EventHandler(this.DeleteUser_Click);
             // 
             // BanUser_Button
             // 
@@ -328,7 +328,7 @@
             this.BanUser_Button.Name = "BanUser_Button";
             this.BanUser_Button.Size = new System.Drawing.Size(23, 22);
             this.BanUser_Button.Text = "Заблокировать пользователя";
-            this.BanUser_Button.Click += new System.EventHandler(this.BanUser_Menu_Click);
+            this.BanUser_Button.Click += new System.EventHandler(this.BanUser_Click);
             // 
             // NotificationUser_Button
             // 
@@ -338,7 +338,7 @@
             this.NotificationUser_Button.Name = "NotificationUser_Button";
             this.NotificationUser_Button.Size = new System.Drawing.Size(23, 22);
             this.NotificationUser_Button.Text = "Уведомить пользователя";
-            this.NotificationUser_Button.Click += new System.EventHandler(this.NotificationUser_Menu_Click);
+            this.NotificationUser_Button.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
             // CreateReport_Button
             // 
@@ -348,7 +348,7 @@
             this.CreateReport_Button.Name = "CreateReport_Button";
             this.CreateReport_Button.Size = new System.Drawing.Size(23, 22);
             this.CreateReport_Button.Text = "Создать отчет";
-            this.CreateReport_Button.Click += new System.EventHandler(this.CreateReport_Menu_Click);
+            this.CreateReport_Button.Click += new System.EventHandler(this.CreateReport_Click);
             // 
             // SaveFileInputAdmin_Button
             // 
@@ -358,7 +358,7 @@
             this.SaveFileInputAdmin_Button.Name = "SaveFileInputAdmin_Button";
             this.SaveFileInputAdmin_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileInputAdmin_Button.Text = "Сохранить исходные данные";
-            this.SaveFileInputAdmin_Button.Click += new System.EventHandler(this.SaveFileInpurAdmin_Menu_Click);
+            this.SaveFileInputAdmin_Button.Click += new System.EventHandler(this.SaveOriginalData_Click);
             // 
             // SaveFileOutputAdmin_Button
             // 
@@ -368,7 +368,7 @@
             this.SaveFileOutputAdmin_Button.Name = "SaveFileOutputAdmin_Button";
             this.SaveFileOutputAdmin_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileOutputAdmin_Button.Text = "Сохранить выходные данные";
-            this.SaveFileOutputAdmin_Button.Click += new System.EventHandler(this.SaveFileOutputAdmin_Menu_Click);
+            this.SaveFileOutputAdmin_Button.Click += new System.EventHandler(this.SaveConvertedData_Click);
             // 
             // AdminPanelForm
             // 

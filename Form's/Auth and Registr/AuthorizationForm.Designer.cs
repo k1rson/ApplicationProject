@@ -52,7 +52,7 @@
             this.ActionSignUp_Button.Text = "Зарегистрироваться";
             this.ToolTipRegistr.SetToolTip(this.ActionSignUp_Button, "У Вас нет аккаунта? Пройдите быструю регистрацию, нажав на данную кнопку!\r\n");
             this.ActionSignUp_Button.UseVisualStyleBackColor = true;
-            this.ActionSignUp_Button.Click += new System.EventHandler(this.ActionSignUp_Button_Click);
+            this.ActionSignUp_Button.Click += new System.EventHandler(this.SignUp_Button_Click);
             // 
             // ActionEnter_Button
             // 
@@ -62,7 +62,7 @@
             this.ActionEnter_Button.TabIndex = 10;
             this.ActionEnter_Button.Text = "Войти";
             this.ActionEnter_Button.UseVisualStyleBackColor = true;
-            this.ActionEnter_Button.Click += new System.EventHandler(this.ActionEnter_Button_Click);
+            this.ActionEnter_Button.Click += new System.EventHandler(this.Enter_Button_Click);
             // 
             // Password_Label
             // 

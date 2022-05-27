@@ -15,34 +15,31 @@ namespace ApplicationProject
         public EncryptionOptionsForm()
         {
             InitializeComponent();
+
+            // Сontrol properties
             SelectEncyption_ComboBox.SelectedIndex = 0; 
             SelectAlphabet_ComboBox.SelectedIndex = 0;
             Shift_TextBox.Text = string.Empty; 
         }
-        private void Cancel_Button_Click(object sender, EventArgs e)
-        {
-            Close(); 
-        }
-
-        private void Reset_Button_Click(object sender, EventArgs e)
+        
+        private void ResetChanges_Button_Click(object sender, EventArgs e)
         {
             SelectEncyption_ComboBox.SelectedIndex = -1;
             SelectAlphabet_ComboBox.SelectedIndex = -1;
             Shift_TextBox.Text = string.Empty;
         }
 
-        private void OK_Button_Click(object sender, EventArgs e)
+        private void Encrypt_Button_Click(object sender, EventArgs e)
         {
-            // метод шифрования
             GetCypher();
-            sqlFuncs.updateFile(OtherFunction.strTextChangeN, OtherFunction.filename, OtherFunction.decryption, OtherFunction.encryption);
 
+            sqlFuncs.updateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);
 
             MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 
-
             Close(); 
         }
+
         private void GetCypher()
         {
             #region Алфавиты
@@ -170,6 +167,11 @@ namespace ApplicationProject
                     break;
             }
         }
-
+        #region Button - Cancel
+        private void Cancel_Button_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
     }
 }

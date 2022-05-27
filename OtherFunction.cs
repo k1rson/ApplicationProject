@@ -8,9 +8,9 @@ namespace ApplicationProject
 {
     public class OtherFunction
     {
-        public static string strTextChangeN { get; set; }
+        public static string userName { get; set; }
         public static string encryption { get; set; }
         public static string decryption { get; set; }
-        public static string filename { get; set; }
+        public static string fileName { get; set; }
     }
 }

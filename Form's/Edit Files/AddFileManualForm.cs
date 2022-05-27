@@ -17,12 +17,13 @@ namespace ApplicationProject
             InitializeComponent();
         }
 
-        private void OK_Button_Click(object sender, EventArgs e)
+        private void AddFileManually_Button_Click(object sender, EventArgs e)
         {
-            string username = OtherFunction.strTextChangeN;
+            string userName = OtherFunction.userName;
             string fileName = FileName_TextBox.Text;
+
             int i = 0;
-            while (sqlFuncs.IsCheckFilename(username, fileName))
+            while (sqlFuncs.IsCheckFilename(userName, fileName))
             {
                 i++;
                 if(i >= 2)
@@ -32,13 +33,13 @@ namespace ApplicationProject
                 fileName = fileName + $" ({i})";
             }
 
-            sqlFuncs.addFileManual(username, fileName);
+            sqlFuncs.addFileManual(userName, fileName);
 
             MessageBox.Show("Файл добавлен вручную!", "Добавление файла", 
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
             Close();
         }
+
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             Close(); 

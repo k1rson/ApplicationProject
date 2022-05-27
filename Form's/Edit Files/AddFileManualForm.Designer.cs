@@ -59,7 +59,7 @@
             this.OK_Button.TabIndex = 0;
             this.OK_Button.Text = "Добавить файл";
             this.OK_Button.UseVisualStyleBackColor = true;
-            this.OK_Button.Click += new System.EventHandler(this.OK_Button_Click);
+            this.OK_Button.Click += new System.EventHandler(this.AddFileManually_Button_Click);
             // 
             // Cancel_Button
             // 

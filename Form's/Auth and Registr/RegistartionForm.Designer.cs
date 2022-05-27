@@ -85,7 +85,7 @@
             this.ActionRegistr_Button.TabIndex = 14;
             this.ActionRegistr_Button.Text = "Зарегистрироваться";
             this.ActionRegistr_Button.UseVisualStyleBackColor = true;
-            this.ActionRegistr_Button.Click += new System.EventHandler(this.ActionRegistr_Button_Click);
+            this.ActionRegistr_Button.Click += new System.EventHandler(this.Registration_Button_Click);
             // 
             // confirmPasswordLabel
             // 
@@ -144,7 +144,7 @@
             this.ShowPassword_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ShowPassword_PictureBox.TabIndex = 16;
             this.ShowPassword_PictureBox.TabStop = false;
-            this.ShowPassword_PictureBox.Click += new System.EventHandler(this.ShowPassword);
+            this.ShowPassword_PictureBox.Click += new System.EventHandler(this.ShowPassword_Click);
             // 
             // ShowCnfrPassow_PictureBox
             // 
@@ -155,7 +155,7 @@
             this.ShowCnfrPassow_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ShowCnfrPassow_PictureBox.TabIndex = 17;
             this.ShowCnfrPassow_PictureBox.TabStop = false;
-            this.ShowCnfrPassow_PictureBox.Click += new System.EventHandler(this.ShowCnfrmPassword);
+            this.ShowCnfrPassow_PictureBox.Click += new System.EventHandler(this.ShowCnfrmPassword_Click);
             // 
             // RegistartionForm
             // 

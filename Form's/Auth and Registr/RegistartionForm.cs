@@ -15,13 +15,14 @@ namespace ApplicationProject
         public RegistartionForm()
         {
             InitializeComponent();
-
-            PasswordTextBox.UseSystemPasswordChar = true;
-            CnfmPasswordTextBox.UseSystemPasswordChar = true;
+            
+            // Сontrol properties
+            PasswordTextBox.UseSystemPasswordChar = true;  // password mask
+            CnfmPasswordTextBox.UseSystemPasswordChar = true; // password mask
         }
-        private void ActionRegistr_Button_Click(object sender, EventArgs e)
+        private void Registration_Button_Click(object sender, EventArgs e)
         {
-            // добавление пользователя в БД
+            // Add a user to the database
             if (IsDataValid(LoginTextBox.Text, PasswordTextBox.Text, CnfmPasswordTextBox.Text))
             {
                 sqlFuncs.regUser(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text));
@@ -31,27 +32,45 @@ namespace ApplicationProject
             }
         }
 
-        private void OK_Button_Click(object sender, EventArgs e)
+        private void ShowPassword_Click(object sender, EventArgs e)
         {
-            Close();
+            if (PasswordTextBox.UseSystemPasswordChar == true)
+            {
+                PasswordTextBox.UseSystemPasswordChar = false;
+                ShowPassword_PictureBox.Image = Properties.Resources.visual;
+            }
+            else
+            {
+                PasswordTextBox.UseSystemPasswordChar = true;
+                ShowPassword_PictureBox.Image = Properties.Resources.non_visual;
+            }
         }
 
-        private void Cancel_Button_Click(object sender, EventArgs e)
+        private void ShowCnfrmPassword_Click(object sender, EventArgs e)
         {
-            Close();
+            if (CnfmPasswordTextBox.UseSystemPasswordChar == true)
+            {
+                CnfmPasswordTextBox.UseSystemPasswordChar = false;
+                ShowCnfrPassow_PictureBox.Image = Properties.Resources.visual;
+            }
+            else
+            {
+                CnfmPasswordTextBox.UseSystemPasswordChar = true;
+                ShowCnfrPassow_PictureBox.Image = Properties.Resources.non_visual;
+            }
         }
 
-        private bool IsDataValid(string username, string password, string passwordConfirm)
+        private bool IsDataValid(string userName, string password, string confirmPassword)
         {
             string spl_Chars = "#№@&^%*()_-=+/$;?+!'.{}[]";
 
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Поле логин/пароль не может быть пустым!", "Регистрация аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (username.Intersect(spl_Chars).Any())
+            else if (userName.Intersect(spl_Chars).Any())
             {
                 DialogResult res = MessageBox.Show("В логине присутствуют запрещенные символы! Требуется помощь?", "Регистрация аккаунта",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Error);
@@ -61,19 +80,19 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            else if (password != passwordConfirm)
+            else if (password != confirmPassword)
             {
                 MessageBox.Show("Пароли не совпадают!", "Регистрация аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (sqlFuncs.ChekUserReg(username))
+            else if (sqlFuncs.ChekUserReg(userName))
             {
                 MessageBox.Show("Пользователь с таким логином уже зарегистрирован!", "Регистрация аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (username.Length > 10)
+            else if (userName.Length > 10)
             {
                 MessageBox.Show("Логин не может быть больше 10-ти символов!", "Регистрация аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,32 +111,15 @@ namespace ApplicationProject
             else { return true; }
         }
 
-        private void ShowPassword(object sender, EventArgs e)
+        #region Buttons - OK/Cancel
+        private void OK_Button_Click(object sender, EventArgs e)
         {
-            if (PasswordTextBox.UseSystemPasswordChar == true)
-            {
-                PasswordTextBox.UseSystemPasswordChar = false;
-                ShowPassword_PictureBox.Image = Properties.Resources.visual;
-            }
-            else
-            {
-                PasswordTextBox.UseSystemPasswordChar = true;
-                ShowPassword_PictureBox.Image = Properties.Resources.non_visual;
-            }
+            Close();
         }
-
-        private void ShowCnfrmPassword(object sender, EventArgs e)
+        private void Cancel_Button_Click(object sender, EventArgs e)
         {
-            if (CnfmPasswordTextBox.UseSystemPasswordChar == true)
-            {
-                CnfmPasswordTextBox.UseSystemPasswordChar = false;
-                ShowCnfrPassow_PictureBox.Image = Properties.Resources.visual;
-            }
-            else
-            {
-                CnfmPasswordTextBox.UseSystemPasswordChar = true;
-                ShowCnfrPassow_PictureBox.Image = Properties.Resources.non_visual;
-            }
+            Close();
         }
+        #endregion
     }
 }

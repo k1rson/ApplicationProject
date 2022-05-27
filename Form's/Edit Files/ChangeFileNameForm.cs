@@ -15,27 +15,30 @@ namespace ApplicationProject
         public ChangeFileNameForm()
         {
             InitializeComponent();
-            ChOldFileName_Label.Text = OtherFunction.filename; 
+
+            // Other function 
+            OldFileName_Label.Text = OtherFunction.fileName; 
         }
 
-        private void OK_Button_Click(object sender, EventArgs e)
+        private void ChangeFileName_Button_Click(object sender, EventArgs e)
         {
-            sqlFuncs.ChangeNameSelectedFile(OtherFunction.strTextChangeN, OtherFunction.filename, ChFileName_TextBox.Text);
+            sqlFuncs.ChangeFileName(OtherFunction.userName, OtherFunction.fileName, NewFileName_TextBox.Text);
 
             MessageBox.Show("Изменение прошло успешно!", "Изменение имени файла", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             Close(); 
         }
 
         private void ResetFileName_Button_Click(object sender, EventArgs e)
         {
-            ChFileName_TextBox.Text = null; 
+            NewFileName_TextBox.Text = string.Empty;  
         }
 
+        #region Button - Cancel
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
             Close(); 
         }
+        #endregion
     }
 }

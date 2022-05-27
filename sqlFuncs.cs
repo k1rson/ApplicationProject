@@ -96,7 +96,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sqlCheck = $"SELECT COUNT(filename) FROM files WHERE username = '{username}' AND filename = '{filename}'";
+            string sqlCheck = $"SELECT COUNT(fileName) FROM files WHERE username = '{username}' AND fileName = '{filename}'";
 
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader count = cmd.ExecuteReader();
@@ -140,7 +140,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sqlCheck = $"SELECT * FROM files WHERE filename = '{filename}' AND username = '{username}'";
+            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
 
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -161,7 +161,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sqlCheck = $"SELECT * FROM files WHERE filename = '{filename}' AND username = '{username}'";
+            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
 
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -184,7 +184,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"INSERT INTO files (filename, username) VALUES ('{fileName}', '{username}')";
+            string sql = $"INSERT INTO files (fileName, username) VALUES ('{fileName}', '{username}')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
@@ -197,7 +197,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"UPDATE files SET decrypted = '{decrypted}', encrypted = '{encrypted}' WHERE filename = '{fileName}' AND username = '{username}'";
+            string sql = $"UPDATE files SET decrypted = '{decrypted}', encrypted = '{encrypted}' WHERE fileName = '{fileName}' AND username = '{username}'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
@@ -210,7 +210,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"INSERT INTO files (filename,decrypted, username) VALUES ('{fileName}', '{decrypted}' , '{username}')";
+            string sql = $"INSERT INTO files (fileName,decrypted, username) VALUES ('{fileName}', '{decrypted}' , '{username}')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
@@ -233,18 +233,18 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"DELETE FROM files WHERE username = '{username}' AND filename = '{fileName}'";
+            string sql = $"DELETE FROM files WHERE username = '{username}' AND fileName = '{fileName}'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
 
-        public static void ChangeNameSelectedFile(string username, string fileName, string newFileName)
+        public static void ChangeFileName(string username, string fileName, string newFileName)
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"UPDATE files SET filename = '{newFileName}' WHERE filename = '{fileName}' AND username = '{username}'";
+            string sql = $"UPDATE files SET fileName = '{newFileName}' WHERE fileName = '{fileName}' AND username = '{username}'";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
