@@ -78,5 +78,11 @@ namespace ApplicationProject
             MessageBox.Show("Файл с выходными данными пользователя сохранен!", "Сохранение файла",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        private void SettingAdmins_Click(object sender, EventArgs e)
+        {
+            ActionsAdminForm actionsAdm = new ActionsAdminForm();
+            actionsAdm.Show();
+        }
     }
 }

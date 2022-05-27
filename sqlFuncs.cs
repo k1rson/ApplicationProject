@@ -47,28 +47,7 @@ namespace ApplicationProject
             else
                 return false;
         }
-        public static bool IsAdmin(string username)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sqlCheck = $"SELECT role FROM users WHERE username = '{username}'";
-
-            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
-            MySqlDataReader roleSelect = cmd.ExecuteReader();
-            string role = string.Empty; 
-
-            while (roleSelect.Read())
-            {
-                 role = roleSelect["role"].ToString();
-            }
-            conn.Close();
-
-            if (role == "Admin")
-                return true;
-            else
-                return false;
-        }
+        
         public static bool IsCheckDataAuth(string username, string password)
         {
             MySqlConnection conn = DB.GetDBConnection();
@@ -252,6 +231,108 @@ namespace ApplicationProject
             conn.Close();
         }
 
+        // All users
+        public static List<string> selectUsersList()
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM users";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            var users = new List<string>();
+
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                users.Add(reader[0].ToString() + ": " + reader[1].ToString());
+            }
+            reader.Close();
+            conn.Close();
+            return users;
+        }
+
+
+        // Админ ли
+        public static bool IsAdmin(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT role FROM users WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader roleSelect = cmd.ExecuteReader();
+            string role = string.Empty;
+
+            while (roleSelect.Read())
+            {
+                role = roleSelect["role"].ToString();
+            }
+            conn.Close();
+
+            if (role == "Admin")
+                return true;
+            else if (role == "root")
+                return true;
+            else
+                return false;
+        }
+
+        // СуперАдмин
+        public static bool IsRoot(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT role FROM users WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader roleSelect = cmd.ExecuteReader();
+            string role = string.Empty;
+
+            while (roleSelect.Read())
+            {
+                role = roleSelect["role"].ToString();
+            }
+            conn.Close();
+
+            if (role == "root")
+                return true;
+            else
+                return false;
+        }
+
+
+        // Add admin
+        public static void addAdmin(string id)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET role = 'Admin' WHERE id = {id}";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        // Add admin
+        public static void delAdmin(string id)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET role = 'User' WHERE id = {id}";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        
 
         // Шифрование
         public static string sha256(string randomString)

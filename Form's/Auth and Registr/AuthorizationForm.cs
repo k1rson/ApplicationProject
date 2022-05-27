@@ -28,10 +28,16 @@ namespace ApplicationProject
                 OtherFunction.userName = LoginTextBox.Text;
                 if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                 {
-                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
+                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Close(); 
-                } 
+                    Close();
+                }
+                else 
+                {
+                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Close();
+                }
             }
             else
             {
@@ -68,6 +74,6 @@ namespace ApplicationProject
         {
             if (OtherFunction.userName == null)
                 OtherFunction.MainMenuForm.Close();
+            }
         }
     }
-}

@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form%27s\Admin\ActionsAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Admin\ActionsAdminForm.Designer.cs">
+      <DependentUpon>ActionsAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form%27s\Admin\AddDeleteAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Admin\AddDeleteAdminForm.Designer.cs">
+      <DependentUpon>AddDeleteAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\Edit Files\ChangeFileNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,10 +86,10 @@
     <Compile Include="Form%27s\Options\EncryptionOptionsForm.Designer.cs">
       <DependentUpon>EncryptionOptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\AdminPanelForm.cs">
+    <Compile Include="Form%27s\Admin\AdminPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form%27s\AdminPanelForm.Designer.cs">
+    <Compile Include="Form%27s\Admin\AdminPanelForm.Designer.cs">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form%27s\Auth and Registr\AuthorizationForm.cs">
@@ -101,12 +113,6 @@
     <Compile Include="Form%27s\Auth and Registr\RegistartionForm.Designer.cs">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form%27s\Auth and Registr\SelectWorkZoneForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form%27s\Auth and Registr\SelectWorkZoneForm.Designer.cs">
-      <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form%27s\Options\RecycleBinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,10 +121,13 @@
     </Compile>
     <Compile Include="sqlFuncs.cs" />
     <Compile Include="Worker.cs" />
+    <EmbeddedResource Include="Form%27s\Admin\ActionsAdminForm.resx">
+      <DependentUpon>ActionsAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Edit Files\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\AdminPanelForm.resx">
+    <EmbeddedResource Include="Form%27s\Admin\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Auth and Registr\AuthorizationForm.resx">
@@ -138,9 +147,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Auth and Registr\RegistartionForm.resx">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form%27s\Auth and Registr\SelectWorkZoneForm.resx">
-      <DependentUpon>SelectWorkZoneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -19,6 +19,7 @@ namespace ApplicationProject
 
             // Control properties
             TabPage3.Parent = null; // убрать видимость третьей вкладки tabControl
+            GoToAdminPanel_Button.Visible = false;
 
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
@@ -27,9 +28,9 @@ namespace ApplicationProject
 
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
-        }
 
-        
+            
+        }
 
         // Vision Input_RichBox
 
@@ -231,6 +232,9 @@ namespace ApplicationProject
                 // отображение username 
                 string login = OtherFunction.userName;
                 Username_Label.Text = login;
+
+                if (sqlFuncs.IsAdmin(login))
+                GoToAdminPanel_Button.Visible = true; 
             }
         }
 
@@ -271,6 +275,12 @@ namespace ApplicationProject
         {
             AuthorizationForm authForm = new AuthorizationForm();
             authForm.ShowDialog();
+        }
+
+        private void GoToAdminPanel_Button_Click(object sender, EventArgs e)
+        {
+            AdminPanelForm admForm = new AdminPanelForm();
+            admForm.ShowDialog(); 
         }
     }
 }

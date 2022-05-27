@@ -35,6 +35,8 @@
             this.GnrInformation_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowFilesUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SettingAdmins = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.BanUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.NotificationUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +45,7 @@
             this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileInpurAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileOutputAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.GnrlInformationAdmins = new System.Windows.Forms.ToolStripMenuItem();
             this.AllUsers_ListBox = new System.Windows.Forms.ListBox();
             this.AllUsers_Label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -51,19 +54,19 @@
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.OutputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.GnrlInformation_Button = new System.Windows.Forms.ToolStripButton();
             this.ShowFilesUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteUser_Button = new System.Windows.Forms.ToolStripButton();
             this.BanUser_Button = new System.Windows.Forms.ToolStripButton();
             this.NotificationUser_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CreateReport_Button = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveFileInputAdmin_Button = new System.Windows.Forms.ToolStripButton();
             this.SaveFileOutputAdmin_Button = new System.Windows.Forms.ToolStripButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -88,6 +91,8 @@
             this.пользователиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.просмотретьИнформациюОПользователеToolStripMenuItem,
             this.toolStripSeparator1,
+            this.SettingAdmins,
+            this.toolStripSeparator5,
             this.DeleteUser_Menu,
             this.BanUser_Menu,
             this.NotificationUser_Menu});
@@ -122,6 +127,18 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
+            // 
+            // SettingAdmins
+            // 
+            this.SettingAdmins.Name = "SettingAdmins";
+            this.SettingAdmins.Size = new System.Drawing.Size(315, 22);
+            this.SettingAdmins.Text = "[Settings] Главный администратор ";
+            this.SettingAdmins.Click += new System.EventHandler(this.SettingAdmins_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(312, 6);
             // 
             // DeleteUser_Menu
             // 
@@ -181,6 +198,11 @@
             this.SaveFileOutputAdmin_Menu.Size = new System.Drawing.Size(236, 22);
             this.SaveFileOutputAdmin_Menu.Text = "Сохранить выходные данные";
             this.SaveFileOutputAdmin_Menu.Click += new System.EventHandler(this.SaveConvertedData_Click);
+            // 
+            // GnrlInformationAdmins
+            // 
+            this.GnrlInformationAdmins.Name = "GnrlInformationAdmins";
+            this.GnrlInformationAdmins.Size = new System.Drawing.Size(32, 19);
             // 
             // AllUsers_ListBox
             // 
@@ -271,25 +293,6 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // GnrlInformation_Button
             // 
             this.GnrlInformation_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -309,6 +312,11 @@
             this.ShowFilesUser_Button.Size = new System.Drawing.Size(23, 22);
             this.ShowFilesUser_Button.Text = "Показать файлы выбранного пользователя";
             this.ShowFilesUser_Button.Click += new System.EventHandler(this.ShowFilesUser_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // DeleteUser_Button
             // 
@@ -340,6 +348,11 @@
             this.NotificationUser_Button.Text = "Уведомить пользователя";
             this.NotificationUser_Button.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
             // CreateReport_Button
             // 
             this.CreateReport_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -349,6 +362,11 @@
             this.CreateReport_Button.Size = new System.Drawing.Size(23, 22);
             this.CreateReport_Button.Text = "Создать отчет";
             this.CreateReport_Button.Click += new System.EventHandler(this.CreateReport_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // SaveFileInputAdmin_Button
             // 
@@ -369,6 +387,10 @@
             this.SaveFileOutputAdmin_Button.Size = new System.Drawing.Size(23, 22);
             this.SaveFileOutputAdmin_Button.Text = "Сохранить выходные данные";
             this.SaveFileOutputAdmin_Button.Click += new System.EventHandler(this.SaveConvertedData_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminPanelForm
             // 
@@ -435,5 +457,8 @@
         private System.Windows.Forms.ToolStripButton SaveFileOutputAdmin_Button;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem GnrlInformationAdmins;
+        private System.Windows.Forms.ToolStripMenuItem SettingAdmins;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
