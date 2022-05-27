@@ -12,5 +12,6 @@ namespace ApplicationProject
         public static string encryption { get; set; }
         public static string decryption { get; set; }
         public static string fileName { get; set; }
+        public static MainMenuForm MainMenuForm { get; set; }
     }
 }

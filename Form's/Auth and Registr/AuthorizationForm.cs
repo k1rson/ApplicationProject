@@ -32,10 +32,6 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     Close(); 
                 } 
-                else
-                {
-                    Close();
-                }
             }
             else
             {
@@ -65,6 +61,15 @@ namespace ApplicationProject
             {
                 PasswordTextBox.UseSystemPasswordChar = true;
                 ShowPassword_PictureBox.Image = Properties.Resources.non_visual;
+            }
+        }
+
+        private void AuthorizationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (OtherFunction.userName == null)
+            {
+                MainMenuForm mainMenuForm = OtherFunction.MainMenuForm;
+                mainMenuForm.Close();
             }
         }
     }

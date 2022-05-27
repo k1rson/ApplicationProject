@@ -16,7 +16,9 @@ namespace ApplicationProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenuForm());
+            MainMenuForm MainMenuForm = new MainMenuForm();
+            OtherFunction.MainMenuForm = MainMenuForm;
+            Application.Run(MainMenuForm);
         }
     }
 }

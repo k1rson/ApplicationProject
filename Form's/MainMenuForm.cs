@@ -226,20 +226,11 @@ namespace ApplicationProject
         {
             if (OtherFunction.userName != null)
             {
-                Enabled = true;
                 UpdateListBox(OtherFunction.userName);
 
                 // отображение username 
                 string login = OtherFunction.userName;
                 Username_Label.Text = login;
-            }
-            else
-            {
-                Enabled = false; 
-                if(Enabled)
-                {
-                    Close(); 
-                }
             }
         }
 
