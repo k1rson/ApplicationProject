@@ -30,12 +30,10 @@ namespace ApplicationProject
                 {
                     MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт", 
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    OtherFunction.isAdmin = true;
                     Close(); 
                 } 
                 else
                 {
-                    OtherFunction.isAuth = true;
                     Close();
                 }
             }

@@ -25,11 +25,6 @@ namespace ApplicationProject
 
             openFileDialog2.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
 
-            // отображение username 
-            string login = OtherFunction.userName;
-            OtherFunction.isAuth = false;
-            Username_Label.Text = login;
-
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
         }
@@ -230,26 +225,19 @@ namespace ApplicationProject
         // Обработчик при входе в окно mainForm // В сто раз меньше кода
         private void MainMenuForm_Activated(object sender, EventArgs e)
         {
-            if (OtherFunction.isAuth)
+            if(OtherFunction.userName != null)
             {
                 UpdateListBox(OtherFunction.userName);
+
+                // отображение username 
+                string login = OtherFunction.userName;
+                Username_Label.Text = login;
             }
             else
             {
                 AuthorizationForm authForm = new AuthorizationForm();
                 authForm.ShowDialog();
-                if(Username_Label != null)
-                {
-
-                }
-                else
-                {
-
-                }
             }
-
-
-            // Срабатывает каждый раз при входе в это окно/ выходе из другого
         }
 
         // Update ListBox
