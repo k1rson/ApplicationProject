@@ -22,32 +22,43 @@ namespace ApplicationProject
         }
         public void Enter_Button_Click(object sender, EventArgs e)
         {
-            // проверка на существование пользователя, доступ к системе
-            if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
-            {
-                OtherFunction.userName = LoginTextBox.Text;
-                if (sqlFuncs.IsAdmin(LoginTextBox.Text))
-                {
-                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
-                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Close();
-                }
-                else 
-                {
-                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
-                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Close();
-                }
-            }
+            if (sqlFuncs.IsSession(LoginTextBox.Text))
+                MessageBox.Show("Данный пользователь уже находится в системе");
             else
             {
-                DialogResult res = MessageBox.Show("Логин или пароль введены неверно! Требуется помощь?", "Вход в аккаунт",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                // проверка на существование пользователя, доступ к системе
+                if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
+                {
 
-                if (res == DialogResult.Yes)
-                    MessageBox.Show("Если Вы забыли свой логин или пароль, воспользуйтесь кнопкой \"Восстановить логин/пароль\"", "Помощь", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (sqlFuncs.IsAdmin(LoginTextBox.Text))
+                    {
+                        OtherFunction.userName = LoginTextBox.Text;
+                        MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        sqlFuncs.openSession(OtherFunction.userName);
+                        Close();
+                    }
+                    else
+                    {
+                        OtherFunction.userName = LoginTextBox.Text;
+                        MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        sqlFuncs.openSession(OtherFunction.userName);
+                        Close();
+                    }
+
+                }
+                else
+                {
+                    DialogResult res = MessageBox.Show("Логин или пароль введены неверно! Требуется помощь?", "Вход в аккаунт",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                    if (res == DialogResult.Yes)
+                        MessageBox.Show("Если Вы забыли свой логин или пароль, воспользуйтесь кнопкой \"Восстановить логин/пароль\"", "Помощь",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            
         }
 
         private void SignUp_Button_Click(object sender, EventArgs e)

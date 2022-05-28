@@ -271,6 +271,7 @@ namespace ApplicationProject
             {
                 AllFiles_ListBox.Items.Add(files[i]);
             }
+            sqlFuncs.openSession(username);
         }
 
         private void MainMenuForm_Shown(object sender, EventArgs e)
@@ -334,6 +335,11 @@ namespace ApplicationProject
         private void ReportErrorUser_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            sqlFuncs.closeSession(OtherFunction.userName);
         }
         // End FeedBack
     }

@@ -22,6 +22,9 @@ namespace ApplicationProject
             conn.Close();
         }
 
+
+        // Проверки
+
         public static bool ChekUserReg(string username)
         {
             MySqlConnection conn = DB.GetDBConnection();
@@ -80,129 +83,6 @@ namespace ApplicationProject
                 return false;
         }
 
-        
-
-
-        public static string selectDecryptedText(string filename, string username)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
-
-            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            string text = string.Empty;
-            while (reader.Read())
-            {
-                // элементы массива [] - это значения столбцов из запроса SELECT
-                text = reader[2].ToString();
-            }
-            reader.Close();
-            conn.Close();
-            return text;
-        }
-
-        public static string selectEncryptedText(string filename, string username)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
-
-            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            string text = string.Empty;
-            while (reader.Read())
-            {
-                // элементы массива [] - это значения столбцов из запроса SELECT
-                text = reader[3].ToString();
-            }
-            reader.Close();
-            conn.Close();
-            return text;
-        }
-
-
-
-        public static void addFileManual(string username, string fileName)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sql = $"INSERT INTO files (fileName, username) VALUES ('{fileName}', '{username}')";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-        }
-
-
-        public static void updateFile(string username, string fileName, string decrypted, string encrypted)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sql = $"UPDATE files SET decrypted = '{decrypted}', encrypted = '{encrypted}' WHERE fileName = '{fileName}' AND username = '{username}'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-        }
-
-
-        public static void addFile(string username, string fileName, string decrypted)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sql = $"INSERT INTO files (fileName,decrypted, username) VALUES ('{fileName}', '{decrypted}' , '{username}')";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-        }
-
-
-
-        public static void ChangeFileName(string username, string fileName, string newFileName)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sql = $"UPDATE files SET fileName = '{newFileName}' WHERE fileName = '{fileName}' AND username = '{username}'";
-
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-        }
-
-        // All users
-        public static List<string> selectUsersList()
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sqlCheck = $"SELECT * FROM users";
-
-            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            var users = new List<string>();
-
-            while (reader.Read())
-            {
-                // элементы массива [] - это значения столбцов из запроса SELECT
-                users.Add(reader[0].ToString() + ":" + reader[1].ToString());
-            }
-            reader.Close();
-            conn.Close();
-            return users;
-        }
-
 
         // Админ ли
         public static bool IsAdmin(string username)
@@ -255,6 +135,116 @@ namespace ApplicationProject
         }
 
 
+        public static bool IsSession(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT session FROM users WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader roleSelect = cmd.ExecuteReader();
+            string role = string.Empty;
+
+            while (roleSelect.Read())
+            {
+                role = roleSelect["session"].ToString();
+            }
+            conn.Close();
+
+            if (role == "True")
+                return true;
+            else
+                return false;
+        }
+
+
+
+
+
+
+
+        // Работа с данными
+
+        public static string selectDecryptedText(string filename, string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string text = string.Empty;
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                text = reader[2].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return text;
+        }
+
+        public static string selectEncryptedText(string filename, string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM files WHERE fileName = '{filename}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string text = string.Empty;
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                text = reader[3].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return text;
+        }
+
+
+
+        
+
+
+
+        
+
+
+        //Работа с пользователями
+
+        // All users
+        public static List<string> selectUsersList()
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM users";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            var users = new List<string>();
+
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                users.Add(reader[0].ToString() + ":" + reader[1].ToString());
+            }
+            reader.Close();
+            conn.Close();
+            return users;
+        }
+
+
+
+
         // Add admin
         public static void addAdmin(decimal id)
         {
@@ -305,6 +295,32 @@ namespace ApplicationProject
         }
 
 
+        // Сессия
+
+        public static void openSession(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE users SET session = True WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+        public static void closeSession(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE users SET session = False WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
 
@@ -350,6 +366,65 @@ namespace ApplicationProject
             conn.Close();
             return files;
         }
+
+        // Добавление файла по названию
+
+        public static void addFileManual(string username, string fileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"INSERT INTO files (fileName, username) VALUES ('{fileName}', '{username}')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+
+        // Обновление данных в файле
+
+        public static void updateFile(string username, string fileName, string decrypted, string encrypted)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET decrypted = '{decrypted}', encrypted = '{encrypted}' WHERE fileName = '{fileName}' AND username = '{username}'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        // Добавление файла с пк
+
+        public static void addFile(string username, string fileName, string decrypted)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"INSERT INTO files (fileName,decrypted, username) VALUES ('{fileName}', '{decrypted}' , '{username}')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+
+        // Изменение имени файла
+        public static void ChangeFileName(string username, string fileName, string newFileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE files SET fileName = '{newFileName}' WHERE fileName = '{fileName}' AND username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
 
 
 

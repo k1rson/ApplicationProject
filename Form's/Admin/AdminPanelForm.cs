@@ -86,8 +86,15 @@ namespace ApplicationProject
 
         private void SettingAdmins_Click(object sender, EventArgs e)
         {
-            ActionsAdminForm actionsAdm = new ActionsAdminForm();
-            actionsAdm.Show();
+            if (sqlFuncs.IsRoot(OtherFunction.userName))
+            {
+                ActionsAdminForm actionsAdm = new ActionsAdminForm();
+                actionsAdm.Show();
+            }
+            else
+                MessageBox.Show("Вы не являетесь Главным Администратором");
+
+            
         }
 
         private void AdminPanelForm_Activated(object sender, EventArgs e)
