@@ -171,14 +171,14 @@ namespace ApplicationProject
         // Delete all files
         private void DeleteAllFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Желаете удалить ВСЕ файлы ?", "Удаление файлов",
+            DialogResult res = MessageBox.Show("Желаете добавить все файлы в корзину ?", "Удаление файлов",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
                 string username = OtherFunction.userName;
-                sqlFuncs.deleteAllFiles(username);
+                sqlFuncs.addAllFileRecycle(username);
 
-                MessageBox.Show("Файлы удалены!", "Удаление файлов",
+                MessageBox.Show("Файлы добавлены в корзину!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
@@ -187,15 +187,16 @@ namespace ApplicationProject
 
         private void DeleteSelectFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Желаете удалить файл ?", "Удаление файла", 
+            DialogResult res = MessageBox.Show("Желаете поместить файл в корзину ?", "Удаление файла", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
                 string fileName = OtherFunction.fileName;
                 string username = OtherFunction.userName;
-                sqlFuncs.deleteSelectedFile(username, fileName);
 
-                MessageBox.Show("Файл успешно удален!", "Удаление файлов",
+                sqlFuncs.addFileRecycle(username, fileName);
+
+                MessageBox.Show("Файл успешно добавлен в корзину!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
@@ -205,6 +206,8 @@ namespace ApplicationProject
         {
             DialogResult res = MessageBox.Show("Вы уверены, что хотите изменить название файла?", "Предупреждение",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            int filesCount = AllFiles_ListBox.Items.Count;
 
             if (res == DialogResult.Yes)
             {
@@ -291,8 +294,16 @@ namespace ApplicationProject
 
         private void EmptyRecycle_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show("Вы уверены, что хотите очистить корзину? Данное действие приведет к полной потери файлов!", "Очистка корзины",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (res == DialogResult.Yes)
+            {
+                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+            }
         }
+
+
         // End Recycle
 
         // Referance

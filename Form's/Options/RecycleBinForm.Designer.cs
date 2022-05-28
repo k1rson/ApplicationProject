@@ -104,6 +104,7 @@
             this.AllFilesRecycle_ListBox.Name = "AllFilesRecycle_ListBox";
             this.AllFilesRecycle_ListBox.Size = new System.Drawing.Size(324, 173);
             this.AllFilesRecycle_ListBox.TabIndex = 2;
+            this.AllFilesRecycle_ListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AllFilesRecycle_ListBox_MouseClick);
             // 
             // ContextMenuRecycle
             // 

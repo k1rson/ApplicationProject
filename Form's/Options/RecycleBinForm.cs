@@ -31,8 +31,11 @@ namespace ApplicationProject
 
             if(res == DialogResult.Yes)
             {
-                // обращение к выбранному файлу, удаление его из данной области и перенос обратно в MainMenuForm 
+                sqlFuncs.returnFileRecycle(OtherFunction.userName, OtherFunction.fileName);
+                UpdateListBox();
+
             }
+
         }
 
         private void EmptyRecycle_Button_Click(object sender, EventArgs e)
@@ -42,7 +45,8 @@ namespace ApplicationProject
 
             if(res == DialogResult.Yes)
             {
-                // listbox.clear, удаление из бд этих файлов
+                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+                UpdateListBox();
             }
         }
         private void IntervalAutoCleaning_Click(object sender, EventArgs e)
@@ -57,5 +61,29 @@ namespace ApplicationProject
             Close(); 
         }
         #endregion
+
+        public void UpdateListBox()
+        {
+            AllFilesRecycle_ListBox.Items.Clear();
+
+            List<string> files = sqlFuncs.selectUserRecycleFiles(OtherFunction.userName);
+            for (int i = 0; i < files.Count; i++)
+            {
+                AllFilesRecycle_ListBox.Items.Add(files[i]);
+            }
+        }
+
+        private void AllFilesRecycle_ListBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                OtherFunction.fileName = AllFilesRecycle_ListBox.SelectedItem.ToString();
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+        }
     }
 }
