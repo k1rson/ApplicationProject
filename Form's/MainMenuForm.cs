@@ -28,8 +28,6 @@ namespace ApplicationProject
 
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
-
-            
         }
 
         // Vision Input_RichBox

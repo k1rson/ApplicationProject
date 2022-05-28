@@ -19,14 +19,14 @@ namespace ApplicationProject
             // Сontrol properties
             SelectEncyption_ComboBox.SelectedIndex = 0; 
             SelectAlphabet_ComboBox.SelectedIndex = 0;
-            Shift_TextBox.Text = string.Empty; 
+            Shift_Numeric.Value = 0; 
         }
         
         private void ResetChanges_Button_Click(object sender, EventArgs e)
         {
             SelectEncyption_ComboBox.SelectedIndex = -1;
             SelectAlphabet_ComboBox.SelectedIndex = -1;
-            Shift_TextBox.Text = string.Empty;
+            Shift_Numeric.Value = 0;
         }
 
         private void Encrypt_Button_Click(object sender, EventArgs e)
@@ -53,19 +53,22 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (String.IsNullOrEmpty(Shift_TextBox.Text))
+                    if (String.IsNullOrEmpty(Shift_Numeric.Text))
                     {
                         MessageBox.Show("Поле \"Сдвиг\" не может быть пустым!", "Шифрование (входные данные для шифрования)",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                         return; 
                     }
 
-                    int shift = int.Parse(Shift_TextBox.Text);
+                    int shift = (int)Shift_Numeric.Value; 
 
                     if (shift > 32 || shift < 0)
                     {
                         MessageBox.Show("Длина сдвига не может быть меньше 0 или больше 32!", "Шифрование (выбор сдвига)",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
+                        Shift_Numeric.Value = 0;
                         return;
                     }
                     string code = null;
@@ -153,7 +156,7 @@ namespace ApplicationProject
                 default:
                     MessageBox.Show("Требуется выбрать шифр!", "Шифрование (выбор шифра)",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                    return; 
             }
 
             sqlFuncs.updateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);

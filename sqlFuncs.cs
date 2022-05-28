@@ -307,7 +307,7 @@ namespace ApplicationProject
 
 
         // Add admin
-        public static void addAdmin(string id)
+        public static void addAdmin(decimal id)
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
@@ -320,7 +320,7 @@ namespace ApplicationProject
         }
 
         // Add admin
-        public static void delAdmin(string id)
+        public static void delAdmin(decimal id)
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
@@ -332,7 +332,30 @@ namespace ApplicationProject
             conn.Close();
         }
 
-        
+        // All admins
+        public static List<string> selectAdminsList()
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT * FROM users WHERE role = 'Admin'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            var users = new List<string>();
+
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                users.Add(reader[0].ToString() + ":" + reader[1].ToString());
+            }
+            reader.Close();
+            conn.Close();
+            return users;
+        }
+
+
 
         // Шифрование
         public static string sha256(string randomString)

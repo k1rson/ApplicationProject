@@ -18,6 +18,9 @@ namespace ApplicationProject
 
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+
+            // подписываемся к листбоксу за счет контекст меню
+            AllUsers_ListBox.ContextMenuStrip = ContextMenuAllUsers;
         }
 
         private void GnrInformation_Click(object sender, EventArgs e)

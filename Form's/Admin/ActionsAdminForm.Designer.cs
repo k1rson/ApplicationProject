@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.AdminsInfo = new System.Windows.Forms.TabPage();
-            this.AllAdmins_RichTextBox = new System.Windows.Forms.RichTextBox();
+            this.AllAdmins_ListBox = new System.Windows.Forms.ListBox();
             this.Info = new System.Windows.Forms.Label();
             this.ActionsAdmins = new System.Windows.Forms.TabPage();
+            this.Numeric = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.AddAdmin_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Numeric = new System.Windows.Forms.NumericUpDown();
+            this.ContextMenuSettings = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьАдминистратораToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl.SuspendLayout();
             this.AdminsInfo.SuspendLayout();
             this.ActionsAdmins.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numeric)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.ContextMenuSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -59,7 +63,7 @@
             // 
             // AdminsInfo
             // 
-            this.AdminsInfo.Controls.Add(this.AllAdmins_RichTextBox);
+            this.AdminsInfo.Controls.Add(this.AllAdmins_ListBox);
             this.AdminsInfo.Controls.Add(this.Info);
             this.AdminsInfo.Location = new System.Drawing.Point(4, 22);
             this.AdminsInfo.Name = "AdminsInfo";
@@ -69,14 +73,13 @@
             this.AdminsInfo.Text = "Администраторы";
             this.AdminsInfo.UseVisualStyleBackColor = true;
             // 
-            // AllAdmins_RichTextBox
+            // AllAdmins_ListBox
             // 
-            this.AllAdmins_RichTextBox.Location = new System.Drawing.Point(8, 28);
-            this.AllAdmins_RichTextBox.Name = "AllAdmins_RichTextBox";
-            this.AllAdmins_RichTextBox.ReadOnly = true;
-            this.AllAdmins_RichTextBox.Size = new System.Drawing.Size(329, 162);
-            this.AllAdmins_RichTextBox.TabIndex = 1;
-            this.AllAdmins_RichTextBox.Text = "qwe | 123 ";
+            this.AllAdmins_ListBox.FormattingEnabled = true;
+            this.AllAdmins_ListBox.Location = new System.Drawing.Point(8, 28);
+            this.AllAdmins_ListBox.Name = "AllAdmins_ListBox";
+            this.AllAdmins_ListBox.Size = new System.Drawing.Size(329, 160);
+            this.AllAdmins_ListBox.TabIndex = 1;
             // 
             // Info
             // 
@@ -100,6 +103,13 @@
             this.ActionsAdmins.TabIndex = 1;
             this.ActionsAdmins.Text = "Настройки";
             this.ActionsAdmins.UseVisualStyleBackColor = true;
+            // 
+            // Numeric
+            // 
+            this.Numeric.Location = new System.Drawing.Point(155, 71);
+            this.Numeric.Name = "Numeric";
+            this.Numeric.Size = new System.Drawing.Size(182, 20);
+            this.Numeric.TabIndex = 5;
             // 
             // label1
             // 
@@ -150,12 +160,19 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 32);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // Numeric
+            // ContextMenuSettings
             // 
-            this.Numeric.Location = new System.Drawing.Point(155, 71);
-            this.Numeric.Name = "Numeric";
-            this.Numeric.Size = new System.Drawing.Size(182, 20);
-            this.Numeric.TabIndex = 5;
+            this.ContextMenuSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьАдминистратораToolStripMenuItem});
+            this.ContextMenuSettings.Name = "ContextMenuSettings";
+            this.ContextMenuSettings.Size = new System.Drawing.Size(213, 26);
+            // 
+            // удалитьАдминистратораToolStripMenuItem
+            // 
+            this.удалитьАдминистратораToolStripMenuItem.Name = "удалитьАдминистратораToolStripMenuItem";
+            this.удалитьАдминистратораToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.удалитьАдминистратораToolStripMenuItem.Text = "Удалить администратора";
+            this.удалитьАдминистратораToolStripMenuItem.Click += new System.EventHandler(this.DeleteAdmin_Click);
             // 
             // ActionsAdminForm
             // 
@@ -169,13 +186,15 @@
             this.Name = "ActionsAdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Администраторы";
+            this.Activated += new System.EventHandler(this.ActionsAdminForm_Activated);
             this.tabControl.ResumeLayout(false);
             this.AdminsInfo.ResumeLayout(false);
             this.AdminsInfo.PerformLayout();
             this.ActionsAdmins.ResumeLayout(false);
             this.ActionsAdmins.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Numeric)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.ContextMenuSettings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -185,7 +204,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage AdminsInfo;
         private System.Windows.Forms.TabPage ActionsAdmins;
-        private System.Windows.Forms.RichTextBox AllAdmins_RichTextBox;
         private System.Windows.Forms.Label Info;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
@@ -193,5 +211,8 @@
         private System.Windows.Forms.Button Cancel_Button;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.NumericUpDown Numeric;
+        private System.Windows.Forms.ListBox AllAdmins_ListBox;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuSettings;
+        private System.Windows.Forms.ToolStripMenuItem удалитьАдминистратораToolStripMenuItem;
     }
 }

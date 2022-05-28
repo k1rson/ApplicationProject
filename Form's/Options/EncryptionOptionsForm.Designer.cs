@@ -32,7 +32,6 @@
             this.SelectEncyption_Label = new System.Windows.Forms.Label();
             this.Shift_Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Shift_TextBox = new System.Windows.Forms.TextBox();
             this.SelectAlphabet_ComboBox = new System.Windows.Forms.ComboBox();
             this.LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SelectEncyption_ComboBox = new System.Windows.Forms.ComboBox();
@@ -40,8 +39,10 @@
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.Reset_Button = new System.Windows.Forms.Button();
             this.OK_Button = new System.Windows.Forms.Button();
+            this.Shift_Numeric = new System.Windows.Forms.NumericUpDown();
             this.LayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Shift_Numeric)).BeginInit();
             this.SuspendLayout();
             // 
             // SelectEncyption_Label
@@ -77,13 +78,6 @@
             this.label3.Text = "Алфавит для шифрования:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Shift_TextBox
-            // 
-            this.Shift_TextBox.Location = new System.Drawing.Point(151, 30);
-            this.Shift_TextBox.Name = "Shift_TextBox";
-            this.Shift_TextBox.Size = new System.Drawing.Size(215, 20);
-            this.Shift_TextBox.TabIndex = 4;
-            // 
             // SelectAlphabet_ComboBox
             // 
             this.SelectAlphabet_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -105,10 +99,10 @@
             this.LayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.LayoutPanel.Controls.Add(this.label3, 0, 2);
             this.LayoutPanel.Controls.Add(this.Shift_Label, 0, 1);
-            this.LayoutPanel.Controls.Add(this.Shift_TextBox, 1, 1);
             this.LayoutPanel.Controls.Add(this.SelectEncyption_Label, 0, 0);
             this.LayoutPanel.Controls.Add(this.SelectAlphabet_ComboBox, 1, 2);
             this.LayoutPanel.Controls.Add(this.SelectEncyption_ComboBox, 1, 0);
+            this.LayoutPanel.Controls.Add(this.Shift_Numeric, 1, 1);
             this.LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.LayoutPanel.Name = "LayoutPanel";
@@ -175,6 +169,13 @@
             this.OK_Button.UseVisualStyleBackColor = true;
             this.OK_Button.Click += new System.EventHandler(this.Encrypt_Button_Click);
             // 
+            // Shift_Numeric
+            // 
+            this.Shift_Numeric.Location = new System.Drawing.Point(151, 30);
+            this.Shift_Numeric.Name = "Shift_Numeric";
+            this.Shift_Numeric.Size = new System.Drawing.Size(215, 20);
+            this.Shift_Numeric.TabIndex = 9;
+            // 
             // EncryptionOptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +192,7 @@
             this.LayoutPanel.ResumeLayout(false);
             this.LayoutPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Shift_Numeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,7 +202,6 @@
         private System.Windows.Forms.Label SelectEncyption_Label;
         private System.Windows.Forms.Label Shift_Label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Shift_TextBox;
         private System.Windows.Forms.ComboBox SelectAlphabet_ComboBox;
         private System.Windows.Forms.TableLayoutPanel LayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -208,5 +209,6 @@
         private System.Windows.Forms.Button Reset_Button;
         private System.Windows.Forms.Button OK_Button;
         private System.Windows.Forms.ComboBox SelectEncyption_ComboBox;
+        private System.Windows.Forms.NumericUpDown Shift_Numeric;
     }
 }

@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanelForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.просмотретьИнформациюОПользователеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GnrInformation_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.ShowFilesUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.SettingAdmins = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,9 +51,6 @@
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.OutputAdmin_RichBox = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.GnrlInformation_Button = new System.Windows.Forms.ToolStripButton();
-            this.ShowFilesUser_Button = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteUser_Button = new System.Windows.Forms.ToolStripButton();
             this.BanUser_Button = new System.Windows.Forms.ToolStripButton();
             this.NotificationUser_Button = new System.Windows.Forms.ToolStripButton();
@@ -69,11 +63,17 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.AllFilesUser_ListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ContextMenuAllUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
             this.TabPage2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.ContextMenuAllUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -91,8 +91,6 @@
             // пользователиToolStripMenuItem
             // 
             this.пользователиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.просмотретьИнформациюОПользователеToolStripMenuItem,
-            this.toolStripSeparator1,
             this.SettingAdmins,
             this.toolStripSeparator5,
             this.DeleteUser_Menu,
@@ -102,64 +100,36 @@
             this.пользователиToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.пользователиToolStripMenuItem.Text = "Пользователи";
             // 
-            // просмотретьИнформациюОПользователеToolStripMenuItem
-            // 
-            this.просмотретьИнформациюОПользователеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GnrInformation_Menu,
-            this.ShowFilesUser_Menu});
-            this.просмотретьИнформациюОПользователеToolStripMenuItem.Name = "просмотретьИнформациюОПользователеToolStripMenuItem";
-            this.просмотретьИнформациюОПользователеToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
-            this.просмотретьИнформациюОПользователеToolStripMenuItem.Text = "Просмотреть информацию о пользователе";
-            // 
-            // GnrInformation_Menu
-            // 
-            this.GnrInformation_Menu.Name = "GnrInformation_Menu";
-            this.GnrInformation_Menu.Size = new System.Drawing.Size(243, 22);
-            this.GnrInformation_Menu.Text = "Общая информация";
-            this.GnrInformation_Menu.Click += new System.EventHandler(this.GnrInformation_Click);
-            // 
-            // ShowFilesUser_Menu
-            // 
-            this.ShowFilesUser_Menu.Name = "ShowFilesUser_Menu";
-            this.ShowFilesUser_Menu.Size = new System.Drawing.Size(243, 22);
-            this.ShowFilesUser_Menu.Text = "Показать файлы пользователя";
-            this.ShowFilesUser_Menu.Click += new System.EventHandler(this.ShowFilesUser_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
-            // 
             // SettingAdmins
             // 
             this.SettingAdmins.Name = "SettingAdmins";
-            this.SettingAdmins.Size = new System.Drawing.Size(315, 22);
+            this.SettingAdmins.Size = new System.Drawing.Size(266, 22);
             this.SettingAdmins.Text = "[Settings] Главный администратор ";
             this.SettingAdmins.Click += new System.EventHandler(this.SettingAdmins_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(263, 6);
             // 
             // DeleteUser_Menu
             // 
             this.DeleteUser_Menu.Name = "DeleteUser_Menu";
-            this.DeleteUser_Menu.Size = new System.Drawing.Size(315, 22);
+            this.DeleteUser_Menu.Size = new System.Drawing.Size(266, 22);
             this.DeleteUser_Menu.Text = "Удалить пользователя";
             this.DeleteUser_Menu.Click += new System.EventHandler(this.DeleteUser_Click);
             // 
             // BanUser_Menu
             // 
             this.BanUser_Menu.Name = "BanUser_Menu";
-            this.BanUser_Menu.Size = new System.Drawing.Size(315, 22);
+            this.BanUser_Menu.Size = new System.Drawing.Size(266, 22);
             this.BanUser_Menu.Text = "Заблокировать пользователя";
             this.BanUser_Menu.Click += new System.EventHandler(this.BanUser_Click);
             // 
             // NotificationUser_Menu
             // 
             this.NotificationUser_Menu.Name = "NotificationUser_Menu";
-            this.NotificationUser_Menu.Size = new System.Drawing.Size(315, 22);
+            this.NotificationUser_Menu.Size = new System.Drawing.Size(266, 22);
             this.NotificationUser_Menu.Text = "Уведомить пользователя";
             this.NotificationUser_Menu.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
@@ -279,9 +249,6 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GnrlInformation_Button,
-            this.ShowFilesUser_Button,
-            this.toolStripSeparator2,
             this.DeleteUser_Button,
             this.BanUser_Button,
             this.NotificationUser_Button,
@@ -295,31 +262,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // GnrlInformation_Button
-            // 
-            this.GnrlInformation_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.GnrlInformation_Button.Image = global::ApplicationProject.Properties.Resources.general_users_info;
-            this.GnrlInformation_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.GnrlInformation_Button.Name = "GnrlInformation_Button";
-            this.GnrlInformation_Button.Size = new System.Drawing.Size(23, 22);
-            this.GnrlInformation_Button.Text = "Общая информация о пользователе";
-            this.GnrlInformation_Button.Click += new System.EventHandler(this.GnrInformation_Click);
-            // 
-            // ShowFilesUser_Button
-            // 
-            this.ShowFilesUser_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ShowFilesUser_Button.Image = global::ApplicationProject.Properties.Resources.showAllFilesUSer;
-            this.ShowFilesUser_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ShowFilesUser_Button.Name = "ShowFilesUser_Button";
-            this.ShowFilesUser_Button.Size = new System.Drawing.Size(23, 22);
-            this.ShowFilesUser_Button.Text = "Показать файлы выбранного пользователя";
-            this.ShowFilesUser_Button.Click += new System.EventHandler(this.ShowFilesUser_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // DeleteUser_Button
             // 
@@ -413,6 +355,42 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Файлы выбранного пользователя:";
             // 
+            // ContextMenuAllUsers
+            // 
+            this.ContextMenuAllUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьПользователяToolStripMenuItem,
+            this.заблокироватьПользователяToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.уведомитьПользователяToolStripMenuItem});
+            this.ContextMenuAllUsers.Name = "ContextMenuAllUsers";
+            this.ContextMenuAllUsers.Size = new System.Drawing.Size(237, 98);
+            // 
+            // удалитьПользователяToolStripMenuItem
+            // 
+            this.удалитьПользователяToolStripMenuItem.Name = "удалитьПользователяToolStripMenuItem";
+            this.удалитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.удалитьПользователяToolStripMenuItem.Text = "Удалить пользователя";
+            this.удалитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.DeleteUser_Click);
+            // 
+            // заблокироватьПользователяToolStripMenuItem
+            // 
+            this.заблокироватьПользователяToolStripMenuItem.Name = "заблокироватьПользователяToolStripMenuItem";
+            this.заблокироватьПользователяToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.заблокироватьПользователяToolStripMenuItem.Text = "Заблокировать пользователя";
+            this.заблокироватьПользователяToolStripMenuItem.Click += new System.EventHandler(this.BanUser_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(233, 6);
+            // 
+            // уведомитьПользователяToolStripMenuItem
+            // 
+            this.уведомитьПользователяToolStripMenuItem.Name = "уведомитьПользователяToolStripMenuItem";
+            this.уведомитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
+            this.уведомитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.NotificationUser_Click);
+            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,6 +417,7 @@
             this.TabPage2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.ContextMenuAllUsers.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,14 +427,10 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem пользователиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem просмотретьИнформациюОПользователеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem DeleteUser_Menu;
         private System.Windows.Forms.ToolStripMenuItem BanUser_Menu;
         private System.Windows.Forms.ToolStripMenuItem NotificationUser_Menu;
         private System.Windows.Forms.ListBox AllUsers_ListBox;
-        private System.Windows.Forms.ToolStripMenuItem GnrInformation_Menu;
-        private System.Windows.Forms.ToolStripMenuItem ShowFilesUser_Menu;
         private System.Windows.Forms.Label AllUsers_Label;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CreateReport_Menu;
@@ -463,9 +438,6 @@
         private System.Windows.Forms.TabPage TabPage1;
         private System.Windows.Forms.TabPage TabPage2;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton GnrlInformation_Button;
-        private System.Windows.Forms.ToolStripButton ShowFilesUser_Button;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton DeleteUser_Button;
         private System.Windows.Forms.ToolStripButton BanUser_Button;
         private System.Windows.Forms.ToolStripButton NotificationUser_Button;
@@ -486,5 +458,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ListBox AllFilesUser_ListBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuAllUsers;
+        private System.Windows.Forms.ToolStripMenuItem удалитьПользователяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem заблокироватьПользователяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem уведомитьПользователяToolStripMenuItem;
     }
 }
