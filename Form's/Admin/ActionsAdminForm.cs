@@ -24,14 +24,21 @@ namespace ApplicationProject
         {
             try
             {
-                DialogResult res = MessageBox.Show("Добавить администратора?", "Добавление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                DialogResult res = MessageBox.Show("Добавить администратора?", "Добавление админа",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 if (res == DialogResult.Yes)
                     sqlFuncs.addAdmin(Numeric.Value);
+
                 UpdateList();
+
+                MessageBox.Show("Администратор успешно добавлен!", "Добавление администратора", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception)
             {
-                MessageBox.Show("Такого пользователя не существует");
+                MessageBox.Show("Такого пользователя не существует", "Ошибка", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -39,14 +46,21 @@ namespace ApplicationProject
         {
             try
             {
-                DialogResult res = MessageBox.Show("Удалить администратора?", "Удаление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                DialogResult res = MessageBox.Show("Удалить администратора?", "Удаление админа",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 if (res == DialogResult.Yes)
                     sqlFuncs.delAdmin(Numeric.Value);
+             
                 UpdateList();
+
+                MessageBox.Show("Администратор успешно удален!", "Удаление администратора",
+                   MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception)
             {
-                MessageBox.Show("Такого пользователя не существует");
+                MessageBox.Show("Такого пользователя не существует", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

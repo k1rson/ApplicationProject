@@ -222,5 +222,8 @@
   <ItemGroup>
     <None Include="Resources\exchange.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generatePassword.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

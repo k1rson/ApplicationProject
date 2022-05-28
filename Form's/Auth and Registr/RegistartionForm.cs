@@ -110,6 +110,22 @@ namespace ApplicationProject
             }
             else { return true; }
         }
+        private void AutoGeneratePassword_PictureBox_Click(object sender, EventArgs e)
+        {
+            PasswordTextBox.Text = GeneratePass();
+            CnfmPasswordTextBox.Text = PasswordTextBox.Text; 
+        }
+        private string GeneratePass()
+        {
+            string iPass = "";
+            string[] arr = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z", "b", "c", "d", "f", "g", "h", "j", "k", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "A", "E", "U", "Y", "a", "e", "i", "o", "u", "y" };
+            Random rnd = new Random();
+            for (int i = 0; i < 16; i++)
+            {
+                iPass = iPass + arr[rnd.Next(0, 57)];
+            }
+            return iPass; 
+        }
 
         #region Buttons - OK/Cancel
         private void OK_Button_Click(object sender, EventArgs e)
@@ -121,5 +137,6 @@ namespace ApplicationProject
             Close();
         }
         #endregion
+       
     }
 }
