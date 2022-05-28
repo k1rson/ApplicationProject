@@ -24,8 +24,7 @@ namespace ApplicationProject
         {
             try
             {
-                DialogResult res = MessageBox.Show("Добавить администратора?"
-                , "Добавление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                DialogResult res = MessageBox.Show("Добавить администратора?", "Добавление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 if (res == DialogResult.Yes)
                     sqlFuncs.addAdmin(Numeric.Value);
                 UpdateList();
@@ -40,8 +39,7 @@ namespace ApplicationProject
         {
             try
             {
-                DialogResult res = MessageBox.Show("Удалить администратора?"
-                , "Удаление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                DialogResult res = MessageBox.Show("Удалить администратора?", "Удаление админа", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 if (res == DialogResult.Yes)
                     sqlFuncs.delAdmin(Numeric.Value);
                 UpdateList();
