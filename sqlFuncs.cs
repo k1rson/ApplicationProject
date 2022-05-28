@@ -195,17 +195,6 @@ namespace ApplicationProject
             conn.Close();
         }
 
-        public static void deleteSelectedFile(string username, string fileName)
-        {
-            MySqlConnection conn = DB.GetDBConnection();
-            conn.Open();
-
-            string sql = $"DELETE FROM files WHERE username = '{username}' AND fileName = '{fileName}'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
-
         public static void ChangeFileName(string username, string fileName, string newFileName)
         {
             MySqlConnection conn = DB.GetDBConnection();
@@ -341,6 +330,50 @@ namespace ApplicationProject
             reader.Close();
             conn.Close();
             return users;
+        }
+
+        // Add file in basket
+
+        public static void addFileRecycle(string username, string fileName, string decrypted, string encrypted)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlDel = $"DELETE FROM files WHERE username = '{username}' AND filename = '{fileName}'";
+            string sql = $"INSERT INTO recycle (fileName, encrypted, decrypted, username) VALUES ('{fileName}', {encrypted},'{decrypted}' , '{username}')";
+            MySqlCommand cmd = new MySqlCommand(sqlDel, conn);
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        // Восстановить файл
+
+        public static void returnFileRecycle(string username, string fileName, string decrypted, string encrypted)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlDel = $"DELETE FROM recycle WHERE username = '{username}' AND filename = '{fileName}'";
+            string sql = $"INSERT INTO files (fileName, encrypted, decrypted, username) VALUES ('{fileName}', {encrypted},'{decrypted}' , '{username}')";
+            MySqlCommand cmd = new MySqlCommand(sqlDel, conn);
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        // удаление файла
+        public static void deleteSelectedFile(string username, string fileName)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"DELETE FROM recycle WHERE username = '{username}' AND fileName = '{fileName}'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
 
