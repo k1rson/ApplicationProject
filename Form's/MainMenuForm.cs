@@ -271,7 +271,6 @@ namespace ApplicationProject
             {
                 AllFiles_ListBox.Items.Add(files[i]);
             }
-            sqlFuncs.openSession(username);
         }
 
         private void MainMenuForm_Shown(object sender, EventArgs e)
