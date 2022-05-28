@@ -79,6 +79,12 @@
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GoToAdminPanel_Button = new System.Windows.Forms.Button();
+            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.содержаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.индексToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.опрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -91,7 +97,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Files_ToolMenu});
+            this.Files_ToolMenu,
+            this.справкаToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -509,6 +516,47 @@
             this.GoToAdminPanel_Button.UseVisualStyleBackColor = true;
             this.GoToAdminPanel_Button.Click += new System.EventHandler(this.GoToAdminPanel_Button_Click);
             // 
+            // справкаToolStripMenuItem1
+            // 
+            this.справкаToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.содержаниеToolStripMenuItem,
+            this.индексToolStripMenuItem,
+            this.поискToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.опрограммеToolStripMenuItem});
+            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem1.Text = "Спра&вка";
+            // 
+            // содержаниеToolStripMenuItem
+            // 
+            this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
+            this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.содержаниеToolStripMenuItem.Text = "&Содержание";
+            // 
+            // индексToolStripMenuItem
+            // 
+            this.индексToolStripMenuItem.Name = "индексToolStripMenuItem";
+            this.индексToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.индексToolStripMenuItem.Text = "&Индекс";
+            // 
+            // поискToolStripMenuItem
+            // 
+            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.поискToolStripMenuItem.Text = "&Поиск";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
+            // 
+            // опрограммеToolStripMenuItem
+            // 
+            this.опрограммеToolStripMenuItem.Name = "опрограммеToolStripMenuItem";
+            this.опрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.опрограммеToolStripMenuItem.Text = "&О программе...";
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,5 +648,11 @@
         private System.Windows.Forms.ToolStripButton ChangeFileName_Button;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Button GoToAdminPanel_Button;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem содержаниеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem индексToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem опрограммеToolStripMenuItem;
     }
 }

@@ -312,7 +312,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"UPDATE files SET role = 'Admin' WHERE id = {id}";
+            string sql = $"UPDATE users SET role = 'Admin' WHERE id = {id}";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
@@ -325,7 +325,7 @@ namespace ApplicationProject
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
 
-            string sql = $"UPDATE files SET role = 'User' WHERE id = {id}";
+            string sql = $"UPDATE users SET role = 'User' WHERE id = {id}";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
