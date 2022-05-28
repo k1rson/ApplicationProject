@@ -342,7 +342,7 @@ namespace ApplicationProject
             string sqlDel = $"DELETE FROM files WHERE username = '{username}' AND filename = '{fileName}'";
             string sql = $"INSERT INTO recycle (fileName, encrypted, decrypted, username) VALUES ('{fileName}', {encrypted},'{decrypted}' , '{username}')";
             MySqlCommand cmd = new MySqlCommand(sqlDel, conn);
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmdSql = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
             conn.Close();
@@ -358,7 +358,7 @@ namespace ApplicationProject
             string sqlDel = $"DELETE FROM recycle WHERE username = '{username}' AND filename = '{fileName}'";
             string sql = $"INSERT INTO files (fileName, encrypted, decrypted, username) VALUES ('{fileName}', {encrypted},'{decrypted}' , '{username}')";
             MySqlCommand cmd = new MySqlCommand(sqlDel, conn);
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlCommand cmdSql = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
 
             conn.Close();
