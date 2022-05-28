@@ -16,13 +16,9 @@ namespace ApplicationProject
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
-
-
-
             string sql = $"INSERT INTO users (username, password, role) VALUES ('{username}', '{password}', 'User')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
-
             conn.Close();
         }
 
@@ -30,9 +26,7 @@ namespace ApplicationProject
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
-
             string sqlCheck = $"SELECT EXISTS(SELECT username FROM users WHERE username = '{username}')";
-
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader count = cmd.ExecuteReader();
             int cont = 0;
@@ -41,7 +35,6 @@ namespace ApplicationProject
                 cont = int.Parse(count[0].ToString());
             }
             conn.Close();
-
             if (cont == 1)
                 return true;
             else
@@ -52,9 +45,7 @@ namespace ApplicationProject
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
-
             string sqlCheck = $"SELECT COUNT(username) FROM users WHERE password = '{password}' AND username = '{username}'";
-
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader count = cmd.ExecuteReader();
             int cont = 0;
@@ -63,7 +54,6 @@ namespace ApplicationProject
                 cont = int.Parse(count[0].ToString());
             }
             conn.Close();
-
             if (cont == 1)
                 return true;
             else
@@ -74,9 +64,7 @@ namespace ApplicationProject
         {
             MySqlConnection conn = DB.GetDBConnection();
             conn.Open();
-
             string sqlCheck = $"SELECT COUNT(fileName) FROM files WHERE username = '{username}' AND fileName = '{filename}'";
-
             MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
             MySqlDataReader count = cmd.ExecuteReader();
             int cont = 0;

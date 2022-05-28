@@ -45,17 +45,11 @@
             this.SaveFileInput_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileOutputEncypt_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileOutputDecrypt_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutProgramm = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
-            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ActionDeleteAllFile_Button = new System.Windows.Forms.ToolStripButton();
-            this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
-            this.ChangeFileName_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileOutputEncypt_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileOutputDecrypt_Button = new System.Windows.Forms.ToolStripButton();
             this.UM_Label = new System.Windows.Forms.Label();
             this.AllFiles_ListBox = new System.Windows.Forms.ListBox();
             this.Username_Label = new System.Windows.Forms.Label();
@@ -79,12 +73,28 @@
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GoToAdminPanel_Button = new System.Windows.Forms.Button();
-            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.содержаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.индексToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.опрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.корзинаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.возниклаОшибкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewContentRecycle = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.EmptyRecycle = new System.Windows.Forms.ToolStripMenuItem();
+            this.обратитьсяКАдминистрацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.ReportErrorUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.связь = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.AccountsGitHub = new System.Windows.Forms.ToolStripMenuItem();
+            this.AccountsTelegram = new System.Windows.Forms.ToolStripMenuItem();
+            this.AccountsEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.MessageToAdmins = new System.Windows.Forms.ToolStripMenuItem();
+            this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
+            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
+            this.ActionDeleteAllFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.ChangeFileName_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputEncypt_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputDecrypt_Button = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -98,7 +108,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Files_ToolMenu,
-            this.справкаToolStripMenuItem1});
+            this.корзинаToolStripMenuItem,
+            this.справкаToolStripMenuItem1,
+            this.возниклаОшибкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -212,6 +224,22 @@
             this.SaveFileOutputDecrypt_Menu.Text = "Сохранить расшифрованные данные";
             this.SaveFileOutputDecrypt_Menu.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
+            // справкаToolStripMenuItem1
+            // 
+            this.справкаToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.связь,
+            this.toolStripSeparator8,
+            this.AboutProgramm});
+            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem1.Text = "Справка";
+            // 
+            // AboutProgramm
+            // 
+            this.AboutProgramm.Name = "AboutProgramm";
+            this.AboutProgramm.Size = new System.Drawing.Size(209, 22);
+            this.AboutProgramm.Text = "О программе";
+            // 
             // ToolStrip
             // 
             this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -231,95 +259,15 @@
             this.ToolStrip.TabIndex = 1;
             this.ToolStrip.Text = "toolStrip1";
             // 
-            // ActionAddFilePC_Button
-            // 
-            this.ActionAddFilePC_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionAddFilePC_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
-            this.ActionAddFilePC_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
-            this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionAddFilePC_Button.Text = "Добавить файл";
-            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Click);
-            // 
-            // AddFileManually_Button
-            // 
-            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddFileManually_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
-            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddFileManually_Button.Name = "AddFileManually_Button";
-            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
-            this.AddFileManually_Button.Text = "Добавить файл вручную";
-            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // ActionDeleteAllFile_Button
-            // 
-            this.ActionDeleteAllFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionDeleteAllFile_Button.Image = global::ApplicationProject.Properties.Resources.deleteAllFiles;
-            this.ActionDeleteAllFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
-            this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionDeleteAllFile_Button.Text = "Удалить все файлы";
-            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Click);
-            // 
-            // ActionDeleteSelectFile_Button
-            // 
-            this.ActionDeleteSelectFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionDeleteSelectFile_Button.Image = global::ApplicationProject.Properties.Resources.delete_file;
-            this.ActionDeleteSelectFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
-            this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionDeleteSelectFile_Button.Text = "Удалить выбранный файл";
-            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Click);
-            // 
-            // ChangeFileName_Button
-            // 
-            this.ChangeFileName_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ChangeFileName_Button.Image = global::ApplicationProject.Properties.Resources.exchange;
-            this.ChangeFileName_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ChangeFileName_Button.Name = "ChangeFileName_Button";
-            this.ChangeFileName_Button.Size = new System.Drawing.Size(23, 22);
-            this.ChangeFileName_Button.Text = "Изменить название выбранного файла";
-            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // SaveFileInput_Button
-            // 
-            this.SaveFileInput_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileInput_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
-            this.SaveFileInput_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileInput_Button.Name = "SaveFileInput_Button";
-            this.SaveFileInput_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileInput_Button.Text = "Сохранить исходный файл";
-            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveContentFile_Click);
-            // 
-            // SaveFileOutputEncypt_Button
-            // 
-            this.SaveFileOutputEncypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileOutputEncypt_Button.Image = global::ApplicationProject.Properties.Resources.encrypted;
-            this.SaveFileOutputEncypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileOutputEncypt_Button.Name = "SaveFileOutputEncypt_Button";
-            this.SaveFileOutputEncypt_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileOutputEncypt_Button.Text = "Сохранить зашифрованные данные";
-            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveEncyptFile_Click);
-            // 
-            // SaveFileOutputDecrypt_Button
-            // 
-            this.SaveFileOutputDecrypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileOutputDecrypt_Button.Image = global::ApplicationProject.Properties.Resources.decryption;
-            this.SaveFileOutputDecrypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileOutputDecrypt_Button.Name = "SaveFileOutputDecrypt_Button";
-            this.SaveFileOutputDecrypt_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileOutputDecrypt_Button.Text = "Сохранить расшифрованные данные";
-            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // UM_Label
             // 
@@ -516,46 +464,187 @@
             this.GoToAdminPanel_Button.UseVisualStyleBackColor = true;
             this.GoToAdminPanel_Button.Click += new System.EventHandler(this.GoToAdminPanel_Button_Click);
             // 
-            // справкаToolStripMenuItem1
+            // корзинаToolStripMenuItem
             // 
-            this.справкаToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.содержаниеToolStripMenuItem,
-            this.индексToolStripMenuItem,
-            this.поискToolStripMenuItem,
-            this.toolStripSeparator10,
-            this.опрограммеToolStripMenuItem});
-            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
-            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem1.Text = "Спра&вка";
+            this.корзинаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ViewContentRecycle,
+            this.toolStripSeparator6,
+            this.EmptyRecycle});
+            this.корзинаToolStripMenuItem.Name = "корзинаToolStripMenuItem";
+            this.корзинаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.корзинаToolStripMenuItem.Text = "Корзина";
             // 
-            // содержаниеToolStripMenuItem
+            // возниклаОшибкаToolStripMenuItem
             // 
-            this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
-            this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.содержаниеToolStripMenuItem.Text = "&Содержание";
+            this.возниклаОшибкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.обратитьсяКАдминистрацииToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.ReportErrorUser});
+            this.возниклаОшибкаToolStripMenuItem.Name = "возниклаОшибкаToolStripMenuItem";
+            this.возниклаОшибкаToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
+            this.возниклаОшибкаToolStripMenuItem.Text = "Возникла ошибка? ";
             // 
-            // индексToolStripMenuItem
+            // ViewContentRecycle
             // 
-            this.индексToolStripMenuItem.Name = "индексToolStripMenuItem";
-            this.индексToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.индексToolStripMenuItem.Text = "&Индекс";
+            this.ViewContentRecycle.Name = "ViewContentRecycle";
+            this.ViewContentRecycle.Size = new System.Drawing.Size(221, 22);
+            this.ViewContentRecycle.Text = "Просмотреть содержимое";
+            this.ViewContentRecycle.Click += new System.EventHandler(this.ViewContentRecycle_Click);
             // 
-            // поискToolStripMenuItem
+            // toolStripSeparator6
             // 
-            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            this.поискToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.поискToolStripMenuItem.Text = "&Поиск";
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(218, 6);
             // 
-            // toolStripSeparator10
+            // EmptyRecycle
             // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(177, 6);
+            this.EmptyRecycle.Name = "EmptyRecycle";
+            this.EmptyRecycle.Size = new System.Drawing.Size(221, 22);
+            this.EmptyRecycle.Text = "Очистить корзину";
+            this.EmptyRecycle.Click += new System.EventHandler(this.EmptyRecycle_Click);
             // 
-            // опрограммеToolStripMenuItem
+            // обратитьсяКАдминистрацииToolStripMenuItem
             // 
-            this.опрограммеToolStripMenuItem.Name = "опрограммеToolStripMenuItem";
-            this.опрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.опрограммеToolStripMenuItem.Text = "&О программе...";
+            this.обратитьсяКАдминистрацииToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MessageToAdmins});
+            this.обратитьсяКАдминистрацииToolStripMenuItem.Name = "обратитьсяКАдминистрацииToolStripMenuItem";
+            this.обратитьсяКАдминистрацииToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.обратитьсяКАдминистрацииToolStripMenuItem.Text = "Обратиться к администрации";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(234, 6);
+            // 
+            // ReportErrorUser
+            // 
+            this.ReportErrorUser.Name = "ReportErrorUser";
+            this.ReportErrorUser.Size = new System.Drawing.Size(237, 22);
+            this.ReportErrorUser.Text = "Отправить отчет об ошибке";
+            this.ReportErrorUser.Click += new System.EventHandler(this.ReportErrorUser_Click);
+            // 
+            // связь
+            // 
+            this.связь.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AccountsGitHub,
+            this.AccountsTelegram,
+            this.AccountsEmail});
+            this.связь.Name = "связь";
+            this.связь.Size = new System.Drawing.Size(209, 22);
+            this.связь.Text = "Связь с разработчиками";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(206, 6);
+            // 
+            // AccountsGitHub
+            // 
+            this.AccountsGitHub.Name = "AccountsGitHub";
+            this.AccountsGitHub.Size = new System.Drawing.Size(197, 22);
+            this.AccountsGitHub.Text = "Аккаунты на GitHub";
+            this.AccountsGitHub.Click += new System.EventHandler(this.AccountsGitHub_Click);
+            // 
+            // AccountsTelegram
+            // 
+            this.AccountsTelegram.Name = "AccountsTelegram";
+            this.AccountsTelegram.Size = new System.Drawing.Size(197, 22);
+            this.AccountsTelegram.Text = "Аккаунты в Telegram";
+            this.AccountsTelegram.Click += new System.EventHandler(this.AccountsTelegram_Click);
+            // 
+            // AccountsEmail
+            // 
+            this.AccountsEmail.Name = "AccountsEmail";
+            this.AccountsEmail.Size = new System.Drawing.Size(197, 22);
+            this.AccountsEmail.Text = "Почты разработчиков";
+            this.AccountsEmail.Click += new System.EventHandler(this.AccountsEmail_Click);
+            // 
+            // MessageToAdmins
+            // 
+            this.MessageToAdmins.Name = "MessageToAdmins";
+            this.MessageToAdmins.Size = new System.Drawing.Size(216, 22);
+            this.MessageToAdmins.Text = "Написать администрации";
+            this.MessageToAdmins.Click += new System.EventHandler(this.MessageToAdmins_Click);
+            // 
+            // ActionAddFilePC_Button
+            // 
+            this.ActionAddFilePC_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionAddFilePC_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
+            this.ActionAddFilePC_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
+            this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionAddFilePC_Button.Text = "Добавить файл";
+            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Click);
+            // 
+            // AddFileManually_Button
+            // 
+            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddFileManually_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
+            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddFileManually_Button.Name = "AddFileManually_Button";
+            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
+            this.AddFileManually_Button.Text = "Добавить файл вручную";
+            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Click);
+            // 
+            // ActionDeleteAllFile_Button
+            // 
+            this.ActionDeleteAllFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteAllFile_Button.Image = global::ApplicationProject.Properties.Resources.deleteAllFiles;
+            this.ActionDeleteAllFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
+            this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteAllFile_Button.Text = "Удалить все файлы";
+            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Click);
+            // 
+            // ActionDeleteSelectFile_Button
+            // 
+            this.ActionDeleteSelectFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteSelectFile_Button.Image = global::ApplicationProject.Properties.Resources.delete_file;
+            this.ActionDeleteSelectFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
+            this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteSelectFile_Button.Text = "Удалить выбранный файл";
+            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Click);
+            // 
+            // ChangeFileName_Button
+            // 
+            this.ChangeFileName_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ChangeFileName_Button.Image = global::ApplicationProject.Properties.Resources.exchange;
+            this.ChangeFileName_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ChangeFileName_Button.Name = "ChangeFileName_Button";
+            this.ChangeFileName_Button.Size = new System.Drawing.Size(23, 22);
+            this.ChangeFileName_Button.Text = "Изменить название выбранного файла";
+            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Click);
+            // 
+            // SaveFileInput_Button
+            // 
+            this.SaveFileInput_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileInput_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
+            this.SaveFileInput_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileInput_Button.Name = "SaveFileInput_Button";
+            this.SaveFileInput_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileInput_Button.Text = "Сохранить исходный файл";
+            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveContentFile_Click);
+            // 
+            // SaveFileOutputEncypt_Button
+            // 
+            this.SaveFileOutputEncypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileOutputEncypt_Button.Image = global::ApplicationProject.Properties.Resources.encrypted;
+            this.SaveFileOutputEncypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileOutputEncypt_Button.Name = "SaveFileOutputEncypt_Button";
+            this.SaveFileOutputEncypt_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileOutputEncypt_Button.Text = "Сохранить зашифрованные данные";
+            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveEncyptFile_Click);
+            // 
+            // SaveFileOutputDecrypt_Button
+            // 
+            this.SaveFileOutputDecrypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileOutputDecrypt_Button.Image = global::ApplicationProject.Properties.Resources.decryption;
+            this.SaveFileOutputDecrypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileOutputDecrypt_Button.Name = "SaveFileOutputDecrypt_Button";
+            this.SaveFileOutputDecrypt_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileOutputDecrypt_Button.Text = "Сохранить расшифрованные данные";
+            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // MainMenuForm
             // 
@@ -649,10 +738,20 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.Button GoToAdminPanel_Button;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem содержаниеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem индексToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripMenuItem опрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutProgramm;
+        private System.Windows.Forms.ToolStripMenuItem корзинаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem возниклаОшибкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ViewContentRecycle;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem EmptyRecycle;
+        private System.Windows.Forms.ToolStripMenuItem связь;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem обратитьсяКАдминистрацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem ReportErrorUser;
+        private System.Windows.Forms.ToolStripMenuItem AccountsGitHub;
+        private System.Windows.Forms.ToolStripMenuItem AccountsTelegram;
+        private System.Windows.Forms.ToolStripMenuItem AccountsEmail;
+        private System.Windows.Forms.ToolStripMenuItem MessageToAdmins;
     }
 }

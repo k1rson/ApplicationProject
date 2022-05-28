@@ -68,6 +68,8 @@
             this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationPhone = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -128,6 +130,9 @@
             // 
             // NotificationUser_Menu
             // 
+            this.NotificationUser_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NotificationEmail,
+            this.NotificationPhone});
             this.NotificationUser_Menu.Name = "NotificationUser_Menu";
             this.NotificationUser_Menu.Size = new System.Drawing.Size(266, 22);
             this.NotificationUser_Menu.Text = "Уведомить пользователя";
@@ -363,7 +368,7 @@
             this.toolStripSeparator1,
             this.уведомитьПользователяToolStripMenuItem});
             this.ContextMenuAllUsers.Name = "ContextMenuAllUsers";
-            this.ContextMenuAllUsers.Size = new System.Drawing.Size(237, 98);
+            this.ContextMenuAllUsers.Size = new System.Drawing.Size(237, 76);
             // 
             // удалитьПользователяToolStripMenuItem
             // 
@@ -390,6 +395,20 @@
             this.уведомитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
             this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
             this.уведомитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.NotificationUser_Click);
+            // 
+            // NotificationEmail
+            // 
+            this.NotificationEmail.Name = "NotificationEmail";
+            this.NotificationEmail.Size = new System.Drawing.Size(265, 22);
+            this.NotificationEmail.Text = "Отправить письмо на почту";
+            this.NotificationEmail.Click += new System.EventHandler(this.NotificationEmail_Click);
+            // 
+            // NotificationPhone
+            // 
+            this.NotificationPhone.Name = "NotificationPhone";
+            this.NotificationPhone.Size = new System.Drawing.Size(265, 22);
+            this.NotificationPhone.Text = "Отправить сообщение на телефон";
+            this.NotificationPhone.Click += new System.EventHandler(this.NotificationPhone_Click);
             // 
             // AdminPanelForm
             // 
@@ -463,5 +482,7 @@
         private System.Windows.Forms.ToolStripMenuItem заблокироватьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem уведомитьПользователяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NotificationEmail;
+        private System.Windows.Forms.ToolStripMenuItem NotificationPhone;
     }
 }

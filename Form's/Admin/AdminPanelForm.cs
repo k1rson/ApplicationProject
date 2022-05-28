@@ -42,10 +42,12 @@ namespace ApplicationProject
         {
         }
 
+        #region Удалить потом дрочь эту аккуратно надо
         private void NotificationUser_Click(object sender, EventArgs e)
         {
 
         }
+        #endregion
 
         private void CreateReport_Click(object sender, EventArgs e)
         {
@@ -139,5 +141,18 @@ namespace ApplicationProject
                 return;
             }
         }
+
+        // Notification user
+        private void NotificationEmail_Click(object sender, EventArgs e)
+        {
+            NotificationEmailForm notificationEmail = new NotificationEmailForm();
+            notificationEmail.ShowDialog(); 
+        }
+
+        private void NotificationPhone_Click(object sender, EventArgs e)
+        {
+
+        }
+        // End Notification USer
     }
 }

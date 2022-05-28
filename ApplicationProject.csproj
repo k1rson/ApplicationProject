@@ -37,6 +37,7 @@
     <Reference Include="MySql.Data.EntityFramework, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Web, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -98,6 +99,12 @@
     <Compile Include="Form%27s\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form%27s\Admin\NotificationEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Admin\NotificationEmailForm.Designer.cs">
+      <DependentUpon>NotificationEmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherFunction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,10 +120,19 @@
     <Compile Include="Form%27s\Options\RecycleBinForm.Designer.cs">
       <DependentUpon>RecycleBinForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form%27s\Options\RecycleOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Options\RecycleOptionsForm.Designer.cs">
+      <DependentUpon>RecycleOptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="sqlFuncs.cs" />
     <Compile Include="Worker.cs" />
     <EmbeddedResource Include="Form%27s\Admin\ActionsAdminForm.resx">
       <DependentUpon>ActionsAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Admin\NotificationEmailForm.resx">
+      <DependentUpon>NotificationEmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Edit Files\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>
@@ -141,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Auth and Registr\RegistartionForm.resx">
       <DependentUpon>RegistartionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Options\RecycleBinForm.resx">
+      <DependentUpon>RecycleBinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Options\RecycleOptionsForm.resx">
+      <DependentUpon>RecycleOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

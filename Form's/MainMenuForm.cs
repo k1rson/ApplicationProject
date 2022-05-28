@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics; 
 
 namespace ApplicationProject
 {
@@ -280,5 +281,49 @@ namespace ApplicationProject
             AdminPanelForm admForm = new AdminPanelForm();
             admForm.ShowDialog(); 
         }
+
+        // Recycle 
+        private void ViewContentRecycle_Click(object sender, EventArgs e)
+        {
+            RecycleBinForm recycleForm = new RecycleBinForm(); 
+            recycleForm.ShowDialog();
+        }
+
+        private void EmptyRecycle_Click(object sender, EventArgs e)
+        {
+
+        }
+        // End Recycle
+
+        // Referance
+        private void AccountsGitHub_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/k1rson");
+            Process.Start("https://github.com/YannGotti");
+        }
+
+        private void AccountsTelegram_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://t.me/dedushaistele2");
+            Process.Start("https://t.me/mironchikk");
+        }
+
+        private void AccountsEmail_Click(object sender, EventArgs e)
+        {
+            
+        }
+        // End Referance
+
+        // FeedBack
+        private void MessageToAdmins_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReportErrorUser_Click(object sender, EventArgs e)
+        {
+
+        }
+        // End FeedBack
     }
 }
