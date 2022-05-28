@@ -17,9 +17,10 @@ namespace ApplicationProject
             InitializeComponent();
 
             // привязали контекстное меню к листбоксу  
-            AllFilesRecycle_ListBox.ContextMenuStrip = ContextMenuRecycle; 
+            AllFilesRecycle_ListBox.ContextMenuStrip = ContextMenuRecycle;
 
             // здесь все файлы отрисовываются 
+            UpdateListBox();
 
             // таймер для очистки корзины
         }
