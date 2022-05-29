@@ -21,6 +21,7 @@ namespace ApplicationProject
             // Control properties
             TabPage3.Parent = null; // убрать видимость третьей вкладки tabControl
             GoToAdminPanel_Button.Visible = false;
+            Input_RichBox.BackColor = SystemColors.ControlDark;
 
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
@@ -42,7 +43,14 @@ namespace ApplicationProject
         {
             
             if (OtherFunction.fileName != null)
+            {
                 Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
+                if(!Input_RichBox.ReadOnly)
+                    Input_RichBox.BackColor = SystemColors.Control;
+                else
+                    Input_RichBox.BackColor = SystemColors.ControlDark;
+            }
+                
             else
                 MessageBox.Show("Вы не выбрали файл!");
         }
