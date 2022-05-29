@@ -276,7 +276,7 @@ namespace ApplicationProject
             catch (Exception)
             {
                 MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
-                return String.Empty;
+                return string.Empty;
             }
             
         }
@@ -307,7 +307,7 @@ namespace ApplicationProject
             {
 
                 MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
-                return String.Empty;
+                return string.Empty;
             }
             
         }
@@ -807,7 +807,7 @@ namespace ApplicationProject
             catch (Exception)
             {
                 MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
-                return String.Empty;
+                return string.Empty;
             }
             
         }
