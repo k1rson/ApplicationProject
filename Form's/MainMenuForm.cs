@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Diagnostics; 
+using System.Diagnostics;
+using System.Net;
 
 namespace ApplicationProject
 {
@@ -34,14 +35,16 @@ namespace ApplicationProject
             // Очищение корзины при входе
             if (sqlFuncs.selectValueTimer(OtherFunction.userName) == "enter")
                 sqlFuncs.deleteAllFiles(OtherFunction.userName);
-
         }
 
         // Vision Input_RichBox
 
         private void DynamicEdit_Button_Click(object sender, EventArgs e)
         {
+
             
+
+
             if (OtherFunction.fileName != null)
             {
                 Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
@@ -273,6 +276,7 @@ namespace ApplicationProject
                 }
                 else
                     timerRecycle.Enabled = false;
+
             }
         }
 
@@ -383,6 +387,7 @@ namespace ApplicationProject
         {
             sqlFuncs.deleteAllFiles(OtherFunction.userName);
         }
+
         // End FeedBack
     }
 }
