@@ -29,23 +29,41 @@ namespace ApplicationProject
 
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
+
+            // Очищение корзины при входе
+            if (sqlFuncs.selectValueTimer(OtherFunction.userName) == "enter")
+            {
+                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+            }
+
         }
 
         // Vision Input_RichBox
 
         private void DynamicEdit_Button_Click(object sender, EventArgs e)
         {
-            Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
+            
+            if (OtherFunction.fileName != null)
+                Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
+            else
+                MessageBox.Show("Вы не выбрали файл!");
         }
 
         // Open encypt form
         private void Encrypt_Button_Click(object sender, EventArgs e)
         {
-            if (Input_RichBox.Text != null)
-            OtherFunction.decryption = Input_RichBox.Text;
+            if (OtherFunction.fileName != null)
+            {
+                if (Input_RichBox.Text != null)
+                    OtherFunction.decryption = Input_RichBox.Text;
 
-            EncryptionOptionsForm encOptFomr = new EncryptionOptionsForm();
-            encOptFomr.Show(); 
+                EncryptionOptionsForm encOptFomr = new EncryptionOptionsForm();
+                encOptFomr.Show();
+            }
+
+            else
+                MessageBox.Show("Вы не выбрали файл!");
+            
         }
 
         // Decrypt data + vision tabPages3
@@ -106,6 +124,7 @@ namespace ApplicationProject
         // Double click, select element list box
         private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
             string username = OtherFunction.userName;
 
             List<string> files = sqlFuncs.selectUserFiles(username);
@@ -236,7 +255,20 @@ namespace ApplicationProject
                 Username_Label.Text = login;
 
                 if (sqlFuncs.IsAdmin(login))
-                GoToAdminPanel_Button.Visible = true; 
+                    GoToAdminPanel_Button.Visible = true;
+
+                // Инициализация таймера
+                string interval = sqlFuncs.selectValueTimer(OtherFunction.userName);
+                if (interval != "never" && interval != "enter")
+                {
+
+                    timerRecycle.Interval = int.Parse(interval);
+                    timerRecycle.Enabled = true;
+                }
+                else
+                    timerRecycle.Enabled = false;
+
+
             }
         }
 
@@ -257,7 +289,7 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                return;
+                OtherFunction.fileName = null;
             }
         }
 
@@ -339,6 +371,13 @@ namespace ApplicationProject
         private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             sqlFuncs.closeSession(OtherFunction.userName);
+        }
+
+        // Работа таймера
+
+        private void timerRecycle_Tick(object sender, EventArgs e)
+        {
+            sqlFuncs.deleteAllFiles(OtherFunction.userName);
         }
         // End FeedBack
     }

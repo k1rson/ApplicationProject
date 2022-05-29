@@ -508,6 +508,45 @@ namespace ApplicationProject
             conn.Close();
         }
 
+        // Таймер
+
+        // Внести интервал
+
+        public static void updateIntervalTimer(string username, string interval)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sql = $"UPDATE users SET timer = '{interval}' WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+
+        // Получить значение интервала
+        public static string selectValueTimer(string username)
+        {
+            MySqlConnection conn = DB.GetDBConnection();
+            conn.Open();
+
+            string sqlCheck = $"SELECT timer FROM users WHERE username = '{username}'";
+
+            MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            string text = string.Empty;
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                text = reader["timer"].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return text;
+        }
+
 
 
         // Шифрование

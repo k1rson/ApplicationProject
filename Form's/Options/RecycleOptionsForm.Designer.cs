@@ -45,7 +45,8 @@
             "Каждые 5 минут ",
             "Каждый час",
             "Каждый день ",
-            "Каждый раз при входе в аккаунт"});
+            "Каждый раз при входе в аккаунт",
+            "Никогда"});
             this.Interval_Combobox.Location = new System.Drawing.Point(131, 23);
             this.Interval_Combobox.Name = "Interval_Combobox";
             this.Interval_Combobox.Size = new System.Drawing.Size(121, 21);
@@ -105,6 +106,7 @@
             this.Name = "RecycleOptionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Интервал автоочищения";
+            this.Activated += new System.EventHandler(this.RecycleOptionsForm_Activated);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

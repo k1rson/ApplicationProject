@@ -95,6 +95,7 @@
             this.DeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GoToAdminPanel_Button = new System.Windows.Forms.Button();
+            this.timerRecycle = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -646,6 +647,10 @@
             this.GoToAdminPanel_Button.UseVisualStyleBackColor = true;
             this.GoToAdminPanel_Button.Click += new System.EventHandler(this.GoToAdminPanel_Button_Click);
             // 
+            // timerRecycle
+            // 
+            this.timerRecycle.Tick += new System.EventHandler(this.timerRecycle_Tick);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,5 +759,6 @@
         private System.Windows.Forms.ToolStripMenuItem AccountsTelegram;
         private System.Windows.Forms.ToolStripMenuItem AccountsEmail;
         private System.Windows.Forms.ToolStripMenuItem MessageToAdmins;
+        private System.Windows.Forms.Timer timerRecycle;
     }
 }

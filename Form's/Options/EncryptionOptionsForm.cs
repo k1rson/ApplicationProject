@@ -71,6 +71,10 @@ namespace ApplicationProject
                         Shift_Numeric.Value = 0;
                         return;
                     }
+
+
+
+
                     string code = null;
                     for (int i = 0; i < word.Length; i++)
                     {
@@ -98,7 +102,13 @@ namespace ApplicationProject
                                 int a = posihion + shift;
                                 if (a > 32)
                                     a -= 33;
-                                code += alphabetRusCaps[a];
+
+                                if (SelectAlphabet_ComboBox.SelectedIndex == 0 || SelectAlphabet_ComboBox.SelectedIndex == 1)
+                                {
+                                    code += alphabetRusCaps[a];
+                                }
+                                else
+                                    code += alphabetRusCaps[posihion];
                             }
                             if (alphabetRus.IndexOf(c) >= 0)
                             {
@@ -106,7 +116,13 @@ namespace ApplicationProject
                                 int a = posihion + shift;
                                 if (a > 32)
                                     a -= 33;
-                                code += alphabetRus[a];
+
+                                if (SelectAlphabet_ComboBox.SelectedIndex == 0 || SelectAlphabet_ComboBox.SelectedIndex == 1)
+                                {
+                                    code += alphabetRus[a];
+                                }
+                                else
+                                    code += alphabetRus[posihion];
                             }
 
                             if (alphabetEng.IndexOf(c) >= 0)
@@ -115,7 +131,13 @@ namespace ApplicationProject
                                 int a = posihion + shift;
                                 if (a > 25)
                                     a -= 26;
-                                code += alphabetEng[a];
+
+                                if (SelectAlphabet_ComboBox.SelectedIndex == 0 || SelectAlphabet_ComboBox.SelectedIndex == 2)
+                                {
+                                    code += alphabetEng[a];
+                                }
+                                else
+                                    code += alphabetEng[posihion];
                             }
 
                             if (alphabetEngCaps.IndexOf(c) >= 0)
@@ -124,7 +146,13 @@ namespace ApplicationProject
                                 int a = posihion + shift;
                                 if (a > 25)
                                     a -= 26;
-                                code += alphabetEngCaps[a];
+
+                                if (SelectAlphabet_ComboBox.SelectedIndex == 0 || SelectAlphabet_ComboBox.SelectedIndex == 2)
+                                {
+                                    code += alphabetEngCaps[a];
+                                }
+                                else
+                                    code += alphabetEngCaps[posihion];
                             }
 
                             if (numbersList.IndexOf(c) >= 0)
@@ -143,7 +171,14 @@ namespace ApplicationProject
                                 int a = posihion + shift;
                                 if (a > 17)
                                     a -= 18;
-                                code += alphabetSymbols[a];
+
+                                if (SelectAlphabet_ComboBox.SelectedIndex == 0 || SelectAlphabet_ComboBox.SelectedIndex == 3)
+                                {
+                                    code += alphabetSymbols[a];
+                                }
+                                else
+                                    code += alphabetSymbols[posihion];
+
                             }
                         }
                     }
