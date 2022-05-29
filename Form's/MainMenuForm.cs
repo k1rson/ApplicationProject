@@ -30,18 +30,9 @@ namespace ApplicationProject
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
 
-            // Инициализация таймера
-            string interval = sqlFuncs.selectValueTimer(OtherFunction.userName);
-            if (interval != "never" && interval != "enter")
-            {
-
-                timerRecycle.Interval = int.Parse(interval);
-                timerRecycle.Enabled = true;
-            }
-            else if(interval == "enter")
+            // Очищение корзины при входе
+            if (sqlFuncs.selectValueTimer(OtherFunction.userName) == "enter")
                 sqlFuncs.deleteAllFiles(OtherFunction.userName);
-            else
-                timerRecycle.Enabled = false;
 
         }
 
@@ -264,7 +255,16 @@ namespace ApplicationProject
                 if (sqlFuncs.IsAdmin(login))
                     GoToAdminPanel_Button.Visible = true;
 
+                // Инициализация таймера
+                string interval = sqlFuncs.selectValueTimer(OtherFunction.userName);
+                if (interval != "never" && interval != "enter")
+                {
 
+                    timerRecycle.Interval = int.Parse(interval);
+                    timerRecycle.Enabled = true;
+                }
+                else
+                    timerRecycle.Enabled = false;
             }
         }
 
