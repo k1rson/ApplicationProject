@@ -32,9 +32,7 @@ namespace ApplicationProject
 
             // Очищение корзины при входе
             if (sqlFuncs.selectValueTimer(OtherFunction.userName) == "enter")
-            {
                 sqlFuncs.deleteAllFiles(OtherFunction.userName);
-            }
 
         }
 
@@ -124,14 +122,14 @@ namespace ApplicationProject
         // Double click, select element list box
         private void AllFiles_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
-            string username = OtherFunction.userName;
-
-            List<string> files = sqlFuncs.selectUserFiles(username);
-            Input_RichBox.Clear();
-
             try
             {
+                OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
+                string username = OtherFunction.userName;
+
+                List<string> files = sqlFuncs.selectUserFiles(username);
+                Input_RichBox.Clear();
+
                 if (AllFiles_ListBox.SelectedIndex <= files.Count)
                 {
                     string filename = files[AllFiles_ListBox.SelectedIndex];
@@ -267,8 +265,6 @@ namespace ApplicationProject
                 }
                 else
                     timerRecycle.Enabled = false;
-
-
             }
         }
 
