@@ -13,16 +13,12 @@ namespace ApplicationProject
     {
         public static MySqlConnection GetDBConnection()
         {
-            string host = "31.31.198.99";
-            int port = 3306;
-            string database = "u1625777_database";
-            string username = "u1625777_shift";
-            string password = "cS6sC6wJ3pmD7j";
+            
 
 
             // Connection String.
-            String connString = "Server=" + host + ";Database=" + database
-                + ";port=" + port + ";User Id=" + username + ";password=" + password + ";CharSet=utf8mb4;";
+            String connString = "Server=" + config.host + ";Database=" + config.database
+                + ";port=" + config.port + ";User Id=" + config.username + ";password=" + config.password + ";CharSet=utf8mb4;";
 
 
             MySqlConnection conn = new MySqlConnection(connString);
