@@ -38,13 +38,8 @@ namespace ApplicationProject
         }
 
         // Vision Input_RichBox
-
         private void DynamicEdit_Button_Click(object sender, EventArgs e)
         {
-
-            
-
-
             if (OtherFunction.fileName != null)
             {
                 Input_RichBox.ReadOnly = !Input_RichBox.ReadOnly;
@@ -53,9 +48,11 @@ namespace ApplicationProject
                 else
                     Input_RichBox.BackColor = SystemColors.ControlDark;
             }
-                
             else
-                MessageBox.Show("Вы не выбрали файл!");
+            {
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Open encypt form

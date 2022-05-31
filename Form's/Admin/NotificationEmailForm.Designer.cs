@@ -31,12 +31,12 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.Apply_Button = new System.Windows.Forms.Button();
-            this.EmailUser_TextBox = new System.Windows.Forms.TextBox();
             this.SubjectMessage_TextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Message_RichTextBox = new System.Windows.Forms.RichTextBox();
+            this.AllEmailUsers_ComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,13 +70,6 @@
             this.Apply_Button.Text = "Отправить письмо";
             this.Apply_Button.UseVisualStyleBackColor = true;
             this.Apply_Button.Click += new System.EventHandler(this.Apply_Button_Click);
-            // 
-            // EmailUser_TextBox
-            // 
-            this.EmailUser_TextBox.Location = new System.Drawing.Point(160, 16);
-            this.EmailUser_TextBox.Name = "EmailUser_TextBox";
-            this.EmailUser_TextBox.Size = new System.Drawing.Size(161, 20);
-            this.EmailUser_TextBox.TabIndex = 2;
             // 
             // SubjectMessage_TextBox
             // 
@@ -120,20 +113,30 @@
             this.Message_RichTextBox.TabIndex = 9;
             this.Message_RichTextBox.Text = "";
             // 
+            // AllEmailUsers_ComboBox
+            // 
+            this.AllEmailUsers_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AllEmailUsers_ComboBox.FormattingEnabled = true;
+            this.AllEmailUsers_ComboBox.Location = new System.Drawing.Point(160, 12);
+            this.AllEmailUsers_ComboBox.Name = "AllEmailUsers_ComboBox";
+            this.AllEmailUsers_ComboBox.Size = new System.Drawing.Size(161, 21);
+            this.AllEmailUsers_ComboBox.TabIndex = 10;
+            // 
             // NotificationEmailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 261);
+            this.Controls.Add(this.AllEmailUsers_ComboBox);
             this.Controls.Add(this.Message_RichTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SubjectMessage_TextBox);
-            this.Controls.Add(this.EmailUser_TextBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "NotificationEmailForm";
             this.Text = "Рассылка писем";
+            this.Activated += new System.EventHandler(this.NotificationEmailForm_Activated);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,8 +151,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox EmailUser_TextBox;
         public System.Windows.Forms.TextBox SubjectMessage_TextBox;
         private System.Windows.Forms.RichTextBox Message_RichTextBox;
+        private System.Windows.Forms.ComboBox AllEmailUsers_ComboBox;
     }
 }
