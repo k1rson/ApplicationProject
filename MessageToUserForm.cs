@@ -26,7 +26,6 @@ namespace ApplicationProject
             }
             else 
             { 
-
             }
         }
         #region Buttons - Cancel
