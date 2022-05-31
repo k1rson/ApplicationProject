@@ -16,6 +16,9 @@ namespace ApplicationProject
         public static string encryption { get; set; }
         public static string decryption { get; set; }
         public static string fileName { get; set; }
+
+        public static DateTime dateTime = DateTime.Now;
+
         public static MainMenuForm MainMenuForm { get; set; }
     }
 }

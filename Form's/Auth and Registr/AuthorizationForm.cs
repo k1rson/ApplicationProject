@@ -24,10 +24,8 @@ namespace ApplicationProject
         {
             if (sqlFuncs.IsSession(LoginTextBox.Text))
             {
-                DateTime dateTime = DateTime.Now;
-
                 MessageBox.Show("Данный пользователь уже находится в системе");
-                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + dateTime + " по МСК был совершен вход на Ваш аккаунт! Если это были не Вы, то выкинетесь нахуй в окно");
+                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + OtherFunction.dateTime + " по МСК был совершен вход на Ваш аккаунт! Если это были не Вы, то выкинетесь нахуй в окно");
             }
             else
             {
@@ -45,15 +43,20 @@ namespace ApplicationProject
                     }
                     else
                     {
-
-
-                        OtherFunction.userName = LoginTextBox.Text;
-                        MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
-                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        sqlFuncs.OpenSession(OtherFunction.userName);
-                        Close();
+                        if(sqlFuncs.IsBan(LoginTextBox.Text))
+                        {
+                            MessageBox.Show($"Уважаемый пользователь, вы заблокированы администратором по причине: {sqlFuncs.BanCause(LoginTextBox.Text)}", "Вход в аккаунт",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            OtherFunction.userName = LoginTextBox.Text;
+                            MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            sqlFuncs.OpenSession(OtherFunction.userName);
+                            Close();
+                        }
                     }
-
                 }
                 else
                 {

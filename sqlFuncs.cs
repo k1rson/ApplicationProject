@@ -432,7 +432,7 @@ namespace ApplicationProject
                 while (reader.Read())
                 {
                     // элементы массива [] - это значения столбцов из запроса SELECT
-                    users.Add(reader[0].ToString() + ":" + reader[1].ToString());
+                    users.Add(reader[0].ToString() + ":" + reader[1].ToString() + " Причина: " + reader[6].ToString());
                 }
                 reader.Close();
                 conn.Close();
@@ -591,14 +591,14 @@ namespace ApplicationProject
             }
         }
 
-        public static void UnBanUser(string userName)
+        public static void UnBanUser(string userName, string cause)
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
 
-                string sql = $"UPDATE users SET role = 'User' WHERE username = '{userName}'";
+                string sql = $"UPDATE users SET role = 'User', cause = '{cause}' WHERE username = '{userName}'";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();

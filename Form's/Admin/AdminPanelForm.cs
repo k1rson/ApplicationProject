@@ -62,11 +62,12 @@ namespace ApplicationProject
                     BanCauseForm banCause = new BanCauseForm();
                     banCause.ShowDialog();
 
-                    sqlFuncs.BanUser(username[1] + "Причина: " + OtherFunction.causeBan, OtherFunction.causeBan); // баним юзера 
+                    sqlFuncs.BanUser(username[1], OtherFunction.causeBan); // баним юзера 
                     UpdateListBox();
 
-                    MessageBox.Show("Пользователь успешно заблокирован!", "Разблокировка пользователя",
+                    MessageBox.Show("Пользователь успешно заблокирован и оповещен!", "Разблокировка пользователя",
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    SMTP.SendMessage(sqlFuncs.GetEmailUser(username[1]), "Вы заблокированы!", $"Доброго времени суток! Вы были забанены {OtherFunction.dateTime}, по причине: {OtherFunction.causeBan}");
                 }
             }
             catch (Exception)
@@ -86,7 +87,7 @@ namespace ApplicationProject
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    sqlFuncs.UnBanUser(username[1]); // разбан юзера 
+                    sqlFuncs.UnBanUser(username[1], string.Empty); // разбан юзера 
                     UpdateListBox();
 
                     MessageBox.Show("Пользователь успешно разблокирован!", "Удаление пользователя",
