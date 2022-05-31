@@ -74,6 +74,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.AllBanUsers_ListBox = new System.Windows.Forms.ListBox();
+            this.ContextMenuBanUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.UnBanUser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -83,6 +85,7 @@
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.ContextMenuBanUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -459,6 +462,20 @@
             this.AllBanUsers_ListBox.Size = new System.Drawing.Size(198, 155);
             this.AllBanUsers_ListBox.TabIndex = 0;
             // 
+            // ContextMenuBanUsers
+            // 
+            this.ContextMenuBanUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UnBanUser});
+            this.ContextMenuBanUsers.Name = "ContextMenuBanUsers";
+            this.ContextMenuBanUsers.Size = new System.Drawing.Size(242, 48);
+            // 
+            // UnBanUser
+            // 
+            this.UnBanUser.Name = "UnBanUser";
+            this.UnBanUser.Size = new System.Drawing.Size(241, 22);
+            this.UnBanUser.Text = "Разблокировать пользователя";
+            this.UnBanUser.Click += new System.EventHandler(this.UnBanUser_Click);
+            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +507,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.ContextMenuBanUsers.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,5 +559,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ListBox AllBanUsers_ListBox;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuBanUsers;
+        private System.Windows.Forms.ToolStripMenuItem UnBanUser;
     }
 }

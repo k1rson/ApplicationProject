@@ -532,6 +532,25 @@ namespace ApplicationProject
             }
         }
 
+        public static void UnBanUser(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sql = $"UPDATE users SET role = 'User' WHERE username = '{userName}'";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+            }
+        }
+
         // Сессия
         public static void OpenSession(string username)
         {

@@ -70,6 +70,29 @@ namespace ApplicationProject
                 MessageBox.Show("гг");
             }
         }
+        private void UnBanUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string word = AllBanUsers_ListBox.SelectedItem.ToString();
+                string[] username = word.Split(':');
+
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите разблокировать данного пользователя?", "Удаление пользователя",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    sqlFuncs.UnBanUser(username[1]); // разбан юзера 
+                    UpdateListBox();
+
+                    MessageBox.Show("Пользователь успешно разблокирован!", "Удаление пользователя",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("гг");
+            }
+        }
 
         #region Удалить потом дрочь эту аккуратно надо
         private void NotificationUser_Click(object sender, EventArgs e)
