@@ -23,7 +23,10 @@ namespace ApplicationProject
         public void Enter_Button_Click(object sender, EventArgs e)
         {
             if (sqlFuncs.IsSession(LoginTextBox.Text))
+            {
                 MessageBox.Show("Данный пользователь уже находится в системе");
+                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Пиздец", "Вас взломали11!!1!!111 БЕГИТЕ НАХУЙ");
+            }
             else
             {
                 // проверка на существование пользователя, доступ к системе
