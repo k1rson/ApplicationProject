@@ -355,7 +355,7 @@ namespace ApplicationProject
             }
             
         }
-
+        // Забаненые пользователя
         public static List<string> SelectBanUsersList()
         {
             MySqlConnection conn = GetDBConnection();

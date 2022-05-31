@@ -58,7 +58,7 @@ namespace ApplicationProject
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    sqlFuncs.BanUser(username[1]);
+                    sqlFuncs.BanUser(username[1]); // баним юзера 
                     UpdateListBox();
 
                     MessageBox.Show("Пользователь успешно заблокирован!", "Удаление пользователя",
@@ -153,6 +153,14 @@ namespace ApplicationProject
 
         private void UpdateListBox()
         {
+            AllBanUsers_ListBox.Items.Clear();
+
+            List<string> usersBan = sqlFuncs.SelectBanUsersList();
+            for (int i = 0; i < usersBan.Count; i++)
+            {
+                AllBanUsers_ListBox.Items.Add(usersBan[i]);
+            }
+
             AllUsers_ListBox.Items.Clear();
 
             List<string> users = sqlFuncs.SelectUsersList();
