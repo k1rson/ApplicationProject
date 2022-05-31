@@ -117,6 +117,12 @@
     <Compile Include="Form%27s\Edit Files\ChangeFileNameForm.Designer.cs">
       <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form%27s\Main Menu\MessageToAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Main Menu\MessageToAdminForm.Designer.cs">
+      <DependentUpon>MessageToAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\Options\DecryptionOptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,12 @@
     </Compile>
     <Compile Include="Form%27s\Admin\NotificationEmailForm.Designer.cs">
       <DependentUpon>NotificationEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form%27s\Admin\MessageToUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Admin\MessageToUserForm.Designer.cs">
+      <DependentUpon>MessageToUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OtherFunction.cs" />
     <Compile Include="Program.cs" />
@@ -207,6 +219,9 @@
     <EmbeddedResource Include="Form%27s\Edit Files\ChangeFileNameForm.resx">
       <DependentUpon>ChangeFileNameForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Main Menu\MessageToAdminForm.resx">
+      <DependentUpon>MessageToAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Options\DecryptionOptionsForm.resx">
       <DependentUpon>DecryptionOptionsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Options\RecycleOptionsForm.resx">
       <DependentUpon>RecycleOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Admin\MessageToUserForm.resx">
+      <DependentUpon>MessageToUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -26,7 +26,7 @@ namespace ApplicationProject
             }
             else
             {
-
+                sqlFuncs.AddReportUser(OtherFunction.userName, Theme_TextBox.Text, Message_RichBox.Text);
             }
         }
         #region Buttons - Cancel

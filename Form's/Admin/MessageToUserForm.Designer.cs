@@ -76,6 +76,7 @@
             this.AllThemes_ListBox.Name = "AllThemes_ListBox";
             this.AllThemes_ListBox.Size = new System.Drawing.Size(103, 264);
             this.AllThemes_ListBox.TabIndex = 1;
+            this.AllThemes_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllThemes_ListBox_MouseDoubleClick);
             // 
             // label1
             // 
@@ -119,6 +120,7 @@
             this.Name = "MessageToUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обратная связь";
+            this.Activated += new System.EventHandler(this.MessageToUserForm_Activated);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

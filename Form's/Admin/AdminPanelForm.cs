@@ -23,6 +23,12 @@ namespace ApplicationProject
             AllUsers_ListBox.ContextMenuStrip = ContextMenuAllUsers;
             AllBanUsers_ListBox.ContextMenuStrip = ContextMenuBanUsers; 
         }
+
+        private void Report_Click(object sender, EventArgs e)
+        {
+            MessageToUserForm msgToUser = new MessageToUserForm();
+            msgToUser.ShowDialog(); 
+        }
         private void DeleteUser_Click(object sender, EventArgs e)
         {
             try
@@ -226,6 +232,8 @@ namespace ApplicationProject
         {
 
         }
+
+        
         // End Notification USer
     }
 }

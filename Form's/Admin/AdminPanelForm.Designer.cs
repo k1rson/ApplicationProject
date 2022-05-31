@@ -44,6 +44,7 @@
             this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileInpurAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFileOutputAdmin_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.Report = new System.Windows.Forms.ToolStripMenuItem();
             this.GnrlInformationAdmins = new System.Windows.Forms.ToolStripMenuItem();
             this.AllUsers_ListBox = new System.Windows.Forms.ListBox();
             this.AllUsers_Label = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.AllBanUsers_ListBox = new System.Windows.Forms.ListBox();
             this.ContextMenuBanUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.UnBanUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.обратнаяСвязьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.пользователиToolStripMenuItem,
             this.отчетыToolStripMenuItem,
             this.файлыToolStripMenuItem,
-            this.обратнаяСвязьToolStripMenuItem});
+            this.Report});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -203,6 +203,13 @@
             this.SaveFileOutputAdmin_Menu.Size = new System.Drawing.Size(236, 22);
             this.SaveFileOutputAdmin_Menu.Text = "Сохранить выходные данные";
             this.SaveFileOutputAdmin_Menu.Click += new System.EventHandler(this.SaveConvertedData_Click);
+            // 
+            // Report
+            // 
+            this.Report.Name = "Report";
+            this.Report.Size = new System.Drawing.Size(104, 20);
+            this.Report.Text = "Обратная связь";
+            this.Report.Click += new System.EventHandler(this.Report_Click);
             // 
             // GnrlInformationAdmins
             // 
@@ -497,12 +504,6 @@
             this.UnBanUser.Text = "Разблокировать пользователя";
             this.UnBanUser.Click += new System.EventHandler(this.UnBanUser_Click);
             // 
-            // обратнаяСвязьToolStripMenuItem
-            // 
-            this.обратнаяСвязьToolStripMenuItem.Name = "обратнаяСвязьToolStripMenuItem";
-            this.обратнаяСвязьToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.обратнаяСвязьToolStripMenuItem.Text = "Обратная связь";
-            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,6 +591,6 @@
         private System.Windows.Forms.ToolStripMenuItem UnBanUser;
         private System.Windows.Forms.ToolStripMenuItem Email;
         private System.Windows.Forms.ToolStripMenuItem SMS;
-        private System.Windows.Forms.ToolStripMenuItem обратнаяСвязьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Report;
     }
 }

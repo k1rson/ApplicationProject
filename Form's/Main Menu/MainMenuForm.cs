@@ -399,7 +399,8 @@ namespace ApplicationProject
         // FeedBack
         private void MessageToAdmins_Click(object sender, EventArgs e)
         {
-
+            MessageToAdminForm msgToAdmin = new MessageToAdminForm();
+            msgToAdmin.ShowDialog(); 
         }
 
         private void ReportErrorUser_Click(object sender, EventArgs e)

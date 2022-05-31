@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ApplicationProject
@@ -25,7 +19,11 @@ namespace ApplicationProject
                     MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
             else 
-            { 
+            {
+                string username = OtherFunction.selectedUsername;
+
+
+
             }
         }
         #region Buttons - Cancel
@@ -34,5 +32,37 @@ namespace ApplicationProject
             Close(); 
         }
         #endregion
+
+        private void MessageToUserForm_Activated(object sender, EventArgs e)
+        {
+            UpdateListBox();
+
+        }
+
+        private void UpdateListBox()
+        {
+            AllThemes_ListBox.Items.Clear();
+
+            List<string> reports = sqlFuncs.SelectReports();
+            for (int i = 0; i < reports.Count; i++)
+            {
+                AllThemes_ListBox.Items.Add(reports[i]);
+            }
+        }
+
+        private void AllThemes_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                string userName = AllThemes_ListBox.SelectedItem.ToString();
+                OtherFunction.selectedUsername = userName;
+                Answer_RichBox.Text = userName + "\n" + sqlFuncs.SelectThemeReports(userName) + "\n" + sqlFuncs.SelectMessageReports(userName);
+            }
+            catch (Exception)
+            {
+                OtherFunction.selectedUsername = string.Empty;
+                return;
+            }
+        }
     }
 }

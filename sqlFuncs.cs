@@ -1032,14 +1032,14 @@ namespace ApplicationProject
 
 
         // Получить список вопросов
-        public static List<string> SelectReports(string username)
+        public static List<string> SelectReports()
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
 
-                string sqlCheck = $"SELECT * FROM report WHERE username = '{username}' AND status = 'using'";
+                string sqlCheck = $"SELECT * FROM report WHERE AND status = 'using'";
 
                 MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
