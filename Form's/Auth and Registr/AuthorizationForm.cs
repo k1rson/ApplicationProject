@@ -32,7 +32,7 @@ namespace ApplicationProject
             else
             {
                 // проверка на существование пользователя, доступ к системе
-                if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text)))
+                if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.Sha256(PasswordTextBox.Text)))
                 {
 
                     if (sqlFuncs.IsAdmin(LoginTextBox.Text))
@@ -40,7 +40,7 @@ namespace ApplicationProject
                         OtherFunction.userName = LoginTextBox.Text;
                         MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
                             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        sqlFuncs.openSession(OtherFunction.userName);
+                        sqlFuncs.OpenSession(OtherFunction.userName);
                         Close();
                     }
                     else
@@ -48,7 +48,7 @@ namespace ApplicationProject
                         OtherFunction.userName = LoginTextBox.Text;
                         MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
                             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        sqlFuncs.openSession(OtherFunction.userName);
+                        sqlFuncs.OpenSession(OtherFunction.userName);
                         Close();
                     }
 

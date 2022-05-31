@@ -67,7 +67,7 @@ namespace ApplicationProject
         {
             AllEmailUsers_ComboBox.Items.Clear();
 
-            List<string> users = sqlFuncs.selectUsersList();
+            List<string> users = sqlFuncs.SelectUsersList();
             for (int i = 0; i < users.Count; i++)
             {
                 AllEmailUsers_ComboBox.Items.Add(users[i]);

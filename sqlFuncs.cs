@@ -21,7 +21,7 @@ namespace ApplicationProject
             return conn;
         }
 
-        public static void regUser(string username, string password, string emailUser)
+        public static void RegUser(string username, string password, string emailUser)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -42,7 +42,7 @@ namespace ApplicationProject
 
         // Проверки
 
-        public static bool ChekUserReg(string username)
+        public static bool CheckUserReg(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -260,7 +260,7 @@ namespace ApplicationProject
         }
         // Работа с данными
 
-        public static string selectDecryptedText(string filename, string username)
+        public static string SelectDecryptedText(string filename, string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -290,7 +290,7 @@ namespace ApplicationProject
             
         }
 
-        public static string selectEncryptedText(string filename, string username)
+        public static string SelectEncryptedText(string filename, string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -324,14 +324,46 @@ namespace ApplicationProject
 
         //Работа с пользователями
         // All users
-        public static List<string> selectUsersList()
+        public static List<string> SelectUsersList()
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
 
-                string sqlCheck = $"SELECT * FROM users";
+                string sqlCheck = $"SELECT * FROM users WHERE role = 'User'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                var users = new List<string>();
+
+                while (reader.Read())
+                {
+                    // элементы массива [] - это значения столбцов из запроса SELECT
+                    users.Add(reader[0].ToString() + ":" + reader[1].ToString());
+                }
+                reader.Close();
+                conn.Close();
+                return users;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                return new List<string>();
+            }
+            
+        }
+
+        public static List<string> SelectBanUsersList()
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT * FROM users WHERE role = 'Ban'";
 
                 MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -388,7 +420,7 @@ namespace ApplicationProject
         }
 
         // Add admin
-        public static void addAdmin(decimal id)
+        public static void AddAdmin(decimal id)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -409,7 +441,7 @@ namespace ApplicationProject
         }
 
         // Add admin
-        public static void delAdmin(decimal id)
+        public static void DeleteAdmin(decimal id)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -430,7 +462,7 @@ namespace ApplicationProject
         }
 
         // All admins
-        public static List<string> selectAdminsList()
+        public static List<string> SelectAdminsList()
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -462,8 +494,46 @@ namespace ApplicationProject
             
         }
 
+        public static void DeleteUser(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+
+            try
+            {
+                conn.Open();
+
+                string sql = $"DELETE FROM users WHERE username = '{userName}'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+            }
+        }
+
+        public static void BanUser(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sql = $"UPDATE users SET role = 'Ban' WHERE username = '{userName}'";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+            }
+        }
+
         // Сессия
-        public static void openSession(string username)
+        public static void OpenSession(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -483,7 +553,7 @@ namespace ApplicationProject
 
         }
 
-        public static void closeSession(string username)
+        public static void CloseSession(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -504,7 +574,7 @@ namespace ApplicationProject
         }
 
         // Работа с файлами
-        public static List<string> selectUserFiles(string username)
+        public static List<string> SelectUserFiles(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -533,7 +603,7 @@ namespace ApplicationProject
             }
             
         }
-        public static List<string> selectUserRecycleFiles(string username)
+        public static List<string> SelectUserRecycleFiles(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -564,7 +634,7 @@ namespace ApplicationProject
         }
 
         // Добавление файла по названию
-        public static void addFileManual(string username, string fileName)
+        public static void AddFileManual(string username, string fileName)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -584,7 +654,7 @@ namespace ApplicationProject
         }
 
         // Обновление данных в файле
-        public static void updateFile(string username, string fileName, string decrypted, string encrypted)
+        public static void UpdateFile(string username, string fileName, string decrypted, string encrypted)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -604,7 +674,7 @@ namespace ApplicationProject
         }
 
         // Добавление файла с пк
-        public static void addFile(string username, string fileName, string decrypted)
+        public static void AddFile(string username, string fileName, string decrypted)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -646,7 +716,7 @@ namespace ApplicationProject
 
 
         // Add file in basket
-        public static void addFileRecycle(string username, string fileName)
+        public static void AddFileRecycle(string username, string fileName)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -666,7 +736,7 @@ namespace ApplicationProject
             }
         }
 
-        public static void addAllFileRecycle(string username)
+        public static void AddAllFileRecycle(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -685,7 +755,7 @@ namespace ApplicationProject
         }
 
         // Восстановить файл
-        public static void returnFileRecycle(string username, string fileName)
+        public static void ReturnFileRecycle(string username, string fileName)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -706,7 +776,7 @@ namespace ApplicationProject
         }
 
         // Восстановить все файлы
-        public static void returnAllFileRecycle(string username)
+        public static void ReturnAllFileRecycle(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -727,7 +797,7 @@ namespace ApplicationProject
         }
 
         // Del all Files for Basket
-        public static void deleteAllFiles(string username)
+        public static void DeleteAllFiles(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -746,7 +816,7 @@ namespace ApplicationProject
         }
 
         // удаление файла
-        public static void deleteSelectedFile(string username, string fileName)
+        public static void DeleteSelectedFile(string username, string fileName)
         {
             MySqlConnection conn = GetDBConnection();
 
@@ -768,7 +838,7 @@ namespace ApplicationProject
 
         // Таймер
         // Внести интервал
-        public static void updateIntervalTimer(string username, string interval)
+        public static void UpdateIntervalTimer(string username, string interval)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -789,7 +859,7 @@ namespace ApplicationProject
         }
 
         // Получить значение интервала
-        public static string selectValueTimer(string username)
+        public static string SelectValueTimer(string username)
         {
             MySqlConnection conn = GetDBConnection();
             try
@@ -820,7 +890,7 @@ namespace ApplicationProject
         }
 
         // Шифрование
-        public static string sha256(string randomString)
+        public static string Sha256(string randomString)
         {
             var crypt = new System.Security.Cryptography.SHA256Managed();
             var hash = new System.Text.StringBuilder();

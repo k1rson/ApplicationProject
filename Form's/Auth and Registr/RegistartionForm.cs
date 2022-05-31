@@ -40,7 +40,7 @@ namespace ApplicationProject
                 }
                 else
                 {
-                    sqlFuncs.regUser(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text), OtherFunction.emailUser);
+                    sqlFuncs.RegUser(LoginTextBox.Text, sqlFuncs.Sha256(PasswordTextBox.Text), OtherFunction.emailUser);
                     MessageBox.Show("Регистрация аккаунта успешно завершена! Приятного времяпровождения!", "Регистрация аккаунта",
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     Close();
@@ -103,7 +103,7 @@ namespace ApplicationProject
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (sqlFuncs.ChekUserReg(userName))
+            else if (sqlFuncs.CheckUserReg(userName))
             {
                 MessageBox.Show("Пользователь с таким логином уже зарегистрирован!", "Регистрация аккаунта",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

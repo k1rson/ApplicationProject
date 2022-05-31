@@ -33,8 +33,8 @@ namespace ApplicationProject
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
 
             // Очищение корзины при входе
-            if (sqlFuncs.selectValueTimer(OtherFunction.userName) == "enter")
-                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+            if (sqlFuncs.SelectValueTimer(OtherFunction.userName) == "enter")
+                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
         }
 
         // Vision Input_RichBox
@@ -135,14 +135,14 @@ namespace ApplicationProject
                 OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
                 string username = OtherFunction.userName;
 
-                List<string> files = sqlFuncs.selectUserFiles(username);
+                List<string> files = sqlFuncs.SelectUserFiles(username);
                 Input_RichBox.Clear();
 
                 if (AllFiles_ListBox.SelectedIndex <= files.Count)
                 {
                     string filename = files[AllFiles_ListBox.SelectedIndex];
-                    string encryption = sqlFuncs.selectEncryptedText(filename, username);
-                    Input_RichBox.Text = sqlFuncs.selectDecryptedText(filename, username);
+                    string encryption = sqlFuncs.SelectEncryptedText(filename, username);
+                    Input_RichBox.Text = sqlFuncs.SelectDecryptedText(filename, username);
                     OtherFunction.encryption = encryption;
                     Output_RichBox.Text = encryption;
 
@@ -179,7 +179,7 @@ namespace ApplicationProject
                 fileName = fileName + $" ({i})";
             }
 
-            sqlFuncs.addFile(username, fileName, decrypted);
+            sqlFuncs.AddFile(username, fileName, decrypted);
 
             MessageBox.Show("Файл добавлен!", "Добавление файла",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -201,7 +201,7 @@ namespace ApplicationProject
             if (res == DialogResult.Yes)
             {
                 string username = OtherFunction.userName;
-                sqlFuncs.addAllFileRecycle(username);
+                sqlFuncs.AddAllFileRecycle(username);
 
                 MessageBox.Show("Файлы добавлены в корзину!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -219,7 +219,7 @@ namespace ApplicationProject
                 string fileName = OtherFunction.fileName;
                 string username = OtherFunction.userName;
 
-                sqlFuncs.addFileRecycle(username, fileName);
+                sqlFuncs.AddFileRecycle(username, fileName);
 
                 MessageBox.Show("Файл успешно добавлен в корзину!", "Удаление файлов",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -264,7 +264,7 @@ namespace ApplicationProject
                     GoToAdminPanel_Button.Visible = true;
 
                 // Инициализация таймера
-                string interval = sqlFuncs.selectValueTimer(OtherFunction.userName);
+                string interval = sqlFuncs.SelectValueTimer(OtherFunction.userName);
                 if (interval != "never" && interval != "enter")
                 {
 
@@ -303,7 +303,7 @@ namespace ApplicationProject
         {
             AllFiles_ListBox.Items.Clear();
 
-            List<string> files = sqlFuncs.selectUserFiles(username);
+            List<string> files = sqlFuncs.SelectUserFiles(username);
             for (int i = 0; i < files.Count; i++)
             {
                 AllFiles_ListBox.Items.Add(files[i]);
@@ -336,7 +336,7 @@ namespace ApplicationProject
 
             if (res == DialogResult.Yes)
             {
-                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
             }
         }
 
@@ -375,14 +375,14 @@ namespace ApplicationProject
 
         private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            sqlFuncs.closeSession(OtherFunction.userName);
+            sqlFuncs.CloseSession(OtherFunction.userName);
         }
 
         // Работа таймера
 
         private void timerRecycle_Tick(object sender, EventArgs e)
         {
-            sqlFuncs.deleteAllFiles(OtherFunction.userName);
+            sqlFuncs.DeleteAllFiles(OtherFunction.userName);
         }
 
         // End FeedBack

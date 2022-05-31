@@ -194,7 +194,7 @@ namespace ApplicationProject
                     return; 
             }
 
-            sqlFuncs.updateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);
+            sqlFuncs.UpdateFile(OtherFunction.userName, OtherFunction.fileName, OtherFunction.decryption, OtherFunction.encryption);
 
             MessageBox.Show("Шифрование выполнено успешно!", "Шифрование",
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk); 

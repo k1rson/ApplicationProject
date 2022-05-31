@@ -32,7 +32,7 @@ namespace ApplicationProject
 
             if(res == DialogResult.Yes)
             {
-                sqlFuncs.returnFileRecycle(OtherFunction.userName, OtherFunction.fileName);
+                sqlFuncs.ReturnFileRecycle(OtherFunction.userName, OtherFunction.fileName);
                 UpdateListBox();
 
             }
@@ -46,7 +46,7 @@ namespace ApplicationProject
 
             if(res == DialogResult.Yes)
             {
-                sqlFuncs.deleteAllFiles(OtherFunction.userName);
+                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
                 UpdateListBox();
             }
         }
@@ -67,7 +67,7 @@ namespace ApplicationProject
         {
             AllFilesRecycle_ListBox.Items.Clear();
 
-            List<string> files = sqlFuncs.selectUserRecycleFiles(OtherFunction.userName);
+            List<string> files = sqlFuncs.SelectUserRecycleFiles(OtherFunction.userName);
             for (int i = 0; i < files.Count; i++)
             {
                 AllFilesRecycle_ListBox.Items.Add(files[i]);

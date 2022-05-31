@@ -22,24 +22,53 @@ namespace ApplicationProject
             // подписываемся к листбоксу за счет контекст меню
             AllUsers_ListBox.ContextMenuStrip = ContextMenuAllUsers;
         }
-
-        private void GnrInformation_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ShowFilesUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DeleteUser_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string word = AllUsers_ListBox.SelectedItem.ToString();
+                string[] username = word.Split(':');
 
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите удалить данного пользователя?", "Удаление пользователя",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(res == DialogResult.Yes)
+                {
+                    sqlFuncs.DeleteUser(username[1]);
+                    UpdateListBox();
+
+                    MessageBox.Show("Пользователь успешно удален!", "Удаление пользователя",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("гг");
+                return;
+            }
         }
 
         private void BanUser_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string word = AllUsers_ListBox.SelectedItem.ToString();
+                string[] username = word.Split(':');
+
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите заблокировать данного пользователя?", "Удаление пользователя",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    sqlFuncs.BanUser(username[1]);
+                    UpdateListBox();
+
+                    MessageBox.Show("Пользователь успешно заблокирован!", "Удаление пользователя",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("гг");
+            }
         }
 
         #region Удалить потом дрочь эту аккуратно надо
@@ -93,22 +122,12 @@ namespace ApplicationProject
             }
             else
                 MessageBox.Show("Вы не являетесь Главным Администратором");
-
-            
         }
 
         private void AdminPanelForm_Activated(object sender, EventArgs e)
         {
-            AllUsers_ListBox.Items.Clear();
-
-            List<string> users = sqlFuncs.selectUsersList();
-            for (int i = 0; i < users.Count; i++)
-            {
-                AllUsers_ListBox.Items.Add(users[i]);
-            }
+            UpdateListBox();
         }
-
-        
 
         private void AllUsers_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -118,14 +137,12 @@ namespace ApplicationProject
                 string[] username = word.Split(':');
                 AllFilesUser_ListBox.Items.Clear();
 
-                List<string> files = sqlFuncs.selectUserFiles(username[1]);
+                List<string> files = sqlFuncs.SelectUserFiles(username[1]);
                 for (int i = 0; i < files.Count; i++)
                 {
                     AllFilesUser_ListBox.Items.Add(files[i]);
                 }
                 OtherFunction.selectedUsername = username[1];
-
-
             }
             catch (Exception)
             {
@@ -134,13 +151,24 @@ namespace ApplicationProject
             }
         }
 
+        private void UpdateListBox()
+        {
+            AllUsers_ListBox.Items.Clear();
+
+            List<string> users = sqlFuncs.SelectUsersList();
+            for (int i = 0; i < users.Count; i++)
+            {
+                AllUsers_ListBox.Items.Add(users[i]);
+            }
+        }
+
         private void AllFilesUser_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
             {
                 string filename = AllFilesUser_ListBox.SelectedItem.ToString();
-                InputAdmin_RichBox.Text = sqlFuncs.selectDecryptedText(filename, OtherFunction.selectedUsername);
-                OutputAdmin_RichBox.Text = sqlFuncs.selectEncryptedText(filename, OtherFunction.selectedUsername);
+                InputAdmin_RichBox.Text = sqlFuncs.SelectDecryptedText(filename, OtherFunction.selectedUsername);
+                OutputAdmin_RichBox.Text = sqlFuncs.SelectEncryptedText(filename, OtherFunction.selectedUsername);
             }
             catch (Exception)
             {

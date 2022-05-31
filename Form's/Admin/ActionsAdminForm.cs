@@ -28,7 +28,7 @@ namespace ApplicationProject
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (res == DialogResult.Yes)
-                    sqlFuncs.addAdmin(Numeric.Value);
+                    sqlFuncs.AddAdmin(Numeric.Value);
 
                 UpdateList();
 
@@ -50,7 +50,7 @@ namespace ApplicationProject
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (res == DialogResult.Yes)
-                    sqlFuncs.delAdmin(Numeric.Value);
+                    sqlFuncs.DeleteAdmin(Numeric.Value);
              
                 UpdateList();
 
@@ -78,7 +78,7 @@ namespace ApplicationProject
         {
             AllAdmins_ListBox.Items.Clear();
 
-            List<string> users = sqlFuncs.selectAdminsList();
+            List<string> users = sqlFuncs.SelectAdminsList();
             for (int i = 0; i < users.Count; i++)
             {
                 AllAdmins_ListBox.Items.Add(users[i]);

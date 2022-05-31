@@ -70,12 +70,17 @@
             this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
             this.TabPage2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.ContextMenuAllUsers.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -197,10 +202,11 @@
             // 
             // AllUsers_ListBox
             // 
+            this.AllUsers_ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllUsers_ListBox.FormattingEnabled = true;
-            this.AllUsers_ListBox.Location = new System.Drawing.Point(12, 69);
+            this.AllUsers_ListBox.Location = new System.Drawing.Point(3, 3);
             this.AllUsers_ListBox.Name = "AllUsers_ListBox";
-            this.AllUsers_ListBox.Size = new System.Drawing.Size(209, 160);
+            this.AllUsers_ListBox.Size = new System.Drawing.Size(198, 155);
             this.AllUsers_ListBox.TabIndex = 2;
             this.AllUsers_ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AllUsers_ListBox_MouseDoubleClick);
             // 
@@ -410,17 +416,48 @@
             this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
             this.уведомитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(12, 68);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(212, 187);
+            this.tabControl2.TabIndex = 13;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.AllUsers_ListBox);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(204, 161);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Активные пользователи";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(204, 161);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Заблокированные пользователи";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AllFilesUser_ListBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.AllUsers_Label);
-            this.Controls.Add(this.AllUsers_ListBox);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -438,6 +475,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ContextMenuAllUsers.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,5 +524,8 @@
         private System.Windows.Forms.ToolStripMenuItem уведомитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NotificationEmail;
         private System.Windows.Forms.ToolStripMenuItem NotificationPhone;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }

@@ -33,7 +33,7 @@ namespace ApplicationProject
                 fileName = fileName + $" ({i})";
             }
 
-            sqlFuncs.addFileManual(userName, fileName);
+            sqlFuncs.AddFileManual(userName, fileName);
 
             MessageBox.Show("Файл добавлен вручную!", "Добавление файла", 
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
