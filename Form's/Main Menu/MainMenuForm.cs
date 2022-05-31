@@ -155,7 +155,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-
+                Input_RichBox.Text = string.Empty;
+                Output_RichBox.Text = string.Empty;
                 return;
             }
         }
@@ -210,6 +211,11 @@ namespace ApplicationProject
                     string username = OtherFunction.userName;
                     sqlFuncs.AddAllFileRecycle(username);
 
+                    Output_RichBox.Text = string.Empty;
+                    Input_RichBox.Text = string.Empty;
+                    OtherFunction.encryption = string.Empty;
+                    OtherFunction.decryption = string.Empty;
+
                     MessageBox.Show("Файлы добавлены в корзину!", "Удаление файлов",
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -233,6 +239,11 @@ namespace ApplicationProject
                 {
                     string fileName = OtherFunction.fileName;
                     string username = OtherFunction.userName;
+
+                    Output_RichBox.Text = string.Empty;
+                    Input_RichBox.Text = string.Empty;
+                    OtherFunction.encryption = string.Empty;
+                    OtherFunction.decryption = string.Empty;
 
                     sqlFuncs.AddFileRecycle(username, fileName);
 
@@ -320,7 +331,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-
+                Input_RichBox.Text = string.Empty;
+                Output_RichBox.Text = string.Empty;
                 OtherFunction.fileName = null;
             }
         }
