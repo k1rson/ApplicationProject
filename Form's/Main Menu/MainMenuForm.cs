@@ -35,6 +35,10 @@ namespace ApplicationProject
             // Очищение корзины при входе
             if (sqlFuncs.SelectValueTimer(OtherFunction.userName) == "enter")
                 sqlFuncs.DeleteAllFiles(OtherFunction.userName);
+
+            if(sqlFuncs.IsAdmin(OtherFunction.userName))
+                timerReportUpdate.Enabled = true;
+                
         }
 
         // Vision Input_RichBox
@@ -68,8 +72,9 @@ namespace ApplicationProject
             }
 
             else
-                MessageBox.Show("Вы не выбрали файл!");
-            
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
 
         // Decrypt data + vision tabPages3
@@ -196,15 +201,23 @@ namespace ApplicationProject
         // Delete all files
         private void DeleteAllFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Желаете добавить все файлы в корзину ?", "Удаление файлов",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (OtherFunction.fileName != null)
             {
-                string username = OtherFunction.userName;
-                sqlFuncs.AddAllFileRecycle(username);
+                DialogResult res = MessageBox.Show("Желаете добавить все файлы в корзину ?", "Удаление файлов",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    string username = OtherFunction.userName;
+                    sqlFuncs.AddAllFileRecycle(username);
 
-                MessageBox.Show("Файлы добавлены в корзину!", "Удаление файлов",
-                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Файлы добавлены в корзину!", "Удаление файлов",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -212,17 +225,25 @@ namespace ApplicationProject
 
         private void DeleteSelectFile_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Желаете поместить файл в корзину ?", "Удаление файла", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (OtherFunction.fileName != null)
             {
-                string fileName = OtherFunction.fileName;
-                string username = OtherFunction.userName;
+                DialogResult res = MessageBox.Show("Желаете поместить файл в корзину ?", "Удаление файла",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    string fileName = OtherFunction.fileName;
+                    string username = OtherFunction.userName;
 
-                sqlFuncs.AddFileRecycle(username, fileName);
+                    sqlFuncs.AddFileRecycle(username, fileName);
 
-                MessageBox.Show("Файл успешно добавлен в корзину!", "Удаление файлов",
-                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Файл успешно добавлен в корзину!", "Удаление файлов",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -243,7 +264,8 @@ namespace ApplicationProject
                 }
             }
             else
-                MessageBox.Show("Вы не выбрали файл!");
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         // Обработка нажатий клавиш // Доработать
@@ -394,6 +416,18 @@ namespace ApplicationProject
         private void TimerRecycle_Tick(object sender, EventArgs e)
         {
             sqlFuncs.DeleteAllFiles(OtherFunction.userName);
+        }
+
+        public static int countReports = sqlFuncs.countReports();
+
+        private void timerReportUpdate_Tick(object sender, EventArgs e)
+        {
+            if(sqlFuncs.countReports() != countReports)
+            {
+                countReports = sqlFuncs.countReports();
+                MessageBox.Show("Появился новый вопрос от пользователя! Скорее ответьте!", "Вопрос от пользователя",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            }
         }
         // End FeedBack
     }

@@ -1007,6 +1007,175 @@ namespace ApplicationProject
 
         }
 
+        // Обратная связь
+
+        // Добавление сообщения
+        public static void AddReportUser(string username, string theme, string message)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sql = $"INSERT INTO report (username, theme, message) VALUES ('{username}', '{theme}' , '{message}')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // Получить список вопросов
+        public static List<string> SelectReports(string username)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT * FROM report WHERE username = '{username}' AND status = 'using'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                var reports = new List<string>();
+                while (reader.Read())
+                {
+                    // элементы массива [] - это значения столбцов из запроса SELECT
+                    reports.Add(reader[1].ToString());
+                }
+                reader.Close();
+                conn.Close();
+                return reports;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<string>();
+            }
+        }
+
+        // Получить тему пользователя
+        public static string SelectThemeReports(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+                string sqlCheck = $"SELECT theme FROM report WHERE username = '{userName}'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                string theme = string.Empty;
+
+                while (reader.Read())
+                {
+                    theme = reader["theme"].ToString();
+                }
+                reader.Close();
+                conn.Close();
+
+                return theme;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+
+        // Получить сообщение пользователя
+        public static string SelectMessageReports(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT message FROM report WHERE username = '{userName}'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                string message = string.Empty;
+
+                while (reader.Read())
+                {
+                    message = reader["message"].ToString();
+                }
+                reader.Close();
+                conn.Close();
+
+                return message;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+
+        // Ответ отправлен
+        public static void answerReports(string username)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+                string sql = $"UPDATE report SET status = 'answered' WHERE username = '{username}'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Получить количество вопросов
+        public static int countReports()
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+                string sqlCheck = $"SELECT COUNT(id) FROM report WHERE status = 'using'";
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader count = cmd.ExecuteReader();
+                int cont = 0;
+                while (count.Read())
+                {
+                    cont = int.Parse(count[0].ToString());
+                }
+                conn.Close();
+
+                return cont;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+
+        }
+
+
+
+
         // Шифрование
         public static string Sha256(string randomString)
         {

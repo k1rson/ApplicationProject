@@ -70,12 +70,15 @@
             this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Email = new System.Windows.Forms.ToolStripMenuItem();
+            this.SMS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.AllBanUsers_ListBox = new System.Windows.Forms.ListBox();
             this.ContextMenuBanUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.UnBanUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.обратнаяСвязьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -93,7 +96,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.пользователиToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.файлыToolStripMenuItem});
+            this.файлыToolStripMenuItem,
+            this.обратнаяСвязьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -416,10 +420,27 @@
             // 
             // уведомитьПользователяToolStripMenuItem
             // 
+            this.уведомитьПользователяToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Email,
+            this.SMS});
             this.уведомитьПользователяToolStripMenuItem.Name = "уведомитьПользователяToolStripMenuItem";
             this.уведомитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
             this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
             this.уведомитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.NotificationUser_Click);
+            // 
+            // Email
+            // 
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(174, 22);
+            this.Email.Text = "Написать письмо ";
+            this.Email.Click += new System.EventHandler(this.NotificationEmail_Click);
+            // 
+            // SMS
+            // 
+            this.SMS.Name = "SMS";
+            this.SMS.Size = new System.Drawing.Size(174, 22);
+            this.SMS.Text = "Отправить SMS";
+            this.SMS.Click += new System.EventHandler(this.NotificationPhone_Click);
             // 
             // tabControl2
             // 
@@ -467,7 +488,7 @@
             this.ContextMenuBanUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UnBanUser});
             this.ContextMenuBanUsers.Name = "ContextMenuBanUsers";
-            this.ContextMenuBanUsers.Size = new System.Drawing.Size(242, 48);
+            this.ContextMenuBanUsers.Size = new System.Drawing.Size(242, 26);
             // 
             // UnBanUser
             // 
@@ -475,6 +496,12 @@
             this.UnBanUser.Size = new System.Drawing.Size(241, 22);
             this.UnBanUser.Text = "Разблокировать пользователя";
             this.UnBanUser.Click += new System.EventHandler(this.UnBanUser_Click);
+            // 
+            // обратнаяСвязьToolStripMenuItem
+            // 
+            this.обратнаяСвязьToolStripMenuItem.Name = "обратнаяСвязьToolStripMenuItem";
+            this.обратнаяСвязьToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.обратнаяСвязьToolStripMenuItem.Text = "Обратная связь";
             // 
             // AdminPanelForm
             // 
@@ -561,5 +588,8 @@
         private System.Windows.Forms.ListBox AllBanUsers_ListBox;
         private System.Windows.Forms.ContextMenuStrip ContextMenuBanUsers;
         private System.Windows.Forms.ToolStripMenuItem UnBanUser;
+        private System.Windows.Forms.ToolStripMenuItem Email;
+        private System.Windows.Forms.ToolStripMenuItem SMS;
+        private System.Windows.Forms.ToolStripMenuItem обратнаяСвязьToolStripMenuItem;
     }
 }

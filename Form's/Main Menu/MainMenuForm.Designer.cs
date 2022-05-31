@@ -88,6 +88,7 @@
             this.удалитьВсеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GoToAdminPanel_Button = new System.Windows.Forms.Button();
             this.timerRecycle = new System.Windows.Forms.Timer(this.components);
+            this.timerReportUpdate = new System.Windows.Forms.Timer(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -580,6 +581,10 @@
             // 
             this.timerRecycle.Tick += new System.EventHandler(this.TimerRecycle_Tick);
             // 
+            // timerReportUpdate
+            // 
+            this.timerReportUpdate.Tick += new System.EventHandler(this.timerReportUpdate_Tick);
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ApplicationProject.Properties.Resources.mail;
@@ -811,5 +816,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Timer timerReportUpdate;
     }
 }
