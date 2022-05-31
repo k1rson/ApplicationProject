@@ -173,6 +173,7 @@
         private System.Windows.Forms.Button Send_Button;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Theme_TextBox;
         private System.Windows.Forms.TabPage tabPage2;

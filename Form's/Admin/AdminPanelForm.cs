@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TemplateEngine.Docx;
 
 namespace ApplicationProject
 {
@@ -111,14 +110,7 @@ namespace ApplicationProject
 
         private void CreateReport_Click(object sender, EventArgs e)
         {
-            var valuesToFill = new Content(new FieldContent("Report date", DateTime.Now.ToString()));
 
-            using (var outputDocument = new TemplateProcessor("temp.docx")
-                .SetRemoveContentControls(true))
-            {
-                outputDocument.FillContent(valuesToFill);
-                outputDocument.SaveChanges();
-            }
         }
 
         private void SaveOriginalData_Click(object sender, EventArgs e)
