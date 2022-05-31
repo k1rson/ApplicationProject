@@ -26,9 +26,6 @@ namespace ApplicationProject
             return conn;
         }
 
-
-
-
         public static void regUser(string username, string password)
         {
             MySqlConnection conn = GetDBConnection();
