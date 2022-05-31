@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationEmailForm));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.Apply_Button = new System.Windows.Forms.Button();
@@ -134,7 +135,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SubjectMessage_TextBox);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NotificationEmailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Рассылка писем";
             this.Activated += new System.EventHandler(this.NotificationEmailForm_Activated);
             this.flowLayoutPanel1.ResumeLayout(false);

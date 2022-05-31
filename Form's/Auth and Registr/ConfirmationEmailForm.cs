@@ -19,7 +19,7 @@ namespace ApplicationProject
 
             OtherFunction.codeGen = IsCode(); 
 
-            SMTP.SendMessage(OtherFunction.emailUser, "Подтверждение почты", "Ваш код подтверждения почты: " + OtherFunction.codeGen);
+            SMTP.SendMessage(OtherFunction.emailUser, "Подтверждение почты", "Здравствуйте," + OtherFunction.userName + "! \nСпасибо за регистрацию в нашей системе! Ваш код подтверждения почты: " + OtherFunction.codeGen);
         }
 
         private void Confirm_Button_Click(object sender, EventArgs e)

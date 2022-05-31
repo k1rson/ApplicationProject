@@ -24,8 +24,10 @@ namespace ApplicationProject
         {
             if (sqlFuncs.IsSession(LoginTextBox.Text))
             {
+                DateTime dateTime = DateTime.Now;
+
                 MessageBox.Show("Данный пользователь уже находится в системе");
-                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Пиздец", "Вас взломали11!!1!!111 БЕГИТЕ НАХУЙ");
+                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + dateTime + " по МСК был совершен вход на Ваш аккаунт! Если это были не Вы, то выкинетесь нахуй в окно");
             }
             else
             {

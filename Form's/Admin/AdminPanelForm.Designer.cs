@@ -37,6 +37,8 @@
             this.DeleteUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.BanUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.NotificationUser_Menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotificationPhone = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateReport_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.файлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,8 +70,6 @@
             this.заблокироватьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.уведомитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NotificationEmail = new System.Windows.Forms.ToolStripMenuItem();
-            this.NotificationPhone = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
@@ -137,6 +137,20 @@
             this.NotificationUser_Menu.Size = new System.Drawing.Size(266, 22);
             this.NotificationUser_Menu.Text = "Уведомить пользователя";
             this.NotificationUser_Menu.Click += new System.EventHandler(this.NotificationUser_Click);
+            // 
+            // NotificationEmail
+            // 
+            this.NotificationEmail.Name = "NotificationEmail";
+            this.NotificationEmail.Size = new System.Drawing.Size(265, 22);
+            this.NotificationEmail.Text = "Отправить письмо на почту";
+            this.NotificationEmail.Click += new System.EventHandler(this.NotificationEmail_Click);
+            // 
+            // NotificationPhone
+            // 
+            this.NotificationPhone.Name = "NotificationPhone";
+            this.NotificationPhone.Size = new System.Drawing.Size(265, 22);
+            this.NotificationPhone.Text = "Отправить сообщение на телефон";
+            this.NotificationPhone.Click += new System.EventHandler(this.NotificationPhone_Click);
             // 
             // отчетыToolStripMenuItem
             // 
@@ -396,20 +410,6 @@
             this.уведомитьПользователяToolStripMenuItem.Text = "Уведомить пользователя";
             this.уведомитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.NotificationUser_Click);
             // 
-            // NotificationEmail
-            // 
-            this.NotificationEmail.Name = "NotificationEmail";
-            this.NotificationEmail.Size = new System.Drawing.Size(265, 22);
-            this.NotificationEmail.Text = "Отправить письмо на почту";
-            this.NotificationEmail.Click += new System.EventHandler(this.NotificationEmail_Click);
-            // 
-            // NotificationPhone
-            // 
-            this.NotificationPhone.Name = "NotificationPhone";
-            this.NotificationPhone.Size = new System.Drawing.Size(265, 22);
-            this.NotificationPhone.Text = "Отправить сообщение на телефон";
-            this.NotificationPhone.Click += new System.EventHandler(this.NotificationPhone_Click);
-            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,6 +427,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "AdminPanelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Админ панель";
             this.Activated += new System.EventHandler(this.AdminPanelForm_Activated);
             this.menuStrip1.ResumeLayout(false);

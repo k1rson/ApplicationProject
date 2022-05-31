@@ -25,16 +25,25 @@ namespace ApplicationProject
             if(IsValidateData(SubjectMessage_TextBox.Text,
                 Message_RichTextBox.Text))
             {
-               string word =  AllEmailUsers_ComboBox.SelectedItem.ToString();
-               string[] username = word.Split(':');
+                try
+                {
+                    string word = AllEmailUsers_ComboBox.SelectedItem.ToString();
+                    string[] username = word.Split(':');
 
-               string emailUser = sqlFuncs.GetEmailUser(username[1]);
+                    string emailUser = sqlFuncs.GetEmailUser(username[1]);
 
-                SMTP.SendMessage(emailUser, SubjectMessage_TextBox.Text,
-               Message_RichTextBox.Text);
+                    SMTP.SendMessage(emailUser, SubjectMessage_TextBox.Text,
+                         Message_RichTextBox.Text);
 
-                MessageBox.Show("Сообщение успешно доставлено адресату!", "Email письмо", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Сообщение успешно доставлено адресату!", "Email письмо",
+                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Выберите пользователя, которому требуется отправить письмо!", "Ошибка!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; 
+                }
             }
         }  
         private bool IsValidateData(string subMessage, string bodyMessage)

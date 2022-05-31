@@ -25,6 +25,8 @@ namespace ApplicationProject
         private void Registration_Button_Click(object sender, EventArgs e)
         {
             OtherFunction.emailUser = EmailUser_TextBox.Text;
+            OtherFunction.userName =  LoginTextBox.Text; 
+
             // Add a user to the database
             if (IsDataValid(LoginTextBox.Text, PasswordTextBox.Text, CnfmPasswordTextBox.Text))
             {
