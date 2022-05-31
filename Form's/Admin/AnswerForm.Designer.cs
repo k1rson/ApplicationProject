@@ -33,7 +33,7 @@ namespace ApplicationProject
             this.Apply_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Answer_RichBox = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,20 +77,20 @@ namespace ApplicationProject
             this.label1.TabIndex = 1;
             this.label1.Text = "Введите ответ:";
             // 
-            // richTextBox1
+            // Answer_RichBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 25);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(319, 137);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.Answer_RichBox.Location = new System.Drawing.Point(12, 25);
+            this.Answer_RichBox.Name = "Answer_RichBox";
+            this.Answer_RichBox.Size = new System.Drawing.Size(319, 137);
+            this.Answer_RichBox.TabIndex = 2;
+            this.Answer_RichBox.Text = "";
             // 
             // AnswerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 199);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Answer_RichBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -110,6 +110,6 @@ namespace ApplicationProject
         private System.Windows.Forms.Button Cancel_Button;
         private System.Windows.Forms.Button Apply_Button;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Answer_RichBox;
     }
 }

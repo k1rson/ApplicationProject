@@ -21,7 +21,12 @@ namespace ApplicationProject
         {
             string userName = OtherFunction.selectedUsername;
             sqlFuncs.answerReports(userName);
-            SMTP.SendMessage(sqlFuncs.GetEmailUser(userName), $"Ответ на вопрос, заданный администрации\nТема вашего вопроса: {sqlFuncs.SelectThemeReports(userName)}", Answer_RichBox.Text); 
+            
+            SMTP.SendMessage(sqlFuncs.GetEmailUser(userName), $"Ответ на вопрос, заданный администрации\nТема вашего вопроса: {sqlFuncs.SelectThemeReports(userName)}", Answer_RichBox.Text);
+           
+            MessageBox.Show("Ответ был успешно доставлен!", "Ответ на вопрос пользователя", 
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            Close();
         }
         #region Buttons - Cancel
         private void Cancel_Button_Click(object sender, EventArgs e)
