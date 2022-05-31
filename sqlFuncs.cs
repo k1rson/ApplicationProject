@@ -189,9 +189,68 @@ namespace ApplicationProject
                 MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
                 return false;
             }
-
-            
         }
+
+        // Забанен ли
+        public static bool IsBan(string username)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT role FROM users WHERE username = '{username}'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader roleSelect = cmd.ExecuteReader();
+                string role = string.Empty;
+
+                while (roleSelect.Read())
+                {
+                    role = roleSelect["role"].ToString();
+                }
+                conn.Close();
+
+                if (role == "Ban")
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                return false;
+            }
+        }
+
+        public static string BanCause(string username)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT cause FROM users WHERE username = '{username}'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader causeSelect = cmd.ExecuteReader();
+                string cause = string.Empty;
+
+                while (causeSelect.Read())
+                {
+                    cause = causeSelect["cause"].ToString();
+                }
+                conn.Close();
+
+                return cause;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                return string.Empty;
+            }
+        }
+
 
         // СуперАдмин
         public static bool IsRoot(string username)
@@ -513,14 +572,14 @@ namespace ApplicationProject
             }
         }
 
-        public static void BanUser(string userName)
+        public static void BanUser(string userName, string cause)
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
 
-                string sql = $"UPDATE users SET role = 'Ban' WHERE username = '{userName}'";
+                string sql = $"UPDATE users SET role = 'Ban', cause = '{cause}' WHERE username = '{userName}'";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();

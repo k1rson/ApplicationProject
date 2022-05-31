@@ -19,8 +19,9 @@ namespace ApplicationProject
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
 
-            // подписываемся к листбоксу за счет контекст меню
+            // подвязываем к листбоксу за счет контекст меню
             AllUsers_ListBox.ContextMenuStrip = ContextMenuAllUsers;
+            AllBanUsers_ListBox.ContextMenuStrip = ContextMenuBanUsers; 
         }
         private void DeleteUser_Click(object sender, EventArgs e)
         {
@@ -54,20 +55,24 @@ namespace ApplicationProject
                 string word = AllUsers_ListBox.SelectedItem.ToString();
                 string[] username = word.Split(':');
 
-                DialogResult res = MessageBox.Show("Вы уверены, что хотите заблокировать данного пользователя?", "Удаление пользователя",
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите заблокировать данного пользователя?", "Разблокировка пользователя",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
-                    sqlFuncs.BanUser(username[1]); // баним юзера 
+                    BanCauseForm banCause = new BanCauseForm();
+                    banCause.ShowDialog();
+
+                    sqlFuncs.BanUser(username[1] + "Причина: " + OtherFunction.causeBan, OtherFunction.causeBan); // баним юзера 
                     UpdateListBox();
 
-                    MessageBox.Show("Пользователь успешно заблокирован!", "Удаление пользователя",
+                    MessageBox.Show("Пользователь успешно заблокирован!", "Разблокировка пользователя",
                         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("гг");
+                MessageBox.Show("Выберите пользователя!", "Разблокировка пользователя", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void UnBanUser_Click(object sender, EventArgs e)
@@ -90,7 +95,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("гг");
+                MessageBox.Show("Выберите пользователя!", "Разблокировка пользователя",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

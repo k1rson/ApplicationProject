@@ -45,6 +45,8 @@ namespace ApplicationProject
                     }
                     else
                     {
+
+
                         OtherFunction.userName = LoginTextBox.Text;
                         MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
                             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
