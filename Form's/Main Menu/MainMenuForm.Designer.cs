@@ -62,8 +62,16 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.ReportErrorUser = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
+            this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
+            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ActionDeleteAllFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
+            this.ChangeFileName_Button = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputEncypt_Button = new System.Windows.Forms.ToolStripButton();
+            this.SaveFileOutputDecrypt_Button = new System.Windows.Forms.ToolStripButton();
             this.UM_Label = new System.Windows.Forms.Label();
             this.AllFiles_ListBox = new System.Windows.Forms.ListBox();
             this.Username_Label = new System.Windows.Forms.Label();
@@ -92,14 +100,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
-            this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
-            this.ActionDeleteAllFile_Button = new System.Windows.Forms.ToolStripButton();
-            this.ActionDeleteSelectFile_Button = new System.Windows.Forms.ToolStripButton();
-            this.ChangeFileName_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileInput_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileOutputEncypt_Button = new System.Windows.Forms.ToolStripButton();
-            this.SaveFileOutputDecrypt_Button = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.ToolStrip.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -370,15 +370,96 @@
             this.ToolStrip.TabIndex = 1;
             this.ToolStrip.Text = "toolStrip1";
             // 
+            // ActionAddFilePC_Button
+            // 
+            this.ActionAddFilePC_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionAddFilePC_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
+            this.ActionAddFilePC_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
+            this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionAddFilePC_Button.Text = "Добавить файл";
+            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Click);
+            // 
+            // AddFileManually_Button
+            // 
+            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddFileManually_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
+            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddFileManually_Button.Name = "AddFileManually_Button";
+            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
+            this.AddFileManually_Button.Text = "Добавить файл вручную";
+            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // ActionDeleteAllFile_Button
+            // 
+            this.ActionDeleteAllFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteAllFile_Button.Image = global::ApplicationProject.Properties.Resources.deleteAllFiles;
+            this.ActionDeleteAllFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
+            this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteAllFile_Button.Text = "Удалить все файлы";
+            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Click);
+            // 
+            // ActionDeleteSelectFile_Button
+            // 
+            this.ActionDeleteSelectFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ActionDeleteSelectFile_Button.Image = global::ApplicationProject.Properties.Resources.delete_file;
+            this.ActionDeleteSelectFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
+            this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
+            this.ActionDeleteSelectFile_Button.Text = "Удалить выбранный файл";
+            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Click);
+            // 
+            // ChangeFileName_Button
+            // 
+            this.ChangeFileName_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ChangeFileName_Button.Image = global::ApplicationProject.Properties.Resources.exchange;
+            this.ChangeFileName_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ChangeFileName_Button.Name = "ChangeFileName_Button";
+            this.ChangeFileName_Button.Size = new System.Drawing.Size(23, 22);
+            this.ChangeFileName_Button.Text = "Изменить название выбранного файла";
+            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // SaveFileInput_Button
+            // 
+            this.SaveFileInput_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileInput_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
+            this.SaveFileInput_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileInput_Button.Name = "SaveFileInput_Button";
+            this.SaveFileInput_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileInput_Button.Text = "Сохранить исходный файл";
+            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveContentFile_Click);
+            // 
+            // SaveFileOutputEncypt_Button
+            // 
+            this.SaveFileOutputEncypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileOutputEncypt_Button.Image = global::ApplicationProject.Properties.Resources.encrypted;
+            this.SaveFileOutputEncypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileOutputEncypt_Button.Name = "SaveFileOutputEncypt_Button";
+            this.SaveFileOutputEncypt_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileOutputEncypt_Button.Text = "Сохранить зашифрованные данные";
+            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveEncyptFile_Click);
+            // 
+            // SaveFileOutputDecrypt_Button
+            // 
+            this.SaveFileOutputDecrypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveFileOutputDecrypt_Button.Enabled = false;
+            this.SaveFileOutputDecrypt_Button.Image = global::ApplicationProject.Properties.Resources.decryption;
+            this.SaveFileOutputDecrypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveFileOutputDecrypt_Button.Name = "SaveFileOutputDecrypt_Button";
+            this.SaveFileOutputDecrypt_Button.Size = new System.Drawing.Size(23, 22);
+            this.SaveFileOutputDecrypt_Button.Text = "Сохранить расшифрованные данные";
+            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // UM_Label
             // 
@@ -583,6 +664,7 @@
             // 
             // timerReportUpdate
             // 
+            this.timerReportUpdate.Interval = 300000;
             this.timerReportUpdate.Tick += new System.EventHandler(this.timerReportUpdate_Tick);
             // 
             // pictureBox3
@@ -617,86 +699,6 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.AccountsTelegram_Click);
-            // 
-            // ActionAddFilePC_Button
-            // 
-            this.ActionAddFilePC_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionAddFilePC_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
-            this.ActionAddFilePC_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionAddFilePC_Button.Name = "ActionAddFilePC_Button";
-            this.ActionAddFilePC_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionAddFilePC_Button.Text = "Добавить файл";
-            this.ActionAddFilePC_Button.Click += new System.EventHandler(this.AddFilePC_Click);
-            // 
-            // AddFileManually_Button
-            // 
-            this.AddFileManually_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddFileManually_Button.Image = global::ApplicationProject.Properties.Resources.add_file;
-            this.AddFileManually_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddFileManually_Button.Name = "AddFileManually_Button";
-            this.AddFileManually_Button.Size = new System.Drawing.Size(23, 22);
-            this.AddFileManually_Button.Text = "Добавить файл вручную";
-            this.AddFileManually_Button.Click += new System.EventHandler(this.AddFileManually_Click);
-            // 
-            // ActionDeleteAllFile_Button
-            // 
-            this.ActionDeleteAllFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionDeleteAllFile_Button.Image = global::ApplicationProject.Properties.Resources.deleteAllFiles;
-            this.ActionDeleteAllFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionDeleteAllFile_Button.Name = "ActionDeleteAllFile_Button";
-            this.ActionDeleteAllFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionDeleteAllFile_Button.Text = "Удалить все файлы";
-            this.ActionDeleteAllFile_Button.Click += new System.EventHandler(this.DeleteAllFile_Click);
-            // 
-            // ActionDeleteSelectFile_Button
-            // 
-            this.ActionDeleteSelectFile_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ActionDeleteSelectFile_Button.Image = global::ApplicationProject.Properties.Resources.delete_file;
-            this.ActionDeleteSelectFile_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActionDeleteSelectFile_Button.Name = "ActionDeleteSelectFile_Button";
-            this.ActionDeleteSelectFile_Button.Size = new System.Drawing.Size(23, 22);
-            this.ActionDeleteSelectFile_Button.Text = "Удалить выбранный файл";
-            this.ActionDeleteSelectFile_Button.Click += new System.EventHandler(this.DeleteSelectFile_Click);
-            // 
-            // ChangeFileName_Button
-            // 
-            this.ChangeFileName_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ChangeFileName_Button.Image = global::ApplicationProject.Properties.Resources.exchange;
-            this.ChangeFileName_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ChangeFileName_Button.Name = "ChangeFileName_Button";
-            this.ChangeFileName_Button.Size = new System.Drawing.Size(23, 22);
-            this.ChangeFileName_Button.Text = "Изменить название выбранного файла";
-            this.ChangeFileName_Button.Click += new System.EventHandler(this.ChangeFileName_Click);
-            // 
-            // SaveFileInput_Button
-            // 
-            this.SaveFileInput_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileInput_Button.Image = global::ApplicationProject.Properties.Resources.save_input__output_file_ADMIN;
-            this.SaveFileInput_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileInput_Button.Name = "SaveFileInput_Button";
-            this.SaveFileInput_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileInput_Button.Text = "Сохранить исходный файл";
-            this.SaveFileInput_Button.Click += new System.EventHandler(this.SaveContentFile_Click);
-            // 
-            // SaveFileOutputEncypt_Button
-            // 
-            this.SaveFileOutputEncypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileOutputEncypt_Button.Image = global::ApplicationProject.Properties.Resources.encrypted;
-            this.SaveFileOutputEncypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileOutputEncypt_Button.Name = "SaveFileOutputEncypt_Button";
-            this.SaveFileOutputEncypt_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileOutputEncypt_Button.Text = "Сохранить зашифрованные данные";
-            this.SaveFileOutputEncypt_Button.Click += new System.EventHandler(this.SaveEncyptFile_Click);
-            // 
-            // SaveFileOutputDecrypt_Button
-            // 
-            this.SaveFileOutputDecrypt_Button.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveFileOutputDecrypt_Button.Image = global::ApplicationProject.Properties.Resources.decryption;
-            this.SaveFileOutputDecrypt_Button.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveFileOutputDecrypt_Button.Name = "SaveFileOutputDecrypt_Button";
-            this.SaveFileOutputDecrypt_Button.Size = new System.Drawing.Size(23, 22);
-            this.SaveFileOutputDecrypt_Button.Text = "Сохранить расшифрованные данные";
-            this.SaveFileOutputDecrypt_Button.Click += new System.EventHandler(this.SaveDecryptFile_Click);
             // 
             // MainMenuForm
             // 

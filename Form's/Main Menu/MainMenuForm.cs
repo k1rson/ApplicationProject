@@ -32,13 +32,7 @@ namespace ApplicationProject
             // подвязали контектное меню к списку файлов
             AllFiles_ListBox.ContextMenuStrip = ContextMenuAllFiles;
 
-            // Очищение корзины при входе
-            if (sqlFuncs.SelectValueTimer(OtherFunction.userName) == "enter")
-                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
 
-            if(sqlFuncs.IsAdmin(OtherFunction.userName))
-                timerReportUpdate.Enabled = true;
-                
         }
 
         // Vision Input_RichBox
@@ -88,31 +82,44 @@ namespace ApplicationProject
         // Save selected file
         private void SaveContentFile_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
+            if (OtherFunction.fileName != null)
+            {
 
-            // получаем выбранный файл
-            string fileName = saveFileDialog1.FileName;
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                    return;
 
-            // сохраняем текст в файл
-            System.IO.File.WriteAllText(fileName, Input_RichBox.Text);
-            MessageBox.Show("Файл с исходными данными сохранен!", "Сохранение файла", 
-                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                // получаем выбранный файл
+                string fileName = saveFileDialog1.FileName;
+
+                // сохраняем текст в файл
+                System.IO.File.WriteAllText(fileName, Input_RichBox.Text);
+                MessageBox.Show("Файл с исходными данными сохранен!", "Сохранение файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         // Save encrypt file
         private void SaveEncyptFile_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
+            if (OtherFunction.fileName != null)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                    return;
 
-            // получаем выбранный файл
-            string fileName = saveFileDialog1.FileName;
+                // получаем выбранный файл
+                string fileName = saveFileDialog1.FileName;
 
-            // сохраняем текст в файл
-            System.IO.File.WriteAllText(fileName, Output_RichBox.Text);
-            MessageBox.Show("Файл с зашифрованными данными сохранен!", "Сохранение файла",
-                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                // сохраняем текст в файл
+                System.IO.File.WriteAllText(fileName, Output_RichBox.Text);
+                MessageBox.Show("Файл с зашифрованными данными сохранен!", "Сохранение файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         // Save decrypt file
@@ -294,13 +301,6 @@ namespace ApplicationProject
             {
                 UpdateListBox(OtherFunction.userName);
 
-                // отображение username 
-                string login = OtherFunction.userName;
-                Username_Label.Text = login;
-
-                if (sqlFuncs.IsAdmin(login))
-                    GoToAdminPanel_Button.Visible = true;
-
                 // Инициализация таймера
                 string interval = sqlFuncs.SelectValueTimer(OtherFunction.userName);
                 if (interval != "never" && interval != "enter")
@@ -325,6 +325,7 @@ namespace ApplicationProject
         private void AllFiles_ListBox_MouseClick(object sender, MouseEventArgs e)
         {
             // Получаем тут имя файла чтобы потом меньше кода писать
+            /* Не факт что актуально
             try
             {
                 OtherFunction.fileName = AllFiles_ListBox.SelectedItem.ToString();
@@ -335,6 +336,7 @@ namespace ApplicationProject
                 Output_RichBox.Text = string.Empty;
                 OtherFunction.fileName = null;
             }
+            */
         }
 
         // Update ListBox
@@ -353,6 +355,22 @@ namespace ApplicationProject
         {
             AuthorizationForm authForm = new AuthorizationForm();
             authForm.ShowDialog();
+
+            // отображение username 
+            string login = OtherFunction.userName;
+            Username_Label.Text = login;
+
+            if (sqlFuncs.IsAdmin(login))
+                GoToAdminPanel_Button.Visible = true;
+
+
+            // Очищение корзины при входе
+            if (sqlFuncs.SelectValueTimer(OtherFunction.userName) == "enter")
+                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
+
+
+            if (sqlFuncs.IsAdmin(OtherFunction.userName))
+                timerReportUpdate.Enabled = true;
         }
 
         private void GoToAdminPanel_Button_Click(object sender, EventArgs e)
@@ -404,7 +422,7 @@ namespace ApplicationProject
 
         private void AboutProgramm_Click(object sender, EventArgs e) // САЙТ ВИЗИТКА БЛЯ СУКА НАХУЙ
         {
-            Process.Start(""); // САЙТ ВИЗИТКА
+            //Process.Start(""); // САЙТ ВИЗИТКА
         } 
         // End Referance
 
