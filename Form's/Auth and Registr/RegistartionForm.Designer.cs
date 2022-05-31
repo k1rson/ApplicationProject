@@ -42,6 +42,8 @@
             this.AutoGeneratePassword_PictureBox = new System.Windows.Forms.PictureBox();
             this.ShowCnfrPassow_PictureBox = new System.Windows.Forms.PictureBox();
             this.ShowPassword_PictureBox = new System.Windows.Forms.PictureBox();
+            this.Email = new System.Windows.Forms.Label();
+            this.EmailUser_TextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AutoGeneratePassword_PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowCnfrPassow_PictureBox)).BeginInit();
@@ -54,7 +56,7 @@
             this.flowLayoutPanel1.Controls.Add(this.OK_Button);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 229);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 277);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 32);
             this.flowLayoutPanel1.TabIndex = 15;
@@ -81,7 +83,7 @@
             // 
             // ActionRegistr_Button
             // 
-            this.ActionRegistr_Button.Location = new System.Drawing.Point(61, 189);
+            this.ActionRegistr_Button.Location = new System.Drawing.Point(61, 248);
             this.ActionRegistr_Button.Name = "ActionRegistr_Button";
             this.ActionRegistr_Button.Size = new System.Drawing.Size(125, 23);
             this.ActionRegistr_Button.TabIndex = 14;
@@ -170,11 +172,29 @@
             this.ShowPassword_PictureBox.TabStop = false;
             this.ShowPassword_PictureBox.Click += new System.EventHandler(this.ShowPassword_Click);
             // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Location = new System.Drawing.Point(92, 190);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(62, 13);
+            this.Email.TabIndex = 19;
+            this.Email.Text = "Ваш Email: ";
+            // 
+            // EmailUser_TextBox
+            // 
+            this.EmailUser_TextBox.Location = new System.Drawing.Point(61, 206);
+            this.EmailUser_TextBox.Name = "EmailUser_TextBox";
+            this.EmailUser_TextBox.Size = new System.Drawing.Size(122, 20);
+            this.EmailUser_TextBox.TabIndex = 20;
+            // 
             // RegistartionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 261);
+            this.ClientSize = new System.Drawing.Size(254, 309);
+            this.Controls.Add(this.EmailUser_TextBox);
+            this.Controls.Add(this.Email);
             this.Controls.Add(this.AutoGeneratePassword_PictureBox);
             this.Controls.Add(this.ShowCnfrPassow_PictureBox);
             this.Controls.Add(this.ShowPassword_PictureBox);
@@ -216,5 +236,7 @@
         private System.Windows.Forms.PictureBox ShowPassword_PictureBox;
         private System.Windows.Forms.PictureBox ShowCnfrPassow_PictureBox;
         private System.Windows.Forms.PictureBox AutoGeneratePassword_PictureBox;
+        private System.Windows.Forms.Label Email;
+        private System.Windows.Forms.TextBox EmailUser_TextBox;
     }
 }

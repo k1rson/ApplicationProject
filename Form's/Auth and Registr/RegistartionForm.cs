@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -19,16 +20,30 @@ namespace ApplicationProject
             // Сontrol properties
             PasswordTextBox.UseSystemPasswordChar = true;  // password mask
             CnfmPasswordTextBox.UseSystemPasswordChar = true; // password mask
+
         }
         private void Registration_Button_Click(object sender, EventArgs e)
         {
+            OtherFunction.emailUser = EmailUser_TextBox.Text;
             // Add a user to the database
             if (IsDataValid(LoginTextBox.Text, PasswordTextBox.Text, CnfmPasswordTextBox.Text))
             {
-                sqlFuncs.regUser(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text));
-                MessageBox.Show("Регистрация аккаунта успешно завершена! Приятного времяпровождения!", "Регистрация аккаунта", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                Close();
+
+                ConfirmationEmailForm cnfForm = new ConfirmationEmailForm();
+                cnfForm.ShowDialog(); 
+
+                if(!cnfForm.OK)
+                {
+                   
+                }
+                else
+                {
+                    sqlFuncs.regUser(LoginTextBox.Text, sqlFuncs.sha256(PasswordTextBox.Text), OtherFunction.emailUser);
+                    MessageBox.Show("Регистрация аккаунта успешно завершена! Приятного времяпровождения!", "Регистрация аккаунта",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Close();
+                }
+              
             }
         }
 
@@ -108,6 +123,18 @@ namespace ApplicationProject
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false; 
             }
+            else if(!sqlFuncs.IsCheckEmail(OtherFunction.emailUser))
+            {
+                MessageBox.Show("Пользователь с такой почтой уже зарегистрирован!", "Регистрация аккаунта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
+            }
+            else if(!IsValidEmail(OtherFunction.emailUser))
+            {
+                MessageBox.Show("Проверьте корректность вводимой почты!", "Регистрация аккаунта",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             else { return true; }
         }
         private void AutoGeneratePassword_PictureBox_Click(object sender, EventArgs e)
@@ -125,6 +152,10 @@ namespace ApplicationProject
                 iPass = iPass + arr[rnd.Next(0, 57)];
             }
             return iPass; 
+        }
+        public bool IsValidEmail(string source)
+        {
+            return new EmailAddressAttribute().IsValid(source);
         }
 
         #region Buttons - OK/Cancel

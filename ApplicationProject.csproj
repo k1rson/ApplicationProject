@@ -93,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="config.cs" />
+    <Compile Include="Form%27s\Auth and Registr\ConfirmationEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Auth and Registr\ConfirmationEmailForm.Designer.cs">
+      <DependentUpon>ConfirmationEmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\Admin\ActionsAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,7 @@
     <Compile Include="Form%27s\Options\RecycleOptionsForm.Designer.cs">
       <DependentUpon>RecycleOptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SMTP.cs" />
     <Compile Include="sqlFuncs.cs" />
     <Compile Include="Worker.cs" />
     <EmbeddedResource Include="Form%27s\Admin\ActionsAdminForm.resx">
@@ -175,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Admin\NotificationEmailForm.resx">
       <DependentUpon>NotificationEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form%27s\Auth and Registr\ConfirmationEmailForm.resx">
+      <DependentUpon>ConfirmationEmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Edit Files\AddFileManualForm.resx">
       <DependentUpon>AddFileManualForm.cs</DependentUpon>

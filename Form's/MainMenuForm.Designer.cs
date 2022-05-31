@@ -617,6 +617,7 @@
             this.ChangeFileName.Name = "ChangeFileName";
             this.ChangeFileName.Size = new System.Drawing.Size(261, 22);
             this.ChangeFileName.Text = "Переименовать выбранный файл";
+            this.ChangeFileName.Click += new System.EventHandler(this.ChangeFileName_Click);
             // 
             // toolStripSeparator4
             // 

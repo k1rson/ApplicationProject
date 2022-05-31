@@ -13,26 +13,21 @@ namespace ApplicationProject
     {
         public static MySqlConnection GetDBConnection()
         {
-            
-
-
             // Connection String.
             String connString = "Server=" + config.host + ";Database=" + config.database
                 + ";port=" + config.port + ";User Id=" + config.username + ";password=" + config.password + ";CharSet=utf8mb4;";
 
-
             MySqlConnection conn = new MySqlConnection(connString);
-
             return conn;
         }
 
-        public static void regUser(string username, string password)
+        public static void regUser(string username, string password, string emailUser)
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
-                string sql = $"INSERT INTO users (username, password, role) VALUES ('{username}', '{password}', 'User')";
+                string sql = $"INSERT INTO users (username, password, email, role) VALUES ('{username}', '{password}', '{emailUser}', 'User')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -132,6 +127,35 @@ namespace ApplicationProject
             
         }
 
+        public static bool IsCheckEmail(string emailUser)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+                string sqlCheck = $"SELECT COUNT(email) FROM users WHERE email = '{emailUser}' ";
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader count = cmd.ExecuteReader();
+                int cont = 0;
+                while (count.Read())
+                {
+                    cont = int.Parse(count[0].ToString());
+                }
+                conn.Close();
+
+                if (cont == 1)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                return false;
+            }
+
+        }
 
         // Админ ли
         public static bool IsAdmin(string username)
