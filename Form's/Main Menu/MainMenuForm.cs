@@ -229,16 +229,21 @@ namespace ApplicationProject
         // Change file name // доработать чутка надо, я сам попозже сделаю 
         private void ChangeFileName_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Вы уверены, что хотите изменить название файла?", "Предупреждение",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            int filesCount = AllFiles_ListBox.Items.Count;
-
-            if (res == DialogResult.Yes)
+            if (OtherFunction.fileName != null)
             {
-                ChangeFileNameForm chFileName = new ChangeFileNameForm();
-                chFileName.Show();
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите изменить название файла?", "Предупреждение",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                int filesCount = AllFiles_ListBox.Items.Count;
+
+                if (res == DialogResult.Yes)
+                {
+                    ChangeFileNameForm chFileName = new ChangeFileNameForm();
+                    chFileName.Show();
+                }
             }
+            else
+                MessageBox.Show("Вы не выбрали файл!");
         }
 
         // Обработка нажатий клавиш // Доработать
@@ -358,8 +363,15 @@ namespace ApplicationProject
 
         private void AccountsEmail_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Email адреса разработчиков были добавлены в буфер обмена!", "Email почты разработчиков", 
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            Clipboard.SetText("1. yann.gotti@mail.ru\n2. vlad2k15@bk.ru");
         }
+
+        private void AboutProgramm_Click(object sender, EventArgs e) // САЙТ ВИЗИТКА БЛЯ СУКА НАХУЙ
+        {
+            Process.Start(""); // САЙТ ВИЗИТКА
+        } 
         // End Referance
 
         // FeedBack
@@ -379,12 +391,10 @@ namespace ApplicationProject
         }
 
         // Работа таймера
-
-        private void timerRecycle_Tick(object sender, EventArgs e)
+        private void TimerRecycle_Tick(object sender, EventArgs e)
         {
             sqlFuncs.DeleteAllFiles(OtherFunction.userName);
         }
-
         // End FeedBack
     }
 }

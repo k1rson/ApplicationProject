@@ -34,9 +34,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
 
@@ -64,11 +65,12 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
-        
+
         public static bool IsCheckDataAuth(string username, string password)
         {
             MySqlConnection conn = GetDBConnection();
@@ -91,10 +93,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
         }
 
         public static bool IsCheckFilename(string username, string filename)
@@ -121,10 +124,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
         }
 
         public static bool IsCheckEmail(string emailUser)
@@ -151,7 +155,8 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -186,7 +191,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -218,7 +224,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -246,7 +253,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
         }
@@ -280,10 +288,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
         }
 
         public static bool IsSession(string username)
@@ -312,10 +321,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
         }
         // Работа с данными
 
@@ -343,10 +353,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
-            
+
         }
 
         public static string SelectEncryptedText(string filename, string username)
@@ -374,10 +385,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
-            
+
         }
 
 
@@ -409,10 +421,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
-            
+
         }
         // Забаненые пользователя
         public static List<string> SelectBanUsersList()
@@ -432,7 +445,7 @@ namespace ApplicationProject
                 while (reader.Read())
                 {
                     // элементы массива [] - это значения столбцов из запроса SELECT
-                    users.Add(reader[0].ToString() + ":" + reader[1].ToString() + " Причина: " + reader[6].ToString());
+                    users.Add(reader[0].ToString() + ":" + reader[1].ToString() + ": Причина: " + reader[6].ToString());
                 }
                 reader.Close();
                 conn.Close();
@@ -441,10 +454,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
-            
+
         }
 
         // Get Email User
@@ -460,11 +474,11 @@ namespace ApplicationProject
                 MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
                 MySqlDataReader emailSelect = cmd.ExecuteReader();
 
-                string emailUser = string.Empty; 
+                string emailUser = string.Empty;
 
                 while (emailSelect.Read())
                 {
-                    emailUser = emailSelect[3].ToString(); 
+                    emailUser = emailSelect[3].ToString();
                 }
                 emailSelect.Close();
                 conn.Close();
@@ -473,7 +487,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
         }
@@ -494,9 +509,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // Add admin
@@ -515,9 +531,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // All admins
@@ -547,10 +564,11 @@ namespace ApplicationProject
             catch (Exception)
             {
 
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
-            
+
         }
 
         public static void DeleteUser(string userName)
@@ -562,13 +580,18 @@ namespace ApplicationProject
                 conn.Open();
 
                 string sql = $"DELETE FROM users WHERE username = '{userName}'";
+                string sqlDel = $"DELETE FROM files WHERE username = '{userName}'";
+
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmdd = new MySqlCommand(sqlDel, conn);
                 cmd.ExecuteNonQuery();
+                cmdd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -587,7 +610,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -606,7 +630,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -626,7 +651,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -646,9 +672,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // Работа с файлами
@@ -676,10 +703,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
-            
+
         }
         public static List<string> SelectUserRecycleFiles(string username)
         {
@@ -705,10 +733,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new List<string>();
             }
-            
+
         }
 
         // Добавление файла по названию
@@ -727,7 +756,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -747,7 +777,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error); ;
             }
         }
 
@@ -767,7 +798,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -788,7 +820,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -810,7 +843,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -828,7 +862,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -848,9 +883,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // Восстановить все файлы
@@ -889,7 +925,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -909,7 +946,8 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -931,9 +969,10 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // Получить значение интервала
@@ -961,10 +1000,11 @@ namespace ApplicationProject
             }
             catch (Exception)
             {
-                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует");
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
-            
+
         }
 
         // Шифрование
