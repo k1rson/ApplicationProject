@@ -13,18 +13,8 @@ namespace ApplicationProject
 
         private void Apply_Button_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Answer_RichBox.Text))
-            {
-                MessageBox.Show("Ответ пользователю не может быть пустым!", "Обратная связь",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }
-            else 
-            {
-                string username = OtherFunction.selectedUsername;
-
-
-
-            }
+            AnswerForm msgToAnswer = new AnswerForm();
+            msgToAnswer.ShowDialog();
         }
         #region Buttons - Cancel
         private void Cancel_Button_Click(object sender, EventArgs e)
@@ -48,6 +38,7 @@ namespace ApplicationProject
             {
                 AllThemes_ListBox.Items.Add(reports[i]);
             }
+            Answer_RichBox.Text = string.Empty;
         }
 
         private void AllThemes_ListBox_MouseDoubleClick(object sender, MouseEventArgs e)

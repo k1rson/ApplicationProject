@@ -1039,7 +1039,7 @@ namespace ApplicationProject
             {
                 conn.Open();
 
-                string sqlCheck = $"SELECT * FROM report WHERE AND status = 'using'";
+                string sqlCheck = $"SELECT * FROM report WHERE status = 'using'";
 
                 MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -1126,13 +1126,13 @@ namespace ApplicationProject
         }
 
         // Ответ отправлен
-        public static void answerReports(string username)
+        public static void answerReports(string username, string theme)
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
-                string sql = $"UPDATE report SET status = 'answered' WHERE username = '{username}'";
+                string sql = $"UPDATE report SET status = 'answered' WHERE username = '{username}' AND theme = '{theme}'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();

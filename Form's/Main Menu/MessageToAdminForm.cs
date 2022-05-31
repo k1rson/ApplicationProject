@@ -27,6 +27,9 @@ namespace ApplicationProject
             else
             {
                 sqlFuncs.AddReportUser(OtherFunction.userName, Theme_TextBox.Text, Message_RichBox.Text);
+                MessageBox.Show("Вопрос был успешно доставлен!", "Ожидайте ответ в течении 24 часов",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Close();
             }
         }
         #region Buttons - Cancel
