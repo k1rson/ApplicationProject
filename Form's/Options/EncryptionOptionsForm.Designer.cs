@@ -35,14 +35,14 @@
             this.SelectAlphabet_ComboBox = new System.Windows.Forms.ComboBox();
             this.LayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SelectEncyption_ComboBox = new System.Windows.Forms.ComboBox();
+            this.Shift_Numeric = new System.Windows.Forms.NumericUpDown();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Cancel_Button = new System.Windows.Forms.Button();
             this.Reset_Button = new System.Windows.Forms.Button();
             this.OK_Button = new System.Windows.Forms.Button();
-            this.Shift_Numeric = new System.Windows.Forms.NumericUpDown();
             this.LayoutPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Shift_Numeric)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SelectEncyption_Label
@@ -127,6 +127,13 @@
             this.SelectEncyption_ComboBox.Size = new System.Drawing.Size(215, 21);
             this.SelectEncyption_ComboBox.TabIndex = 8;
             // 
+            // Shift_Numeric
+            // 
+            this.Shift_Numeric.Location = new System.Drawing.Point(151, 30);
+            this.Shift_Numeric.Name = "Shift_Numeric";
+            this.Shift_Numeric.Size = new System.Drawing.Size(215, 20);
+            this.Shift_Numeric.TabIndex = 9;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.Cancel_Button);
@@ -145,7 +152,7 @@
             this.Cancel_Button.Name = "Cancel_Button";
             this.Cancel_Button.Size = new System.Drawing.Size(90, 23);
             this.Cancel_Button.TabIndex = 1;
-            this.Cancel_Button.Text = "Выйти";
+            this.Cancel_Button.Text = "Вернуться";
             this.Cancel_Button.UseVisualStyleBackColor = true;
             this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
             // 
@@ -169,13 +176,6 @@
             this.OK_Button.UseVisualStyleBackColor = true;
             this.OK_Button.Click += new System.EventHandler(this.Encrypt_Button_Click);
             // 
-            // Shift_Numeric
-            // 
-            this.Shift_Numeric.Location = new System.Drawing.Point(151, 30);
-            this.Shift_Numeric.Name = "Shift_Numeric";
-            this.Shift_Numeric.Size = new System.Drawing.Size(215, 20);
-            this.Shift_Numeric.TabIndex = 9;
-            // 
             // EncryptionOptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,8 +191,8 @@
             this.Text = "Параметры шифрования";
             this.LayoutPanel.ResumeLayout(false);
             this.LayoutPanel.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Shift_Numeric)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

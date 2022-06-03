@@ -27,28 +27,40 @@ namespace ApplicationProject
 
         private void RestoreFile_Button_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Вы уверены, что хотите восстановить выбранный файл?", "Восстановление файлов", 
+            if (OtherFunction.fileName != null)
+            {
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите восстановить выбранный файл?", "Восстановление файлов",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(res == DialogResult.Yes)
-            {
-                sqlFuncs.ReturnFileRecycle(OtherFunction.userName, OtherFunction.fileName);
-                UpdateListBox();
+                if (res == DialogResult.Yes)
+                {
+                    sqlFuncs.ReturnFileRecycle(OtherFunction.userName, OtherFunction.fileName);
+                    UpdateListBox();
 
+                }
             }
+            else
+                MessageBox.Show("Выберите файл!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
         private void EmptyRecycle_Button_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Вы уверены, что хотите очистить корзину? Данное действие приведет к полной потери файлов!", "Очистка корзины", 
+            if (OtherFunction.fileName != null)
+            {
+                DialogResult res = MessageBox.Show("Вы уверены, что хотите очистить корзину? Данное действие приведет к полной потери файлов!", "Очистка корзины",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(res == DialogResult.Yes)
-            {
-                sqlFuncs.DeleteAllFiles(OtherFunction.userName);
-                UpdateListBox();
+                if (res == DialogResult.Yes)
+                {
+                    sqlFuncs.DeleteAllFiles(OtherFunction.userName);
+                    UpdateListBox();
+                }
             }
+            else
+                MessageBox.Show("Выберите файл!", "Ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void IntervalAutoCleaning_Click(object sender, EventArgs e)
         {

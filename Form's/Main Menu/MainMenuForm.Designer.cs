@@ -59,8 +59,6 @@
             this.возниклаОшибкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обратитьсяКАдминистрацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessageToAdmins = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.ReportErrorUser = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
             this.ActionAddFilePC_Button = new System.Windows.Forms.ToolStripButton();
             this.AddFileManually_Button = new System.Windows.Forms.ToolStripButton();
@@ -311,15 +309,13 @@
             // 
             this.AboutProgramm.Name = "AboutProgramm";
             this.AboutProgramm.Size = new System.Drawing.Size(209, 22);
-            this.AboutProgramm.Text = "О программе";
+            this.AboutProgramm.Text = "Сайт приложения";
             this.AboutProgramm.Click += new System.EventHandler(this.AboutProgramm_Click);
             // 
             // возниклаОшибкаToolStripMenuItem
             // 
             this.возниклаОшибкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.обратитьсяКАдминистрацииToolStripMenuItem,
-            this.toolStripSeparator7,
-            this.ReportErrorUser});
+            this.обратитьсяКАдминистрацииToolStripMenuItem});
             this.возниклаОшибкаToolStripMenuItem.Name = "возниклаОшибкаToolStripMenuItem";
             this.возниклаОшибкаToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
             this.возниклаОшибкаToolStripMenuItem.Text = "Возникла ошибка? ";
@@ -338,18 +334,6 @@
             this.MessageToAdmins.Size = new System.Drawing.Size(216, 22);
             this.MessageToAdmins.Text = "Написать администрации";
             this.MessageToAdmins.Click += new System.EventHandler(this.MessageToAdmins_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(234, 6);
-            // 
-            // ReportErrorUser
-            // 
-            this.ReportErrorUser.Name = "ReportErrorUser";
-            this.ReportErrorUser.Size = new System.Drawing.Size(237, 22);
-            this.ReportErrorUser.Text = "Отправить отчет об ошибке";
-            this.ReportErrorUser.Click += new System.EventHandler(this.ReportErrorUser_Click);
             // 
             // ToolStrip
             // 
@@ -566,9 +550,9 @@
             // 
             // ActionDynamicEdit_Button
             // 
-            this.ActionDynamicEdit_Button.Location = new System.Drawing.Point(356, 423);
+            this.ActionDynamicEdit_Button.Location = new System.Drawing.Point(356, 422);
             this.ActionDynamicEdit_Button.Name = "ActionDynamicEdit_Button";
-            this.ActionDynamicEdit_Button.Size = new System.Drawing.Size(140, 22);
+            this.ActionDynamicEdit_Button.Size = new System.Drawing.Size(140, 23);
             this.ActionDynamicEdit_Button.TabIndex = 0;
             this.ActionDynamicEdit_Button.Text = "Редактировать вручную";
             this.ActionDynamicEdit_Button.UseVisualStyleBackColor = true;
@@ -808,8 +792,6 @@
         private System.Windows.Forms.ToolStripMenuItem связь;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem обратитьсяКАдминистрацииToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripMenuItem ReportErrorUser;
         private System.Windows.Forms.ToolStripMenuItem AccountsGitHub;
         private System.Windows.Forms.ToolStripMenuItem AccountsTelegram;
         private System.Windows.Forms.ToolStripMenuItem AccountsEmail;

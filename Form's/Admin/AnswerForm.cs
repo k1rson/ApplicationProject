@@ -22,7 +22,7 @@ namespace ApplicationProject
             string userName = OtherFunction.selectedUsername;
             sqlFuncs.answerReports(userName, sqlFuncs.SelectThemeReports(userName));
             
-            SMTP.SendMessage(sqlFuncs.GetEmailUser(userName), $"Ответ на вопрос, заданный администрации", Answer_RichBox.Text);
+            SMTP.SendMessage(sqlFuncs.GetEmailUser(userName), "Вам пришел ответ от Администрации cypherGo", $"Доброго времени суток, {userName}. \nОтвет на Ваш вопрос: {Answer_RichBox.Text}");
            
             MessageBox.Show("Ответ был успешно доставлен!", "Ответ на вопрос пользователя", 
                 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

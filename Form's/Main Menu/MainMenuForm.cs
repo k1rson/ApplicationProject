@@ -126,16 +126,23 @@ namespace ApplicationProject
 
         private void SaveDecryptFile_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
 
-            // получаем выбранный файл
-            string fileName = saveFileDialog1.FileName;
+            if (OtherFunction.fileName != null)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                    return;
 
-            // сохраняем текст в файл
-            System.IO.File.WriteAllText(fileName, DecryptedOutput_RichBox.Text);
-            MessageBox.Show("Файл с расшифрованными данными сохранен!", "Сохранение файла",
-                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                // получаем выбранный файл
+                string fileName = saveFileDialog1.FileName;
+
+                // сохраняем текст в файл
+                System.IO.File.WriteAllText(fileName, DecryptedOutput_RichBox.Text);
+                MessageBox.Show("Файл с расшифрованными данными сохранен!", "Сохранение файла",
+                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+                MessageBox.Show("Вы не выбрали файл!", "Выбор файла",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

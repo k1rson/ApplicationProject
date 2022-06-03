@@ -19,7 +19,7 @@ namespace ApplicationProject
 
         private void Send_Button_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(Theme_TextBox.Text) && String.IsNullOrEmpty(Message_RichBox.Text))
+            if(String.IsNullOrEmpty(Theme_TextBox.Text) || String.IsNullOrEmpty(Message_RichBox.Text))
             {
                 MessageBox.Show("Поля \"Тема сообщения\" и \"Сообщение\" не могут быть пустыми!", "Сообщение администрации", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

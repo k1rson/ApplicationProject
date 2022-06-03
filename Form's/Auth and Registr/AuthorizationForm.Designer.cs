@@ -39,7 +39,6 @@
             this.ToolTipRegistr = new System.Windows.Forms.ToolTip(this.components);
             this.ShowPassword_PictureBox = new System.Windows.Forms.PictureBox();
             this.InfoSystem_Label = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.ShowPassword_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,19 +115,11 @@
             this.InfoSystem_Label.TabIndex = 12;
             this.InfoSystem_Label.Text = "Программа шифрования";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(67, 231);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(127, 23);
-            this.progressBar1.TabIndex = 14;
-            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 266);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(254, 240);
             this.Controls.Add(this.ShowPassword_PictureBox);
             this.Controls.Add(this.InfoSystem_Label);
             this.Controls.Add(this.ActionSignUp_Button);
@@ -161,7 +152,6 @@
         private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.PictureBox ShowPassword_PictureBox;
         private System.Windows.Forms.Label InfoSystem_Label;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
