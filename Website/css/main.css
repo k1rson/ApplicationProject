@@ -21,7 +21,7 @@ body{
 }
 
 .appName:hover{
-    color: rgb(233, 181, 86);
+    color: coral;
 }
 
 .src {
