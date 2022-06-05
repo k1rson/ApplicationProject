@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
-
-
-body{
-    font-family: 'Rubik', sans-serif;
-}
-
 
 .spravka{
     margin-top: 50px;
@@ -13,8 +6,12 @@ body{
 
 
 .copyright{
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+
+.nav{
+    --bs-nav-link-hover-color: #232323;
 }
 
 .element-glav{
@@ -22,15 +19,21 @@ body{
     color: #232323;
 }
 
+
 .element{
+    color: #3F3F3F;
+    font-weight: 500;
+}
+
+.element-small{
     color: #3F3F3F;
 }
 
-.element:hover,.element-glav:hover{
+.element:hover,.element-glav:hover,.element-small:hover{
     color: #cc6f6f;
 }
 
-.element:hover,.element-glav:hover{
+.element:hover,.element-glav:hover,.element-small:hover{
     color: #cc6f6f;
 }
 
@@ -41,3 +44,27 @@ a.nav-link.element-glav.active {
 a.nav-link.element.active {
     background-color: coral;
 }
+
+
+
+.img{
+    margin: 5px;
+}
+
+.img:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 580px) {
+
+    .sticky-top{
+        position: relative;
+    }
+
+    .img{
+        margin: 4px;
+    }
+
+  }
+
+  
