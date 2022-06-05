@@ -55,6 +55,37 @@ a.nav-link.element.active {
     cursor: pointer;
 }
 
+.scrolls{
+    height: 950px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+
+    .sticky-top{
+        position: relative;
+    }
+
+    .img{
+        margin: 4px;
+    }
+
+    .scrolls{
+        height: 100%;
+        overflow: scroll;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .navbar{
+        width: 250px;
+    }
+
+
+  }
+
+
 @media screen and (max-width: 580px) {
 
     .sticky-top{
