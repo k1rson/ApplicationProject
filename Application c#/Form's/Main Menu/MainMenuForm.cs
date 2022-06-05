@@ -429,7 +429,7 @@ namespace ApplicationProject
 
         private void AboutProgramm_Click(object sender, EventArgs e) // САЙТ ВИЗИТКА БЛЯ СУКА НАХУЙ
         {
-            //Process.Start(""); // САЙТ ВИЗИТКА
+            Process.Start("https://cyphergo.ru/index.html"); 
         } 
         // End Referance
 

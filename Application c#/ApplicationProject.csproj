@@ -93,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckIP.cs" />
+    <Compile Include="Form%27s\Auth and Registr\ConfirmIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form%27s\Auth and Registr\ConfirmIPForm.Designer.cs">
+      <DependentUpon>ConfirmIPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form%27s\Admin\AnswerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     <Compile Include="SMTP.cs" />
     <Compile Include="sqlFuncs.cs" />
     <Compile Include="Worker.cs" />
+    <EmbeddedResource Include="Form%27s\Auth and Registr\ConfirmIPForm.resx">
+      <DependentUpon>ConfirmIPForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form%27s\Admin\ActionsAdminForm.resx">
       <DependentUpon>ActionsAdminForm.cs</DependentUpon>
     </EmbeddedResource>
