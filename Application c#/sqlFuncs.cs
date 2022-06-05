@@ -21,13 +21,13 @@ namespace ApplicationProject
             return conn;
         }
 
-        public static void RegUser(string username, string password, string emailUser)
+        public static void RegUser(string username, string password, string emailUser, string IP)
         {
             MySqlConnection conn = GetDBConnection();
             try
             {
                 conn.Open();
-                string sql = $"INSERT INTO users (username, password, email, role) VALUES ('{username}', '{password}', '{emailUser}', 'User')";
+                string sql = $"INSERT INTO users (username, password, email, ip, role) VALUES ('{username}', '{password}', '{emailUser}', '{IP}', 'User')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();

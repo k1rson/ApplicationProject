@@ -10,6 +10,8 @@ namespace ApplicationProject
     {
         public static string userName { get; set; }
         public static string emailUser { get; set; }
+        public static string IP { get; set; }
+
         public static int codeGen { get; set; }
         public static string causeBan { get; set; }
         public static string selectedUsername { get; set; }
