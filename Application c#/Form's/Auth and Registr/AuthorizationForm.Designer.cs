@@ -39,14 +39,15 @@
             this.ToolTipRegistr = new System.Windows.Forms.ToolTip(this.components);
             this.ShowPassword_PictureBox = new System.Windows.Forms.PictureBox();
             this.InfoSystem_Label = new System.Windows.Forms.Label();
+            this.ResetPassword = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ShowPassword_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ActionSignUp_Button
             // 
-            this.ActionSignUp_Button.Location = new System.Drawing.Point(67, 192);
+            this.ActionSignUp_Button.Location = new System.Drawing.Point(67, 205);
             this.ActionSignUp_Button.Name = "ActionSignUp_Button";
-            this.ActionSignUp_Button.Size = new System.Drawing.Size(127, 23);
+            this.ActionSignUp_Button.Size = new System.Drawing.Size(122, 23);
             this.ActionSignUp_Button.TabIndex = 11;
             this.ActionSignUp_Button.Text = "Зарегистрироваться";
             this.ToolTipRegistr.SetToolTip(this.ActionSignUp_Button, "У Вас нет аккаунта? Пройдите быструю регистрацию, нажав на данную кнопку!\r\n");
@@ -55,7 +56,7 @@
             // 
             // ActionEnter_Button
             // 
-            this.ActionEnter_Button.Location = new System.Drawing.Point(92, 149);
+            this.ActionEnter_Button.Location = new System.Drawing.Point(92, 167);
             this.ActionEnter_Button.Name = "ActionEnter_Button";
             this.ActionEnter_Button.Size = new System.Drawing.Size(75, 23);
             this.ActionEnter_Button.TabIndex = 10;
@@ -115,11 +116,25 @@
             this.InfoSystem_Label.TabIndex = 12;
             this.InfoSystem_Label.Text = "Программа шифрования";
             // 
+            // ResetPassword
+            // 
+            this.ResetPassword.AutoSize = true;
+            this.ResetPassword.Enabled = false;
+            this.ResetPassword.Location = new System.Drawing.Point(83, 134);
+            this.ResetPassword.Name = "ResetPassword";
+            this.ResetPassword.Size = new System.Drawing.Size(94, 13);
+            this.ResetPassword.TabIndex = 14;
+            this.ResetPassword.TabStop = true;
+            this.ResetPassword.Text = "Забыли пароль? ";
+            this.ToolTipRegistr.SetToolTip(this.ResetPassword, "В скором времени!");
+            this.ResetPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ResetPassword_LinkClicked);
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 240);
+            this.Controls.Add(this.ResetPassword);
             this.Controls.Add(this.ShowPassword_PictureBox);
             this.Controls.Add(this.InfoSystem_Label);
             this.Controls.Add(this.ActionSignUp_Button);
@@ -152,6 +167,7 @@
         private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.PictureBox ShowPassword_PictureBox;
         private System.Windows.Forms.Label InfoSystem_Label;
+        private System.Windows.Forms.LinkLabel ResetPassword;
     }
 }
 

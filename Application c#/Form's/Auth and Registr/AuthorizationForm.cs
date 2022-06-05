@@ -100,5 +100,11 @@ namespace ApplicationProject
             if (OtherFunction.userName == null)
                 OtherFunction.MainMenuForm.Close();
             }
+
+        private void ResetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetPasswordForm resetPassword = new ResetPasswordForm();
+            resetPassword.ShowDialog(); 
         }
     }
+}

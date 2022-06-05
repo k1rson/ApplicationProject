@@ -40,6 +40,28 @@ namespace ApplicationProject
 
         }
 
+        // Смена пароля :)
+
+        public static void ResetPassword(string password, string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sql = $"UPDATE users SET password = '{password}' WHERE username = {userName}";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
         // Проверки
 
