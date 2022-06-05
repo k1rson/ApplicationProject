@@ -17,6 +17,8 @@ namespace ApplicationProject
         {
             InitializeComponent();
 
+            CheckIP.GetMyIP_2ip(); 
+
             // Сontrol properties
             PasswordTextBox.UseSystemPasswordChar = true; // password mask 
         }
@@ -25,7 +27,11 @@ namespace ApplicationProject
             if (sqlFuncs.IsSession(LoginTextBox.Text))
             {
                 MessageBox.Show("Данный пользователь уже находится в системе");
-                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + OtherFunction.dateTime + " по МСК был совершен вход на Ваш аккаунт! Если это были не Вы, то выкинетесь нахуй в окно");
+                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + OtherFunction.dateTime + " по МСК был совершен вход на Ваш аккаунт! Если это были не Вы, то советуем Вам сменить пароль!");
+            }
+            else if(OtherFunction.IP != sqlFuncs.GetIPUser(LoginTextBox.Text))
+            {
+                SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + OtherFunction.dateTime + " по МСК был совершен вход на Ваш аккаунт с другого IP адреса! Если это были не Вы, то советуем Вам сменить пароль!"); 
             }
             else
             {

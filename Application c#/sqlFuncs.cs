@@ -493,6 +493,38 @@ namespace ApplicationProject
             }
         }
 
+
+        public static string GetIPUser(string userName)
+        {
+            MySqlConnection conn = GetDBConnection();
+            try
+            {
+                conn.Open();
+
+                string sqlCheck = $"SELECT * FROM users WHERE username = '{userName}'";
+
+                MySqlCommand cmd = new MySqlCommand(sqlCheck, conn);
+                MySqlDataReader IPSelect = cmd.ExecuteReader();
+
+                string IP = string.Empty;
+
+                while (IPSelect.Read())
+                {
+                    IP = IPSelect[4].ToString();
+                }
+                IPSelect.Close();
+                conn.Close();
+
+                return IP;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте подключение к интернету", "Подлючение отсутствует",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+
         // Add admin
         public static void AddAdmin(decimal id)
         {
