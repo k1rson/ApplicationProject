@@ -45,6 +45,9 @@ a.nav-link.element.active {
     background-color: coral;
 }
 
+a.nav-link.element-small.active {
+    background-color: coral;
+}
 
 
 .img{
@@ -60,6 +63,13 @@ a.nav-link.element.active {
     overflow: scroll;
     overflow-x: hidden;
 }
+
+
+.text-small{
+    font-size: 18px;
+}
+
+
 
 @media screen and (max-width: 1300px) {
 
