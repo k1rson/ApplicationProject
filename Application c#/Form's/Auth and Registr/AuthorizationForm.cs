@@ -24,10 +24,6 @@ namespace ApplicationProject
         }
         public void Enter_Button_Click(object sender, EventArgs e)
         {
-            OtherFunction.emailUser = sqlFuncs.GetEmailUser(LoginTextBox.Text); // передаем в ConfirmIP
-            OtherFunction.userName = LoginTextBox.Text; // передаем в ConfirmIP
-
-
             if (sqlFuncs.IsSession(LoginTextBox.Text))
             {
                 MessageBox.Show("Данный пользователь уже находится в системе");
@@ -35,58 +31,48 @@ namespace ApplicationProject
             }
             else
             {
-                if (OtherFunction.IP != sqlFuncs.GetIPUser(LoginTextBox.Text))
+                // проверка на существование пользователя, доступ к системе
+                if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.Sha256(PasswordTextBox.Text)))
                 {
-                    ConfirmIPForm cnfrIP = new ConfirmIPForm();
-                    cnfrIP.ShowDialog();
+                    if (OtherFunction.IP != sqlFuncs.GetIPUser(LoginTextBox.Text))
+                        SMTP.SendMessage(sqlFuncs.GetEmailUser(LoginTextBox.Text), "Предупреждение!", "В " + OtherFunction.dateTime + " по МСК была совершена попытка входа на Ваш аккаунт с другого IP адреса! Если это были не Вы, то советуем Вам сменить пароль!");
 
-                    if (!cnfrIP.OK)
+                    if (sqlFuncs.IsAdmin(LoginTextBox.Text))
                     {
-
+                        OtherFunction.userName = LoginTextBox.Text;
+                        MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        sqlFuncs.OpenSession(OtherFunction.userName);
+                        Close();
                     }
                     else
                     {
-                        // проверка на существование пользователя, доступ к системе
-                        if (sqlFuncs.IsCheckDataAuth(LoginTextBox.Text, sqlFuncs.Sha256(PasswordTextBox.Text)))
+                        if(sqlFuncs.IsBan(LoginTextBox.Text))
                         {
-
-                            if (sqlFuncs.IsAdmin(LoginTextBox.Text))
-                            {
-                                OtherFunction.userName = LoginTextBox.Text;
-                                MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                sqlFuncs.OpenSession(OtherFunction.userName);
-                                Close();
-                            }
-                            else
-                            {
-                                if (sqlFuncs.IsBan(LoginTextBox.Text))
-                                {
-                                    MessageBox.Show($"Уважаемый пользователь, вы были заблокированы администратором по причине: {sqlFuncs.BanCause(LoginTextBox.Text)}", "Вход в аккаунт",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                                else
-                                {
-                                    OtherFunction.userName = LoginTextBox.Text;
-                                    MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                    sqlFuncs.OpenSession(OtherFunction.userName);
-                                    Close();
-                                }
-                            }
+                            MessageBox.Show($"Уважаемый пользователь, вы были заблокированы администратором по причине: {sqlFuncs.BanCause(LoginTextBox.Text)}", "Вход в аккаунт",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            DialogResult res = MessageBox.Show("Логин или пароль введены неверно! Требуется помощь?", "Вход в аккаунт",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-
-                            if (res == DialogResult.Yes)
-                                MessageBox.Show("Если Вы забыли свой логин или пароль, воспользуйтесь кнопкой \"Восстановить логин/пароль\"", "Помощь",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            OtherFunction.userName = LoginTextBox.Text;
+                            MessageBox.Show("Выполнен успешный вход в аккаунт!", "Вход в аккаунт",
+                                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            sqlFuncs.OpenSession(OtherFunction.userName);
+                            Close();
                         }
                     }
                 }
+                else
+                {
+                    DialogResult res = MessageBox.Show("Логин или пароль введены неверно! Требуется помощь?", "Вход в аккаунт",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                    if (res == DialogResult.Yes)
+                        MessageBox.Show("Если Вы забыли свой логин или пароль, воспользуйтесь кнопкой \"Восстановить логин/пароль\"", "Помощь",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            
         }
 
         private void SignUp_Button_Click(object sender, EventArgs e)
