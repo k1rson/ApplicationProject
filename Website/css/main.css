@@ -143,6 +143,14 @@ body{
         transition: 0.3s;
     }
 
+    .src {
+        text-align: right;
+        color: black;
+        font-size: 28px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
   }
 
 
@@ -171,7 +179,6 @@ body{
         font-weight: 400;
         color: #232323;
     }
-
 
     .src {
         text-align: right;
@@ -214,5 +221,4 @@ body{
         font-weight: 500;
         color: #3F3F3F;
     }
-
   }
